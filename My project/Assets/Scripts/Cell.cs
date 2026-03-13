@@ -11,17 +11,21 @@ public class Cell:MonoBehaviour
 
     [Header("Stats")]
     public float speed;
-    public float timeToArive;
-    public float currentTime;
-    public bool hasMoveCommand;
-    public Vector3 moveStartPoint;
-    public Vector3 moveEndPoint;
+    float timeToArive;
+    float currentTime;
+    bool hasMoveCommand;
+    Vector3 moveStartPoint;
+    Vector3 moveEndPoint;
     List<Node> path;
     int nodeIndex;
     bool pathMovement;
     Vector3 realEndPoint;
     public bool TEST;
+    public bool TEST2;
     public Vector2 coords;
+    public Transform objectToFollow;
+    float followTolerance = 0.25f;
+    public GameObject fasdasd;
 
     void Start()
     {
@@ -34,9 +38,25 @@ public class Cell:MonoBehaviour
             TEST = false;
             Move(coords);
         }
+        if (TEST2)
+        {
+            TEST2 = false;
+            Follow(fasdasd.transform);
+        }
+
         if (hasMoveCommand)
         {
             MoveStep();
+        }
+        else if (objectToFollow != null)
+        {
+            if (Vector2.Distance(transform.position, objectToFollow.position) <= followTolerance)
+            {
+                Arrive(objectToFollow);
+                objectToFollow = null;          
+            }else{
+                Move(objectToFollow.position);
+            }
         }
     }
     void MoveStep()
@@ -62,7 +82,7 @@ public class Cell:MonoBehaviour
                     StraightMove(realEndPoint);
                 }
             }else{
-                StopMoving();
+                hasMoveCommand = false;
                 Arrive();
             }
         }
@@ -110,7 +130,8 @@ public class Cell:MonoBehaviour
     }
     public virtual void Follow(Transform _objectToFollow)
     {
-        //TODO
+        objectToFollow = _objectToFollow;
+        Move(objectToFollow.position);
     }
 
     public virtual void Arrive()
@@ -191,5 +212,6 @@ public class Cell:MonoBehaviour
     protected void StopMoving()
     {
         hasMoveCommand = false;
+        objectToFollow = null;
     }
 }
