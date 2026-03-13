@@ -1,22 +1,31 @@
 using UnityEngine;
+using System.Linq;
 
 public class Cell:MonoBehaviour
 {
     int HP;
     internal bool isEnemy;
+    internal bool alreadyTargetted;
+
     [Header("Stats")]
     public float speed;
-    private float timeToArive;
-    private float currentTime;
-    private bool hasMoveCommand;
-    private Vector3 moveStartPoint;
-    private Vector3 moveEndPoint;
-    void Update()
+    public float timeToArive;
+    public float currentTime;
+    public bool hasMoveCommand;
+    public Vector3 moveStartPoint;
+    public Vector3 moveEndPoint;
+
+    void Start()
+    {
+        alreadyTargetted = false;
+    }
+
+    protected void Update()
     {
         if (hasMoveCommand)
         {
             currentTime += Time.deltaTime;
-            currentTime = Mathf.Clamp(currentTime, 0, timeToArive);
+            //currentTime = Mathf.Clamp(currentTime, 0, timeToArive);
             transform.position = Vector3.Lerp(moveStartPoint, moveEndPoint, currentTime/timeToArive);
 
             if (currentTime >= timeToArive)
@@ -35,6 +44,11 @@ public class Cell:MonoBehaviour
         moveEndPoint = _position;
         currentTime = 0;
         timeToArive = Vector3.Distance(moveStartPoint, moveEndPoint)/speed;
+    }
+
+    public virtual void Follow(Transform _objectToFollow)
+    {
+        //TODO
     }
 
     public virtual void Arrive()
@@ -71,6 +85,42 @@ public class Cell:MonoBehaviour
 
     public void TakeDamage(int DMG)
     {
+        HP-=DMG;
         //TODO
+    }
+
+    internal Cell FindTargetToFollow()
+    {
+        GameObject[] foes = FindFoe();
+
+        foes = foes.OrderBy(foe => Vector3.Distance(transform.position, foe.transform.position)).ToArray();
+
+        for(int i = 0; i<foes.Length; i++)
+        {
+            Cell current = foes[i].GetComponent<Cell>();
+
+            if(!current.alreadyTargetted)
+            {
+                return current;
+            }
+        }
+        return foes[0].GetComponent<Cell>();
+    }
+
+    internal void Remove()
+    {
+        if(isEnemy)
+        {
+            CellManager.instance.RemoveCell(this);
+        }
+        else
+        {
+            CellManager.instance.RemoveVirus(this);
+        }  
+    }
+
+    protected void StopMoving()
+    {
+        
     }
 }
