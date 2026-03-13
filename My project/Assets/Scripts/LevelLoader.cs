@@ -8,39 +8,26 @@ public class LevelLoader : MonoBehaviour
     private static readonly int StartAnim = Animator.StringToHash("Start");
     private static readonly int EndAnim = Animator.StringToHash("End");
 
+    public static LevelLoader instance;
+    
     [SerializeField]
     private Animator transition;
     
     [SerializeField]
     private float transitionTime;
     
-    [SerializeField]
-    private GameObject loadingText;
-    
-    [SerializeField]
-    private Text tipText;
-    
-    [SerializeField]
-    private string[] tips;
-
-    [SerializeField] 
-    private Sprite[] loadingScreens;
-    
     [SerializeField] 
     private Image loadScreen;
 
     private void Awake()
     {
+        if (instance == null) instance = this;
+
         DontDestroyOnLoad(gameObject);
     }
 
     public void LoadLevel(bool nextLevel)
     {
-        loadingText.SetActive(true);
-
-        loadScreen.sprite = loadingScreens[Random.Range(0, loadingScreens.Length)];
-        tipText.text = tips[Random.Range(0, tips.Length)];
-
         int sceneToLoad = SceneManager.GetActiveScene().buildIndex;
         
         if (nextLevel) sceneToLoad++;
@@ -53,7 +40,7 @@ public class LevelLoader : MonoBehaviour
     {
         transition.SetTrigger(StartAnim);
 
-        yield return new WaitForSecondsRealtime(3f);
+        yield return new WaitForSecondsRealtime(transitionTime);
 
         SceneManager.LoadScene(levelIndex);
         transition.SetTrigger(EndAnim);
