@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class Cell:MonoBehaviour
 {
-    internal bool isEnemy;
+    public bool isEnemy;
+    int HP;
 
     public virtual void Move(Vector2 _position)
     {
@@ -10,6 +11,11 @@ public class Cell:MonoBehaviour
     }
 
     public virtual void Arrive()
+    {
+        
+    }
+
+    public virtual void Arrive(Transform foe)
     {
         
     }
