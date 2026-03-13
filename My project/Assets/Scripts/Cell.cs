@@ -2,20 +2,26 @@ using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine.UIElements;
+using NUnit.Framework;
 
 public class Cell:MonoBehaviour
 {
     int HP;
     internal bool isEnemy;
     internal bool alreadyTargetted;
+    internal bool isShooting = false;
 
     [Header("Stats")]
     public float speed;
-    float timeToArive;
-    float currentTime;
-    bool hasMoveCommand;
-    Vector3 moveStartPoint;
-    Vector3 moveEndPoint;
+    public float range;
+    public bool canShoot;
+    public int DMG;
+
+    public float timeToArive;
+    public float currentTime;
+    public bool hasMoveCommand;
+    public Vector3 moveStartPoint;
+    public Vector3 moveEndPoint;
     List<Node> path;
     int nodeIndex;
     bool pathMovement;
@@ -31,6 +37,7 @@ public class Cell:MonoBehaviour
     {
         alreadyTargetted = false;
     }
+    float currentShootingTimer = 0;
     protected void Update()
     {
         if (TEST)
@@ -197,6 +204,22 @@ public class Cell:MonoBehaviour
         return foes[0].GetComponent<Cell>();
     }
 
+    List<Cell> GetCellsInRange(GameObject[] cells, float range)
+    {
+        List<Cell> current = new List<Cell>();
+
+        foreach (GameObject g in cells)
+        {
+            float dist = Vector3.Distance(g.transform.position, transform.position);
+
+            if (dist < range)
+            {
+                current.Add(g.GetComponent<Cell>());
+            }
+        }
+        return current;
+    }
+
     internal void Remove()
     {
         if(isEnemy)
@@ -213,5 +236,25 @@ public class Cell:MonoBehaviour
     {
         hasMoveCommand = false;
         objectToFollow = null;
+    }
+
+    public void TryToStopMoving()
+    {
+        if(!canShoot)return;
+
+        GameObject[] foes = FindFoe();
+        List<Cell> inRange = GetCellsInRange(foes, range);
+
+        if(inRange.Count != 0)
+        {
+            StopMoving();
+            isShooting = true;
+        }
+        else
+        {
+            isShooting = false;
+            Cell foe = FindTargetToFollow();
+            Follow(foe.transform);
+        }
     }
 }
