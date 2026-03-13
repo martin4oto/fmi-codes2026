@@ -43,11 +43,24 @@ public class Bomb:Cell
 
     void Explode(List<GameObject> foesInRange)
     {
+        Debug.Log("boom");
+
         for(int i = 0; i<foesInRange.Count; i++)
         {
             Cell foeCellScript = foesInRange[i].GetComponent<Cell>();
 
             foeCellScript.TakeDamage(bombDamage); 
         }
+    }
+
+    public override void Arrive(Transform foe)
+    {
+        base.Arrive(foe);
+    }
+
+    public override void Arrive()
+    {
+        GameObject[] foes = FindFoe();
+        TryToExplode(foes);
     }
 }
