@@ -17,6 +17,18 @@ public class CellManager : MonoBehaviour
         instance = this;
     }
 
+    float currentTimer;
+    public float retargetTimer = 0.2f;
+    void Update()
+    {
+        if(currentTimer>=retargetTimer)
+        {
+
+            currentTimer = 0;
+        }
+        currentTimer += Time.deltaTime;
+    }
+
     public void RemoveVirus(Cell virus)
     {
         //TODO
@@ -24,5 +36,13 @@ public class CellManager : MonoBehaviour
     public void RemoveCell(Cell cell)
     {
         //TODO
+    }
+
+    void RetargetCells()
+    {
+        foreach(Cell cell in cells)
+        {
+            cell.TryToStopMoving();
+        }
     }
 }
