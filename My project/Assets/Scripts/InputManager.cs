@@ -8,18 +8,20 @@ namespace Krisnat
     public class InputManager : MonoBehaviour
     {
         #region Variables
+
         public static InputManager instance;
-        public bool OptionsInput { get; private set; }
-        public bool SpawnCell1Input { get; private set; }
-        public bool SpawnCell2Input { get; private set; }
-        public bool SpawnCell3Input { get; private set; }
-        public bool SpawnCell4Input { get; private set; }
+        public bool OptionsInput { get; private set; }  // escape
+        public bool SpawnCell1Input { get; private set; } // 1
+        public bool SpawnCell2Input { get; private set; } // 2
+        public bool SpawnCell3Input { get; private set; } // 3
+        public bool SpawnCell4Input { get; private set; } // 4
         public Vector2 MousePosition { get; private set; }
-        public bool StopAllInputs { get; set; }
-        public float MouseRelativeToPlayerPosition =>
+        public bool StopAllInputs { get; set; } // menu pause
+        public float MouseRelativeToBrainPosition =>
     Camera.main
         .ScreenToWorldPoint(new Vector3(MousePosition.x, MousePosition.y, transform.position.z)).x -
     BrainManager.instance.transform.position.x;
+
         #endregion
 
         private void Awake()
