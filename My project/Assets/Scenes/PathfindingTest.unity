@@ -288,7 +288,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Cell
   speed: 0.5
   TEST: 0
+  TEST2: 0
   coords: {x: 0, y: 0}
+  objectToFollow: {fileID: 0}
+  fasdasd: {fileID: 1883358586}
 --- !u!212 &727598145
 SpriteRenderer:
   serializedVersion: 2
@@ -452,7 +455,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Cell
   speed: 3
   TEST: 0
+  TEST2: 0
   coords: {x: 0, y: 0}
+  objectToFollow: {fileID: 0}
+  fasdasd: {fileID: 0}
 --- !u!212 &1883358588
 SpriteRenderer:
   serializedVersion: 2
@@ -535,6 +541,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 395496667909283128, guid: 521c3f06d458a764685b46b77015b560, type: 3}
+      propertyPath: gridOffset
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 395496667909283128, guid: 521c3f06d458a764685b46b77015b560, type: 3}
+      propertyPath: gridSize.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 395496667909283128, guid: 521c3f06d458a764685b46b77015b560, type: 3}
+      propertyPath: gridSize.y
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4507618879603349230, guid: 521c3f06d458a764685b46b77015b560, type: 3}
       propertyPath: m_Name
       value: PathManager

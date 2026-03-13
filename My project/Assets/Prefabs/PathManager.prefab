@@ -47,6 +47,3 @@ MonoBehaviour:
   gridSize: {x: 10, y: 10}
   gridOffset: 1
   testSquare: {fileID: 1158636131933178842, guid: 12b40e3e837f79c4c9c74eafc87ee699, type: 3}
-  c1: {x: 0, y: 0}
-  c2: {x: 0, y: 0}
-  tetsts: 0

@@ -6,12 +6,9 @@ public class PathManager : MonoBehaviour
 {
     public static PathManager instance;
     public Vector2Int gridSize;
-    public int gridOffset;
+    public float gridOffset;
     Node[,] grid;
     public GameObject testSquare;
-    public Vector2Int c1;
-    public Vector2Int c2;
-    public bool tetsts;
     public Node nullNode;
     void Awake()
     {
@@ -88,24 +85,10 @@ public class PathManager : MonoBehaviour
             }
         }
     }
-
-    void Update()
-    {
-        /*if (tetsts)
-        {
-            tetsts = false;
-            List<Node> path = GetPath(c1, c2);
-            foreach(Node node in path)
-            {
-                Instantiate(testSquare, new Vector2(node.x * gridOffset + transform.position.x, node.y * gridOffset + transform.position.y), Quaternion.identity);
-            }
-        }*/
-    }
-    
     public Node GetNearestNodeFromPosition(Vector2 position)
     {
         position -= (Vector2)transform.position;
-        int x = Mathf.FloorToInt(position.x), y = Mathf.FloorToInt(position.y);
+        int x = Mathf.FloorToInt(position.x/gridOffset), y = Mathf.FloorToInt(position.y/gridOffset);
         if (x >= 0 && y >= 0 && x < gridSize.x && y < gridSize.y)
         {
             return grid[x, y];
