@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelLoader
   transition: {fileID: 1701039414}
-  transitionTime: 2
+  transitionTime: 1.5
   loadScreen: {fileID: 966826381}
 --- !u!4 &135928875
 Transform:

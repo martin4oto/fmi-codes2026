@@ -57,4 +57,18 @@ public class MenuManager : MonoBehaviour
         menu.transform.localScale = targetScale;
         menu.SetActive(false);
     }
+    
+    #region ButtonActions
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void BackToMenu()
+    {
+        LevelLoader.instance.LoadLevel(false);
+    }
+
+    #endregion
 }

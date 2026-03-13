@@ -6,10 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="5037161f-2419-4332-9f77-9824df46972a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.My project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.My project/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/CrossfadeStart.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/CrossfadeStart.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/LevelLoaderTransition.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/LevelLoaderTransition.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CellTestScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CellTestScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelLoader.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MenuManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MenuManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,6 +105,7 @@
       <updated>1773429988958</updated>
       <workItem from="1773429988961" duration="3491000" />
       <workItem from="1773438463932" duration="960000" />
+      <workItem from="1773439877727" duration="585000" />
     </task>
     <servers />
   </component>
