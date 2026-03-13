@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: eb6f2aa4f71ff454db69c53aaecc3374
+guid: 8e14ea59c83978f43aea12c28bb3a886
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Daydream
+  - Alagard
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
