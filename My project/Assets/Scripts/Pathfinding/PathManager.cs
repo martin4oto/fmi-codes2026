@@ -12,7 +12,7 @@ public class PathManager : MonoBehaviour
     public Vector2Int c1;
     public Vector2Int c2;
     public bool tetsts;
-    Node nullNode;
+    public Node nullNode;
     void Awake()
     {
         instance = this;
@@ -28,7 +28,7 @@ public class PathManager : MonoBehaviour
             for (int y = 0; y < gridSize.y; y++)
             {
                 Vector2 worldPosition = new Vector2(x * gridOffset + transform.position.x, y * gridOffset + transform.position.y);
-                RaycastHit2D hit = Physics2D.Raycast(worldPosition, Vector2.zero, 1);
+                RaycastHit2D hit = Physics2D.Raycast(worldPosition, Vector2.zero, 1, LayerMask.GetMask("Wall"));
 
                 if (hit.collider == null){
                     grid[x, y] = new Node(x, y);
@@ -51,16 +51,7 @@ public class PathManager : MonoBehaviour
             }
         }
     }
-    List<Node> GetPath(Vector2Int start, Vector2Int end)
-    {
-        return GetPath(grid[start.x, start.y], grid[end.x, end.y]);
-    }
-    List<Node> GetPath(Node start, Node end)
-    {
-        return BFS(start, end);
-    }
-
-    List<Node> BFS(Node start, Node end)
+    public List<Node> GetPath(Node start, Node end)
     {
         Queue<Node> unexplored = new();
         List<Node> explored = new();
@@ -70,7 +61,6 @@ public class PathManager : MonoBehaviour
             AddConnectionsToQueue(unexplored, explored, cameFrom, current);
             explored.Add(current);
             current = unexplored.Dequeue();
-            Debug.Log("us: " + unexplored.Count);
         }while (unexplored.Count > 0 && current != end);
 
         if (current == end)
@@ -101,7 +91,7 @@ public class PathManager : MonoBehaviour
 
     void Update()
     {
-        if (tetsts)
+        /*if (tetsts)
         {
             tetsts = false;
             List<Node> path = GetPath(c1, c2);
@@ -109,9 +99,19 @@ public class PathManager : MonoBehaviour
             {
                 Instantiate(testSquare, new Vector2(node.x * gridOffset + transform.position.x, node.y * gridOffset + transform.position.y), Quaternion.identity);
             }
-        }
+        }*/
     }
-
+    
+    public Node GetNearestNodeFromPosition(Vector2 position)
+    {
+        position -= (Vector2)transform.position;
+        int x = Mathf.FloorToInt(position.x), y = Mathf.FloorToInt(position.y);
+        if (x >= 0 && y >= 0 && x < gridSize.x && y < gridSize.y)
+        {
+            return grid[x, y];
+        }
+        return nullNode;
+    }
 }
 
 public struct Node
@@ -144,5 +144,10 @@ public struct Node
     public override int GetHashCode()
     {
         return base.GetHashCode();
+    }
+
+    public override string ToString()
+    {
+        return "x: " + x + ", y: " + y + ", [" + connections.Count + "]";
     }
 }
