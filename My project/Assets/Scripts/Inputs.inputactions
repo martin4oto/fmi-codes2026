@@ -1,6 +1,127 @@
 {
-    "version": 0,
+    "version": 1,
     "name": "Inputs",
-    "maps": [],
-    "controlSchemes": []
+    "maps": [
+        {
+            "name": "Keyboard",
+            "id": "1d19a551-2f62-4f91-b5f3-bffe785f991e",
+            "actions": [
+                {
+                    "name": "Options",
+                    "type": "Button",
+                    "id": "64089ba5-b78f-401d-93b3-b53ade932788",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Cell1",
+                    "type": "Button",
+                    "id": "af9333f1-6e5a-425e-b556-f14bda7e4f8a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Cell2",
+                    "type": "Button",
+                    "id": "20cc889c-e641-483c-a47a-f826b5d96660",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Cell3",
+                    "type": "Button",
+                    "id": "4629922d-1f6b-4c8c-ae55-13d3fcfe5017",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Cell4",
+                    "type": "Button",
+                    "id": "79ebd96e-4675-4ecb-8e51-3284a983e347",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ea360eac-7147-48a5-ac76-1eb01b0c610d",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Options",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e6fec29f-620f-4a0c-ad26-df3f0b63af3a",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cell1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cb3a77ee-79ac-4b12-b2bf-644e10bb2792",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cell2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "11a77ad4-eacc-4255-bb17-545d1c6d4009",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cell3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a341f815-b778-48a5-9f33-0dcd2dc01a2e",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cell4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Keyboard",
+            "bindingGroup": "Keyboard",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }
