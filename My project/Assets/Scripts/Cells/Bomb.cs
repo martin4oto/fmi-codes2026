@@ -8,9 +8,20 @@ public class Bomb:Cell
     public float bombRange;
     public int bombDamage;
     float currentTimer = 0;
+    void Start()
+    {
+        Transform foe = FindTargetToFollow().transform;
+
+        Move(foe.position);
+        
+        Debug.Log("start");
+    }
 
     void Update()
     {
+        base.Update();
+
+
         if(currentTimer>=bombUpdateTimer)
         {
             GameObject[] foes = FindFoe();
@@ -56,6 +67,8 @@ public class Bomb:Cell
     public override void Arrive(Transform foe)
     {
         base.Arrive(foe);
+        transform.parent = foe;
+        transform.localPosition = Vector3.zero;
     }
 
     public override void Arrive()
