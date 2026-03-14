@@ -123,7 +123,8 @@ MonoBehaviour:
   unblockRetargeting: 0
   objectToFollow: {fileID: 0}
   destroyParticles: {fileID: 6511266191057373623, guid: 74835e3ddb04e184885a525feaec0acd, type: 3}
-  maxShootingTimer: 5
+  goForBrain: 0
+  maxShootingTimer: 4
   basicEnemyPrefab: {fileID: 7568621363967411955, guid: 54dca2736cbe5a245bdc02ae69bbadf0, type: 3}
 --- !u!95 &-8310608954057519762
 Animator:

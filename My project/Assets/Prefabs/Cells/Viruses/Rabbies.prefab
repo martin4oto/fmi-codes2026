@@ -110,19 +110,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasicCell
   isEnemy: 1
-  speed: 1
+  speed: 3
   range: 1
   shouldStop: 0
   DMG: 1
-  maxHP: 5
-  dnaDrop: 0
+  maxHP: 4
+  dnaDrop: 2
+  dnaCost: 0
   spawnCooldown: 0
   targettingRange: 2
   info: 
   unblockRetargeting: 0
   objectToFollow: {fileID: 0}
   destroyParticles: {fileID: 6511266191057373623, guid: 74835e3ddb04e184885a525feaec0acd, type: 3}
-  maxShootingTimer: 5
+  goForBrain: 1
+  maxShootingTimer: 1.5
 --- !u!58 &-1467664923576653789
 CircleCollider2D:
   m_ObjectHideFlags: 0

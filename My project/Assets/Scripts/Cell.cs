@@ -265,6 +265,8 @@ public class Cell:MonoBehaviour
 
         foreach (GameObject g in cells)
         {
+            if (g == null) continue;
+            
             float dist = Vector3.Distance(g.transform.position, transform.position);
 
             if (dist < range)
