@@ -15,7 +15,7 @@ public class BrainManager : MonoBehaviour
     [SerializeField]
     private Slider hpBar;
     [SerializeField]
-    private GameObject deathParticle;
+    private GameObject deathEffect;
 
     private Vector2 oldMouseDir = Vector2.zero;
     ParticleSystem bloodSplat;
@@ -68,9 +68,8 @@ public class BrainManager : MonoBehaviour
 
     private void Death()
     {
-        var particle = Instantiate(deathParticle, transform.position, transform.rotation);
-        particle.transform.parent = GameManager.instance.worldParticles;
-        particle.GetComponent<ParticleSystem>().Play();
+        deathEffect.SetActive(true);
+        deathEffect.transform.parent = null;
 
         gameObject.SetActive(false);
     }
