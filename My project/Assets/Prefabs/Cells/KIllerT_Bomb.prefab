@@ -238,5 +238,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 758fe8f72e40c834f9fd137823c5d2d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteBlink
-  blinkDecaySpeed: 1
+  blinkDecaySpeed: 6
   spriteRenderers: []
