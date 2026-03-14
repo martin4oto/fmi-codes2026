@@ -8,7 +8,6 @@ public class PathManager : MonoBehaviour
     public Vector2Int gridSize;
     public float gridOffset;
     Node[,] grid;
-    //public GameObject testSquare;
     public Node nullNode;
     void Awake()
     {
@@ -29,7 +28,6 @@ public class PathManager : MonoBehaviour
 
                 if (hit.collider == null){
                     grid[x, y] = new Node(x, y);
-                    //Instantiate(testSquare, new Vector2(x * gridOffset + transform.position.x, y * gridOffset + transform.position.y), Quaternion.identity);
                     if (x - 1 != -1 && grid[x-1, y] != nullNode)
                     {
                         grid[x, y].connections.Add(grid[x-1, y]);

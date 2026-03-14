@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 92063093533967450}
   - component: {fileID: 6557990452919935419}
   m_Layer: 6
-  m_Name: TEMPWall
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -58,7 +58,6 @@ public class Duplicater : Cell
         for (int i = 0; i < foesInRange.Count; i++)
         {
             Cell foeCellScript = foesInRange[i].GetComponent<Cell>();
-            Debug.Log("shoot");
 
             foeCellScript.TakeDamage(DMG);
         }

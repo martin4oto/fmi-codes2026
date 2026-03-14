@@ -88,7 +88,9 @@ public class Cell:MonoBehaviour
                 if (WallRaycast(realEndPoint)){
                     nodeIndex++;
                     moveStartPoint = transform.position;
-                    moveEndPoint = new Vector2(path[nodeIndex].x * PathManager.instance.gridOffset, path[nodeIndex].y * PathManager.instance.gridOffset);
+                    float x = path[nodeIndex].x*PathManager.instance.gridOffset + PathManager.instance.transform.position.x;
+                    float y = path[nodeIndex].y*PathManager.instance.gridOffset + PathManager.instance.transform.position.y;
+                    moveEndPoint = new Vector2(x, y);
                     float distance = Vector3.Distance(moveStartPoint, moveEndPoint);
                     currentTime = 0;
                     timeToArive = distance / speed;
@@ -136,7 +138,9 @@ public class Cell:MonoBehaviour
                 hasMoveCommand = true;
                 pathMovement = true;
                 moveStartPoint = transform.position;
-                moveEndPoint = new Vector2(path[0].x*PathManager.instance.gridOffset, path[0].y*PathManager.instance.gridOffset);
+                float x = path[0].x*PathManager.instance.gridOffset + PathManager.instance.transform.position.x;
+                float y = path[0].y*PathManager.instance.gridOffset + PathManager.instance.transform.position.y;
+                moveEndPoint = new Vector2(x, y);
                 currentTime = 0;
                 timeToArive = Vector3.Distance(moveStartPoint, moveEndPoint)/speed;
                 nodeIndex = 0;

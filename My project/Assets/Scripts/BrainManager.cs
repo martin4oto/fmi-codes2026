@@ -37,7 +37,7 @@ public class BrainManager : MonoBehaviour
     {
         hp -= damage;
         hpBar.value = hp;
-
+        AudioManager.PlaySFX("burp");
         if (hp <= 0) Die();
     }
 
