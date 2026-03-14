@@ -25,7 +25,8 @@ public class CellSpawner : MonoBehaviour
 
     private void Update()
     {
-        var cellType = DetermineCellSpawnType();
+        var cellType = ActiveCell.none;
+        cellType = DetermineCellSpawnType();
         if (cellType == ActiveCell.none) return;
 
         SpawnCell(cellType);
