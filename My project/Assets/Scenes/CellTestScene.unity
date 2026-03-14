@@ -232,7 +232,9 @@ MonoBehaviour:
     - Key: 0
       Value: 12
   virusPrefabs:
-    _serializedList: []
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 7568621363967411955, guid: 5a99f28db60d3bf429df69b97235024a, type: 3}
 --- !u!4 &65832068
 Transform:
   m_ObjectHideFlags: 0
@@ -1714,6 +1716,8 @@ Transform:
   m_Children:
   - {fileID: 1555981844}
   - {fileID: 65832068}
+  - {fileID: 1079659030}
+  - {fileID: 1805763143}
   m_Father: {fileID: 2069198205}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &722367019
@@ -2797,6 +2801,62 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!1 &1079659029
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1079659030}
+  - component: {fileID: 1079659031}
+  m_Layer: 0
+  m_Name: Wave2 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1079659030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079659029}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 706525762}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1079659031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079659029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c74fda4bbcc49d4d9bcc2ed5b49cbe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Wave
+  waveStats:
+    _serializedList:
+    - Key: 0
+      Value: 10
+    - Key: 3
+      Value: 3
+  virusPrefabs:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 7568621363967411955, guid: 5a99f28db60d3bf429df69b97235024a, type: 3}
+    - Key: 3
+      Value: {fileID: 9042437290503787896, guid: e1b03b0227c38ca409f011ea3b2cc21f, type: 3}
 --- !u!1 &1101635785
 GameObject:
   m_ObjectHideFlags: 0
@@ -3053,7 +3113,7 @@ MonoBehaviour:
       Value: {fileID: 8994169189388588480, guid: 9e6ce303de83c3e4385cbc7fe5006dda, type: 3}
     - Key: 3
       Value: {fileID: 2109727960122548684, guid: aaabfca850e5235438d3835678410c5b, type: 3}
-  info: {fileID: 1583944512}
+  info: {fileID: 0}
 --- !u!1 &1133935139
 GameObject:
   m_ObjectHideFlags: 0
@@ -3905,7 +3965,9 @@ MonoBehaviour:
     - Key: 0
       Value: 7
   virusPrefabs:
-    _serializedList: []
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 7568621363967411955, guid: 5a99f28db60d3bf429df69b97235024a, type: 3}
 --- !u!1 &1583944510
 GameObject:
   m_ObjectHideFlags: 0
@@ -4775,6 +4837,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1802560861}
   m_CullTransparentMesh: 1
+--- !u!1 &1805763141
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1805763143}
+  - component: {fileID: 1805763142}
+  m_Layer: 0
+  m_Name: Wave2 (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1805763142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805763141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c74fda4bbcc49d4d9bcc2ed5b49cbe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Wave
+  waveStats:
+    _serializedList:
+    - Key: 0
+      Value: 15
+    - Key: 0
+      Value: 7
+  virusPrefabs:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 7568621363967411955, guid: 5a99f28db60d3bf429df69b97235024a, type: 3}
+    - Key: 0
+      Value: {fileID: 9042437290503787896, guid: e1b03b0227c38ca409f011ea3b2cc21f, type: 3}
+--- !u!4 &1805763143
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805763141}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 706525762}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1813302413
 GameObject:
   m_ObjectHideFlags: 0
@@ -5512,27 +5630,25 @@ MonoBehaviour:
   waves:
   - {fileID: 1555981845}
   - {fileID: 65832067}
-  spawnPointsLeftUp:
+  - {fileID: 1079659031}
+  - {fileID: 1805763142}
+  spawnPoints:
   - {fileID: 2131591727}
   - {fileID: 659174343}
   - {fileID: 1890973444}
   - {fileID: 109005898}
-  spawnPointsRightUp:
   - {fileID: 722367020}
   - {fileID: 419035682}
   - {fileID: 1384421123}
   - {fileID: 929257461}
-  spawnPointsLeftDown:
   - {fileID: 1673142235}
   - {fileID: 1483888820}
   - {fileID: 1688216655}
   - {fileID: 2051393809}
-  spawnPointsRightDown:
   - {fileID: 1343061977}
   - {fileID: 1977165560}
   - {fileID: 636973472}
   - {fileID: 500623000}
-  spawnPoints: []
 --- !u!4 &2069198205
 Transform:
   m_ObjectHideFlags: 0
