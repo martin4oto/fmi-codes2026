@@ -14,8 +14,11 @@ public class BrainManager : MonoBehaviour
     private float hp;
     [SerializeField]
     private Slider hpBar;
+    [SerializeField]
+    private GameObject deathParticle;
 
     private Vector2 oldMouseDir = Vector2.zero;
+    ParticleSystem bloodSplat;
 
 
     private void Awake()
@@ -26,6 +29,7 @@ public class BrainManager : MonoBehaviour
         hpBar.value = hp;
 
         animator = GetComponent<Animator>();
+        bloodSplat = GetComponent<ParticleSystem>();
     }
 
     private void Update()
@@ -44,17 +48,29 @@ public class BrainManager : MonoBehaviour
     {
         hp -= damage;
         hpBar.value = hp;
-        AudioManager.PlaySFX("burp");
 
         var blink = GetComponent<SpriteBlink>();
         if (blink) blink.Blink();
 
-        if (hp <= 0) Die();
+        if (hp <= 0)
+        {
+            Death();
+            return;
+        }
+
+        AudioManager.PlaySFX("burp");
+        bloodSplat.Play();
+
+        if (hp <= 0) Death();
     }
 
-    private void Die()
+    private void Death()
     {
-        //die
+        var particle = Instantiate(deathParticle, transform.position, transform.rotation);
+        particle.transform.parent = GameManager.instance.worldParticles;
+        particle.GetComponent<ParticleSystem>().Play();
+
+        gameObject.SetActive(false);
     }
 
     private void LookDirection()

@@ -6,7 +6,9 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public int DNA = 0;
+    [SerializeField]
     private float dnaGenerationPerSecond = 1f;
+    public Transform worldParticles;
 
     private void Awake()
     {

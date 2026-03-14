@@ -36,6 +36,7 @@ public class Cell:MonoBehaviour
     protected Transform objectToFollow;
     float followTolerance = 0.25f;
     protected SquashAndStretch squashAndStretch;
+    public GameObject destroyParticles;
 
     void Start()
     {
@@ -203,6 +204,7 @@ public class Cell:MonoBehaviour
         if(HP<=0)
         {
             // death anim
+            Instantiate(destroyParticles, transform.position, Quaternion.identity);
             AudioManager.PlaySFX("pop");
             Remove();
         }

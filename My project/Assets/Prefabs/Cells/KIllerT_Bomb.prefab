@@ -120,6 +120,7 @@ MonoBehaviour:
   targettingRange: 0
   info: Killer T cells explode, sometimes so violently that they damage the body's
     cells.
+  destroyParticles: {fileID: 6511266191057373623, guid: 74835e3ddb04e184885a525feaec0acd, type: 3}
   bombUpdateTimer: 0.1
 --- !u!50 &-7150286184478645347
 Rigidbody2D:

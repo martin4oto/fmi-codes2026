@@ -119,6 +119,7 @@ MonoBehaviour:
   spawnCooldown: 0.5
   targettingRange: 0
   info: Antibodies are secrated by the body to overwhelm the viruses.
+  destroyParticles: {fileID: 6511266191057373623, guid: 74835e3ddb04e184885a525feaec0acd, type: 3}
   maxShootingTimer: 1.5
 --- !u!95 &996833481805774076
 Animator:
