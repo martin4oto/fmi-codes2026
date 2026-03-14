@@ -26,6 +26,8 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    #region Animations
+
     public void OpenOptionsAnimation(float targetSize, float duration)
     {
         StartCoroutine(OpenOptionsAnimationCoroutine(options, targetSize, duration));
@@ -83,7 +85,9 @@ public class MenuManager : MonoBehaviour
         isOptionsAnimationActive = false;
         darkEffect.SetActive(false);
     }
-    
+
+    #endregion
+
     #region ButtonActions
 
     public void Resume()

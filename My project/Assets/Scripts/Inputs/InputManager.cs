@@ -13,18 +13,24 @@ public class InputManager : MonoBehaviour
     public bool SpawnCell2Input { get; private set; } // 2
     public bool SpawnCell3Input { get; private set; } // 3
     public bool SpawnCell4Input { get; private set; } // 4
+    public bool TestInput { get; private set; } // T
     public Vector2 MousePosition { get; private set; }
     public bool StopGameInputs { get; set; } // menu pause
-    public float MouseRelativeToBrainPosition =>
+    public Vector2 MouseRelativeToBrainPosition =>
 Camera.main
-    .ScreenToWorldPoint(new Vector3(MousePosition.x, MousePosition.y, transform.position.z)).x -
-BrainManager.instance.transform.position.x;
+    .ScreenToWorldPoint(new Vector3(MousePosition.x, MousePosition.y, transform.position.z)) -
+BrainManager.instance.transform.position;
 
     #endregion
 
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Update()
+    {
+        MousePosition = Input.mousePosition;
     }
 
     public void OnOptionsInput(InputAction.CallbackContext context)
@@ -87,10 +93,23 @@ BrainManager.instance.transform.position.x;
         }
     }
 
+    public void OnTestInput(InputAction.CallbackContext context)
+    {
+        if (context.started && !StopGameInputs)
+        {
+            TestInput = true;
+        }
+        if (context.canceled && !StopGameInputs)
+        {
+            TestInput = false;
+        }
+    }
+
     public void MousePositionInput(InputAction.CallbackContext context)
     {
         MousePosition = context.ReadValue<Vector2>();
     }
 
     public void UseOptionsInput() => OptionsInput = false;
+    public void UseTestInput() => TestInput = false;
 }

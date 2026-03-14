@@ -1276,6 +1276,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2054272192}
+  - {fileID: 1610289817}
   - {fileID: 1813302414}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1293,8 +1294,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1117079625}
-  - component: {fileID: 1117079624}
   - component: {fileID: 1117079626}
+  - component: {fileID: 1117079624}
+  - component: {fileID: 1117079627}
   m_Layer: 0
   m_Name: Brain
   m_TagString: Untagged
@@ -1390,6 +1392,22 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1117079627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117079622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bebdf36b865ca0546a6761952807bb25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CellSpawner
+  upSpawnLocations: []
+  downSpawnLocations: []
+  leftSpawnLocations: []
+  rightSpawnLocations: []
 --- !u!1 &1302511137
 GameObject:
   m_ObjectHideFlags: 0
@@ -1541,6 +1559,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 79ebd96e-4675-4ecb-8e51-3284a983e347
     m_ActionName: 'Keyboard/Cell4[/Keyboard/4]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1302511138}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: OnTestInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9790d1fb-d927-4fd9-8469-d237e00dd338
+    m_ActionName: 'Keyboard/Test[/Keyboard/t]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1302511138}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: MousePositionInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8a9ec711-1001-458f-84b4-72baa913da0b
+    m_ActionName: 'Keyboard/Mouse[/Mouse/position]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Keyboard
@@ -1558,7 +1608,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94873a9512f1a2648911710151770227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuManager
-  menu: {fileID: 1813302413}
+  options: {fileID: 1813302413}
+  darkEffect: {fileID: 1610289816}
+  animationSpeed: 0.2
 --- !u!1 &1610289816
 GameObject:
   m_ObjectHideFlags: 0
@@ -1571,12 +1623,12 @@ GameObject:
   - component: {fileID: 1610289819}
   - component: {fileID: 1610289818}
   m_Layer: 5
-  m_Name: MenuDarkEffect
+  m_Name: DarkEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1610289817
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1584,12 +1636,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1610289816}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1813302414}
+  m_Father: {fileID: 1101635789}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1724,7 +1776,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1813302414
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1737,7 +1789,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 1610289817}
   - {fileID: 1802560862}
   - {fileID: 2017082511}
   - {fileID: 1006303157}
@@ -2045,13 +2096,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1302511141}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: Resume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2172,7 +2223,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 2118510236}
   m_HandleRect: {fileID: 0}
