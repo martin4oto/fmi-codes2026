@@ -31,9 +31,6 @@ public class Cell:MonoBehaviour
     int nodeIndex;
     bool pathMovement;
     Vector3 realEndPoint;
-    public bool TEST;
-    public bool TEST2;
-    Vector2 coords;
     Transform objectToFollow;
     float followTolerance = 0.25f;
 
