@@ -2934,8 +2934,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d8d8a08387040643a168732627f3475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BrainManager
-  hp: 100
+  hp: 1
   hpBar: {fileID: 1427405663}
+  deathParticle: {fileID: 5096148057906189823, guid: b2ae68ff4d82c4b4abe9fcddf93531fa, type: 3}
 --- !u!4 &1117079625
 Transform:
   m_ObjectHideFlags: 0
@@ -8171,6 +8172,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   DNA: 0
+  dnaGenerationPerSecond: 1
+  worldParticles: {fileID: 1494014865}
 --- !u!1 &1309709782
 GameObject:
   m_ObjectHideFlags: 0
@@ -8596,6 +8599,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 71575203}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1494014865 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4369302180975819969, guid: c8590a26e33ebe842a9812ecb221e4f3, type: 3}
+  m_PrefabInstance: {fileID: 1846366936}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1526449900
 GameObject:
   m_ObjectHideFlags: 0
@@ -9603,8 +9611,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6191268249584772875, guid: c8590a26e33ebe842a9812ecb221e4f3, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5534110016051695915, guid: c8590a26e33ebe842a9812ecb221e4f3, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8590a26e33ebe842a9812ecb221e4f3, type: 3}
@@ -10494,7 +10507,3 @@ SceneRoots:
   - {fileID: 49144776}
   - {fileID: 165153257}
   - {fileID: 1846366936}
-  - {fileID: 739460511}
-  - {fileID: 433376712}
-  - {fileID: 1316297559}
-  - {fileID: 41917524}

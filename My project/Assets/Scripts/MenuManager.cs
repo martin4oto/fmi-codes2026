@@ -33,6 +33,7 @@ public class MenuManager : MonoBehaviour
         StartCoroutine(OpenOptionsAnimationCoroutine(options, targetSize, duration));
 
         InputManager.instance.StopGameInputs = true;
+        Time.timeScale = 0f;
     }
 
     public void CloseOptionsAnimation(float targetSize, float duration)
@@ -40,6 +41,7 @@ public class MenuManager : MonoBehaviour
         StartCoroutine(CloseOptionsAnimationCoroutine(options, targetSize, duration));
 
         InputManager.instance.StopGameInputs = false;
+        Time.timeScale = 1f;
     }
 
     private IEnumerator OpenOptionsAnimationCoroutine(GameObject menu, float targetSize, float duration)
