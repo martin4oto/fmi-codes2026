@@ -39,6 +39,7 @@ public class Cell:MonoBehaviour
     float followTolerance = 0.25f;
     protected SquashAndStretch squashAndStretch;
     public GameObject destroyParticles;
+    public bool goForBrain;
     void Start()
     {
         squashAndStretch = GetComponent<SquashAndStretch>();
@@ -328,20 +329,23 @@ public class Cell:MonoBehaviour
         
         if((!isShooting || unblockRetargeting) && objectToFollow == null)
         {
-            Cell target;
-            if(isEnemy)
-            {
-                target = FindTargetToFollow(targettingRange);
-            }
-            else
-            {
-                target = FindTargetToFollow();
+            Cell target = null;
+            if (!goForBrain){
+                if(isEnemy)
+                {
+                    target = FindTargetToFollow(targettingRange);
+                }
+                else
+                {
+                    target = FindTargetToFollow(targettingRange);
+                }
             }
 
             if (target != null)
             {
                 Follow(target.transform);
-            }else if (isEnemy)
+            }
+            else if (isEnemy)
             {
                 EnemyDefault();
             }
