@@ -8,7 +8,10 @@ using System.Net.Security;
 public class Cell:MonoBehaviour
 {
     int HP;
+    
+    [SerializeField]
     internal bool isEnemy;
+    
     internal bool alreadyTargetted;
     internal bool isShooting = true;
 

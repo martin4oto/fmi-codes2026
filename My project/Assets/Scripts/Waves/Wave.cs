@@ -4,6 +4,17 @@ using UnityEngine;
 public class Wave : MonoBehaviour
 {
     [SerializedDictionary("Virus Prefab", "Number Spawned")]
-    public SerializedDictionary<Cell, int> waveStats = new SerializedDictionary<Cell, int>();
-    
+    public SerializedDictionary<GameObject, int> waveStats = new SerializedDictionary<GameObject, int>();
+
+    public int GetTotalViruses()
+    {
+        int count = 0;
+        
+        foreach (var (key, value) in waveStats)
+        {
+            count += value;
+        }
+
+        return count;
+    }
 }
