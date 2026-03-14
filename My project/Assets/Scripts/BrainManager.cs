@@ -15,6 +15,8 @@ public class BrainManager : MonoBehaviour
     [SerializeField]
     private Slider hpBar;
 
+    private Vector2 oldMouseDir = Vector2.zero;
+
 
     private void Awake()
     {
@@ -52,30 +54,41 @@ public class BrainManager : MonoBehaviour
         direction.x = Mathf.Sign(mousePos.x);
         direction.y = Mathf.Sign(mousePos.y);
 
+        if (oldMouseDir == direction) return;
+        oldMouseDir = direction;
+
         if (direction.x < 0)
         {
             if (direction.y < 0)
             {
+                var animTime = animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
                 TurnOffAnimationBools();
                 animator.SetBool("down", true);
+                animator.Play("BrainIdleDown", 0, animTime);
             }
             else
             {
+                var animTime = animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
                 TurnOffAnimationBools();
                 animator.SetBool("left", true);
+                animator.Play("BrainIdleLeft", 0, animTime);
             }
         }
         else
         {
             if (direction.y < 0)
             {
+                var animTime = animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
                 TurnOffAnimationBools();
                 animator.SetBool("right", true);
+                animator.Play("BrainIdleRight", 0, animTime);
             }
             else
             {
+                var animTime = animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
                 TurnOffAnimationBools();
                 animator.SetBool("up", true);
+                animator.Play("BrainIdleUp", 0, animTime);
             }
         }
     }
@@ -88,11 +101,11 @@ public class BrainManager : MonoBehaviour
         animator.SetBool("right", false);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        var cell = collision.gameObject.GetComponent<Cell>();
+        var cell = collision.GetComponent<Cell>();
 
-        if (cell.isEnemy)
+        if (cell && cell.isEnemy)
         {
             TakeDamage(cell.DMG);
 
