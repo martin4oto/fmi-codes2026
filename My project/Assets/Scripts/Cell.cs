@@ -19,6 +19,7 @@ public class Cell:MonoBehaviour
     public int DMG;
     public int maxHP;
     public float spawnCooldown;
+    public float targettingRange;
 
     float timeToArive;
     float currentTime;
@@ -38,6 +39,11 @@ public class Cell:MonoBehaviour
     void Start()
     {
         alreadyTargetted = false;
+
+        if (isEnemy)
+        {
+            EnemyDefault();
+        }
     }
     protected void Update()
     {
@@ -200,6 +206,33 @@ public class Cell:MonoBehaviour
         return foes[0].GetComponent<Cell>();
     }
 
+    internal Cell FindTargetToFollow(float _range)
+    {
+        GameObject[] foes = FindFoe();
+        if(foes.Length == 0)return null;
+
+        Cell almostValidCell = null;
+
+        for(int i = 0; i<foes.Length; i++)
+        {
+            Cell current = foes[i].GetComponent<Cell>();
+            float currentdistance = Vector3.Distance(current.transform.position, transform.position);
+
+            if(currentdistance<_range)
+            {
+                if(!current.alreadyTargetted)
+                {
+                    return current;
+                }
+                else
+                {
+                    almostValidCell = current;
+                }
+            }
+        }
+        return almostValidCell;
+    }
+
     List<Cell> GetCellsInRange(GameObject[] cells, float range)
     {
         List<Cell> current = new List<Cell>();
@@ -236,6 +269,8 @@ public class Cell:MonoBehaviour
 
     public void TryToStopMoving()
     {
+        if(isEnemy&&!hasATarget)return;
+
         GameObject[] foes = FindFoe();
         List<Cell> inRange = GetCellsInRange(foes, range);
 
@@ -247,16 +282,36 @@ public class Cell:MonoBehaviour
         else if(isShooting)
         {
             isShooting = false;
-            Cell foe = FindTargetToFollow();
+            if(isEnemy)
+            {
+                EnemyDefault();
+            }
+            else
+            {
+                Cell foe = FindTargetToFollow();
+                if(foe == null)return;
 
-            if(foe == null)return;
-
-            Follow(foe.transform);
+                Follow(foe.transform);
+            }
         }
     }
 
+    void EnemyDefault()
+    {
+        Move(Vector3.zero);
+        hasATarget = false;
+    }
+
+    bool hasATarget = false;
     public void TryToTargetCell()
     {
-        
+        if(hasATarget)return;
+
+        Cell target = FindTargetToFollow(targettingRange);
+        if(target != null)
+        {
+            Follow(target.transform);
+            hasATarget = true;
+        }
     }
 }
