@@ -101,11 +101,11 @@ public class BrainManager : MonoBehaviour
         animator.SetBool("right", false);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        var cell = collision.gameObject.GetComponent<Cell>();
+        var cell = collision.GetComponent<Cell>();
 
-        if (cell.isEnemy)
+        if (cell && cell.isEnemy)
         {
             TakeDamage(cell.DMG);
 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5925341854248251434}
   - component: {fileID: 7762399635710887053}
   - component: {fileID: 2973878300931970598}
+  - component: {fileID: 5837098774606306507}
   m_Layer: 0
   m_Name: rangedCell
   m_TagString: Cell
@@ -113,6 +114,31 @@ MonoBehaviour:
   spawnCooldown: 1
   targettingRange: 0
   info: 
-  TEST: 0
-  TEST2: 0
   maxShootingTimer: 5
+--- !u!50 &5837098774606306507
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7568621363967411955}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

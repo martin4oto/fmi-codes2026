@@ -3138,8 +3138,8 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!68 &1117079629
-EdgeCollider2D:
+--- !u!58 &1117079629
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3168,42 +3168,12 @@ EdgeCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.9753324, y: 0.38422936}
-  - {x: -0.9592444, y: 0.6895445}
-  - {x: -0.82738465, y: 0.89276785}
-  - {x: -0.5159916, y: 1.1124824}
-  - {x: -0.14168063, y: 1.1384193}
-  - {x: 0.17284518, y: 1.0684707}
-  - {x: 0.38749212, y: 0.94967103}
-  - {x: 0.55600905, y: 0.75060797}
-  - {x: 0.76050854, y: 0.7183933}
-  - {x: 0.9833431, y: 0.45248258}
-  - {x: 1.0025845, y: 0.106224515}
-  - {x: 0.9065559, y: -0.06848708}
-  - {x: 0.74029887, y: -0.16819675}
-  - {x: 0.6870346, y: -0.4958278}
-  - {x: 0.48678538, y: -0.6199424}
-  - {x: 0.23458007, y: -0.6555361}
-  - {x: 0.02473323, y: -0.9364401}
-  - {x: -0.2790078, y: -0.99018496}
-  - {x: -0.3125716, y: -0.83582497}
-  - {x: 0.012140632, y: -0.6807738}
-  - {x: -0.3744809, y: -0.5416622}
-  - {x: -0.5160514, y: -0.33471376}
-  - {x: -0.6920182, y: -0.21446875}
-  - {x: -0.8231406, y: 0.072676316}
-  - {x: -0.97971654, y: 0.36162752}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
+  m_Offset: {x: -0.01211077, y: 0.2624033}
+  m_Radius: 0.8581192
 --- !u!1 &1133935139
 GameObject:
   m_ObjectHideFlags: 0

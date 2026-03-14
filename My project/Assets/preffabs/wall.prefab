@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5806041343127437212}
   - component: {fileID: 3543818057131980959}
   - component: {fileID: 8265224334782825256}
+  - component: {fileID: 7489195814091743639}
   m_Layer: 0
   m_Name: wall
   m_TagString: Cell
@@ -113,6 +114,31 @@ MonoBehaviour:
   spawnCooldown: 0
   targettingRange: 0
   info: 
-  TEST: 0
-  TEST2: 0
   maxShootingTimer: 10
+--- !u!50 &7489195814091743639
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7956721952547376659}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
