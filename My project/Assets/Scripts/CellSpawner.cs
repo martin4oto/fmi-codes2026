@@ -1,47 +1,88 @@
 using AYellowpaper.SerializedCollections;
 using NUnit.Framework;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class CellSpawner : MonoBehaviour
 {
     [SerializeField]
-    private List<Transform> upSpawnLocations;
+    private List<Transform> firstCornerSpawnLocations;
     [SerializeField]
-    private List<Transform> downSpawnLocations;
+    private List<Transform> secondCornerSpawnLocations;
     [SerializeField]
-    private List<Transform> leftSpawnLocations;
+    private List<Transform> thirdCornerSpawnLocations;
     [SerializeField]
-    private List<Transform> rightSpawnLocations;
+    private List<Transform> fourthCornerSpawnLocations;
     [SerializedDictionary("Cell Type", "Prefab")]
-    public SerializedDictionary<string, Cell> cells;
+    public AYellowpaper.SerializedCollections.SerializedDictionary<ActiveCell, Cell> cells;
+
+    private ActiveCell activeCellSpawing;
+    private bool spawnCooldown = false;
 
     private void Update()
     {
         SpawnCell();
 
-        if (InputManager.instance.TestInput)
+        if (InputManager.instance.SpawnCell1Input)
         {
-            Debug.Log(InputManager.instance.MouseRelativeToBrainPosition);
-            Debug.Log(CalculateSpawnDirection());
-            InputManager.instance.UseTestInput();
+            if (activeCellSpawing == ActiveCell.basic) activeCellSpawing = ActiveCell.none;
+            else activeCellSpawing = ActiveCell.basic;
+
+            InputManager.instance.UseSpawnCell1Input();
+        }
+        else if (InputManager.instance.SpawnCell2Input)
+        {
+            if (activeCellSpawing == ActiveCell.ranged) activeCellSpawing = ActiveCell.none;
+            else activeCellSpawing = ActiveCell.ranged;
+
+            InputManager.instance.UseSpawnCell2Input();
+        }
+        else if (InputManager.instance.SpawnCell3Input)
+        {
+            if (activeCellSpawing == ActiveCell.bomb) activeCellSpawing = ActiveCell.none;
+            else activeCellSpawing = ActiveCell.bomb;
+
+            InputManager.instance.UseSpawnCell3Input();
+        }
+        else if (InputManager.instance.SpawnCell4Input)
+        {
+            if (activeCellSpawing == ActiveCell.spawner) activeCellSpawing = ActiveCell.none;
+            else activeCellSpawing = ActiveCell.spawner;
+
+            InputManager.instance.UseSpawnCell4Input();
         }
     }
 
     private void SpawnCell()
     {
-        
+        if (spawnCooldown || activeCellSpawing == ActiveCell.none) return;
+
+        Vector2 spawnPos = GetSpawnPosition();
+        var cellObj = Instantiate(cells[activeCellSpawing], spawnPos, Quaternion.identity);
+        var cell = cellObj.GetComponent<Cell>();
+
+        spawnCooldown = true;
+
+        StartCoroutine(Cooldown(cell.spawnCooldown));
     }
 
     private Vector2 GetSpawnPosition()
     {
         Vector2 direction = CalculateSpawnDirection();
-        Vector2 spawnPos = CalculateSpawnDirection();
+        Vector2 spawnPos = Vector2.zero;
 
-        if (direction.x < 0) spawnPos = DetermineSpawnLocation(leftSpawnLocations);
-        else if (direction.x > 0) spawnPos = DetermineSpawnLocation(rightSpawnLocations);
-        else if (direction.y < 0) spawnPos = DetermineSpawnLocation(downSpawnLocations);
-        else spawnPos = DetermineSpawnLocation(upSpawnLocations);
+        if (direction.x < 0)
+        {
+            if (direction.y < 0) spawnPos = DetermineSpawnLocation(thirdCornerSpawnLocations);
+            else spawnPos = DetermineSpawnLocation(firstCornerSpawnLocations);
+        }
+        else
+        {
+            if (direction.y < 0) spawnPos = DetermineSpawnLocation(fourthCornerSpawnLocations);
+            else spawnPos = DetermineSpawnLocation(secondCornerSpawnLocations);
+        }
 
         return spawnPos;
     }
@@ -51,16 +92,32 @@ public class CellSpawner : MonoBehaviour
         Vector2 direction = Vector2.zero;
         Vector2 mousePos = InputManager.instance.MouseRelativeToBrainPosition;
 
-        if (Mathf.Abs(mousePos.x) >= Mathf.Abs(mousePos.y * 2)) direction.x = Mathf.Sign(mousePos.x);
-        else direction.y = Mathf.Sign(mousePos.y);
+        direction.x = Mathf.Sign(mousePos.x);
+        direction.y = Mathf.Sign(mousePos.y);
 
         return direction;
     }
 
     private Vector2 DetermineSpawnLocation(List<Transform> positions)
     {
-        int chosenPosition = UnityEngine.Random.RandomRange(0, positions.Count);
+        int chosenPosition = Random.Range(0, positions.Count);
 
         return positions[chosenPosition].position;
     }
+
+    private IEnumerator Cooldown(float cooldown)
+    {
+        yield return new WaitForSecondsRealtime(cooldown);
+
+        spawnCooldown = false;
+    }
+}
+
+public enum ActiveCell
+{
+    basic,
+    bomb,
+    ranged,
+    spawner,
+    none
 }

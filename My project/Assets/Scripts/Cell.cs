@@ -21,6 +21,7 @@ public class Cell:MonoBehaviour
     public bool shouldStop;
     public int DMG;
     public int maxHP;
+    public float spawnCooldown;
 
     float timeToArive;
     float currentTime;
@@ -250,7 +251,15 @@ public class Cell:MonoBehaviour
         {
             isShooting = false;
             Cell foe = FindTargetToFollow();
+
+            if(foe == null)return;
+
             Follow(foe.transform);
         }
+    }
+
+    public void TryToTargetCell()
+    {
+        
     }
 }
