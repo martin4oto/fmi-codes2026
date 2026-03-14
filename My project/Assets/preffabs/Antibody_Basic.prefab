@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2973878300931970598}
   - component: {fileID: 996833481805774076}
   - component: {fileID: -1339764503795587345}
+  - component: {fileID: 6251078366555784439}
   m_Layer: 0
   m_Name: Antibody_Basic
   m_TagString: Cell
@@ -112,6 +113,7 @@ MonoBehaviour:
   shouldStop: 1
   DMG: 1
   maxHP: 10
+  dnaDrop: 0
   spawnCooldown: 0.5
   targettingRange: 0
   info: Antibodies are secrated by the body to overwhelm the viruses.
@@ -165,3 +167,57 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!68 &6251078366555784439
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7568621363967411955}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.30911294, y: 0.14117129}
+  - {x: -0.47085032, y: 0.3197979}
+  - {x: -0.39032128, y: 0.4849562}
+  - {x: -0.07017177, y: 0.1675326}
+  - {x: 0.01633001, y: 0.14251444}
+  - {x: 0.066985235, y: 0.15683079}
+  - {x: 0.37926328, y: 0.47415566}
+  - {x: 0.47979134, y: 0.3064996}
+  - {x: 0.17560199, y: 0.028031709}
+  - {x: 0.121160135, y: -0.33340228}
+  - {x: -0.11918925, y: -0.3247401}
+  - {x: -0.19997606, y: 0.04081889}
+  - {x: -0.23473927, y: 0.088119045}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
