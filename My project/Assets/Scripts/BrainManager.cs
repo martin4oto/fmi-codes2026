@@ -58,6 +58,8 @@ public class BrainManager : MonoBehaviour
             return;
         }
 
+        animator.SetTrigger("hurt");
+
         AudioManager.PlaySFX("burp");
         bloodSplat.Play();
 
