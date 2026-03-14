@@ -9,6 +9,8 @@ public class WaveManager : MonoBehaviour
     
     private int waveNumber = 0;
     public bool isInWave = false;
+    private bool lastWaveReached = false;
+    int lastSpawnedNumber = 0;
     
     [SerializeField]
     private List<Wave> waves;
@@ -37,6 +39,12 @@ public class WaveManager : MonoBehaviour
             VirusType typeToSpawn = key;
             int numberToSpawn = value;
 
+            if (lastWaveReached)
+            {
+                numberToSpawn += Random.Range(lastSpawnedNumber / 4, lastSpawnedNumber / 2);
+                lastSpawnedNumber = numberToSpawn;
+            }
+            
             for (int j = 0; j < numberToSpawn; j++)
             { 
                 int transformChosen = Random.Range(0, spawnPoints.Count);
@@ -47,9 +55,9 @@ public class WaveManager : MonoBehaviour
                 CellManager.instance.AddVirus(virusObj.GetComponent<Cell>());
             }
         }
-        
-        if(waveNumber < waves.Count - 1) waveNumber++;
-        
+
+        if (waveNumber < waves.Count - 1) waveNumber++;
+        else lastWaveReached = true;
     }
 
     public void Start()

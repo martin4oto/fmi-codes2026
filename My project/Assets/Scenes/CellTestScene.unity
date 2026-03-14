@@ -2934,7 +2934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d8d8a08387040643a168732627f3475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BrainManager
-  hp: 50
+  hp: 100
   hpBar: {fileID: 1427405663}
   deathParticle: {fileID: 5096148057906189823, guid: b2ae68ff4d82c4b4abe9fcddf93531fa, type: 3}
 --- !u!4 &1117079625
@@ -3055,6 +3055,8 @@ MonoBehaviour:
     - Key: 3
       Value: {fileID: 2109727960122548684, guid: aaabfca850e5235438d3835678410c5b, type: 3}
   info: {fileID: 1583944512}
+  automaticSpawning: 0
+  spawnCooldown: 0
 --- !u!95 &1117079628
 Animator:
   serializedVersion: 7
@@ -9303,7 +9305,7 @@ RectTransform:
   m_GameObject: {fileID: 1802560861}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6, y: 8, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1813302414}
@@ -9311,7 +9313,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 75, y: 70}
+  m_SizeDelta: {x: 450, y: 560}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1802560863
 MonoBehaviour:
@@ -9733,7 +9735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.735849, g: 0, b: 0.026372503, a: 1}
+  m_Color: {r: 0.12182792, g: 0.5773585, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

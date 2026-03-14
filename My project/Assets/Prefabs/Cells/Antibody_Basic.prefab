@@ -116,6 +116,7 @@ MonoBehaviour:
   DMG: 1
   maxHP: 1
   dnaDrop: 0
+  dnaCost: 1
   spawnCooldown: 0.5
   targettingRange: 0
   info: Antibodies are secrated by the body to overwhelm the viruses.

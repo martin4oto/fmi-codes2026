@@ -19,6 +19,7 @@ public class Cell:MonoBehaviour
     public int DMG;
     public int maxHP;
     public int dnaDrop;
+    public int dnaCost;
     public float spawnCooldown;    
     public float targettingRange;
     public string info;
