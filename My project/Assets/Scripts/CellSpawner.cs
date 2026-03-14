@@ -1,5 +1,6 @@
 using AYellowpaper.SerializedCollections;
 using NUnit.Framework;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -18,41 +19,53 @@ public class CellSpawner : MonoBehaviour
     public AYellowpaper.SerializedCollections.SerializedDictionary<ActiveCell, Cell> cells;
 
     private ActiveCell activeCellSpawing;
+    private bool spawnCooldown = false;
 
     private void Update()
     {
         SpawnCell();
 
-        if (InputManager.instance.TestInput)
-        {
-            Debug.Log(InputManager.instance.MouseRelativeToBrainPosition);
-            Debug.Log(CalculateSpawnDirection());
-            InputManager.instance.UseTestInput();
-        }
-
         if (InputManager.instance.SpawnCell1Input)
         {
-            activeCellSpawing = ActiveCell.basic;
+            if (activeCellSpawing == ActiveCell.basic) activeCellSpawing = ActiveCell.none;
+            else activeCellSpawing = ActiveCell.basic;
+
+            InputManager.instance.UseSpawnCell1Input();
         }
         else if (InputManager.instance.SpawnCell2Input)
         {
-            activeCellSpawing = ActiveCell.ranged;
+            if (activeCellSpawing == ActiveCell.ranged) activeCellSpawing = ActiveCell.none;
+            else activeCellSpawing = ActiveCell.ranged;
+
+            InputManager.instance.UseSpawnCell2Input();
         }
         else if (InputManager.instance.SpawnCell3Input)
         {
-            activeCellSpawing = ActiveCell.bomb;
+            if (activeCellSpawing == ActiveCell.bomb) activeCellSpawing = ActiveCell.none;
+            else activeCellSpawing = ActiveCell.bomb;
+
+            InputManager.instance.UseSpawnCell3Input();
         }
         else if (InputManager.instance.SpawnCell4Input)
         {
-            activeCellSpawing = ActiveCell.spawner;
+            if (activeCellSpawing == ActiveCell.spawner) activeCellSpawing = ActiveCell.none;
+            else activeCellSpawing = ActiveCell.spawner;
+
+            InputManager.instance.UseSpawnCell4Input();
         }
     }
 
     private void SpawnCell()
     {
+        if (spawnCooldown || activeCellSpawing == ActiveCell.none) return;
+
         Vector2 spawnPos = GetSpawnPosition();
         var cellObj = Instantiate(cells[activeCellSpawing], spawnPos, Quaternion.identity);
         var cell = cellObj.GetComponent<Cell>();
+
+        spawnCooldown = true;
+
+        StartCoroutine(Cooldown(cell.spawnCooldown));
     }
 
     private Vector2 GetSpawnPosition()
@@ -91,6 +104,13 @@ public class CellSpawner : MonoBehaviour
 
         return positions[chosenPosition].position;
     }
+
+    private IEnumerator Cooldown(float cooldown)
+    {
+        yield return new WaitForSecondsRealtime(cooldown);
+
+        spawnCooldown = false;
+    }
 }
 
 public enum ActiveCell
@@ -98,5 +118,6 @@ public enum ActiveCell
     basic,
     bomb,
     ranged,
-    spawner
+    spawner,
+    none
 }
