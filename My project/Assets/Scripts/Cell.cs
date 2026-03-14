@@ -184,6 +184,7 @@ public class Cell:MonoBehaviour
         
         if(HP<=0)
         {
+            // death anim
             Remove();
         }
     }

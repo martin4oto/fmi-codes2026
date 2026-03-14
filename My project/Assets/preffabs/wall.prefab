@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8265224334782825256}
   m_Layer: 0
   m_Name: wall
-  m_TagString: Untagged
+  m_TagString: Cell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,11 +104,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a34874416543a2449bcd1bd09fe75c69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasicCell
+  isEnemy: 0
   speed: 1
   range: 1
   shouldStop: 1
   DMG: 1
   maxHP: 50
+  spawnCooldown: 0
+  targettingRange: 0
+  info: 
   TEST: 0
   TEST2: 0
   maxShootingTimer: 10

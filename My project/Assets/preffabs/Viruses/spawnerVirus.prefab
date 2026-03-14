@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2109727960122548684}
   m_Layer: 0
   m_Name: spawnerVirus
-  m_TagString: Untagged
+  m_TagString: Virus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,6 +111,8 @@ MonoBehaviour:
   DMG: 0
   maxHP: 20
   spawnCooldown: 2
+  targettingRange: 0
+  info: 
   TEST: 0
   TEST2: 0
   maxShootingTimer: 5
