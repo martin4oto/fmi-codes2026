@@ -56,7 +56,7 @@ public class CellManager : MonoBehaviour
     public void AddVirus(Cell cell)
     {
         cell.isEnemy = true;
-        cells.Add(cell);
+        viruses.Add(cell);
     }
 
     void RetargetCells()
@@ -68,7 +68,6 @@ public class CellManager : MonoBehaviour
 
         foreach(Cell cell in viruses)
         {
-            cell.TryToTargetCell();
             cell.TryToStopMoving();
         }
     }
