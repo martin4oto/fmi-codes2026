@@ -26,12 +26,8 @@ public class Cell:MonoBehaviour
     int nodeIndex;
     bool pathMovement;
     Vector3 realEndPoint;
-    public bool TEST;
-    public bool TEST2;
-    public Vector2 coords;
-    public Transform objectToFollow;
+    Transform objectToFollow;
     float followTolerance = 0.25f;
-    public GameObject fasdasd;
 
     void Start()
     {
@@ -40,28 +36,18 @@ public class Cell:MonoBehaviour
     float currentShootingTimer = 0;
     protected void Update()
     {
-        if (TEST)
-        {
-            TEST = false;
-            Move(coords);
-        }
-        if (TEST2)
-        {
-            TEST2 = false;
-            Follow(fasdasd.transform);
-        }
-
         if (hasMoveCommand)
         {
             MoveStep();
         }
-        else if (objectToFollow != null)
+
+        if (objectToFollow != null)
         {
             if (Vector2.Distance(transform.position, objectToFollow.position) <= followTolerance)
             {
                 Arrive(objectToFollow);
                 objectToFollow = null;          
-            }else{
+            }else if (!hasMoveCommand){
                 Move(objectToFollow.position);
             }
         }
@@ -79,10 +65,10 @@ public class Cell:MonoBehaviour
                 if (WallRaycast(realEndPoint)){
                     nodeIndex++;
                     moveStartPoint = transform.position;
-                    moveEndPoint = new Vector2(path[nodeIndex].x*PathManager.instance.gridOffset, path[nodeIndex].y*PathManager.instance.gridOffset);
+                    moveEndPoint = new Vector2(path[nodeIndex].x * PathManager.instance.gridOffset, path[nodeIndex].y * PathManager.instance.gridOffset);
                     float distance = Vector3.Distance(moveStartPoint, moveEndPoint);
                     currentTime = 0;
-                    timeToArive = distance/speed;
+                    timeToArive = distance / speed;
                 }
                 else
                 {
