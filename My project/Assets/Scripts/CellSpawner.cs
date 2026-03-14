@@ -22,27 +22,25 @@ public class CellSpawner : MonoBehaviour
     public TMP_Text info;
 
     private bool spawnCooldown = false;
+    ActiveCell activeCellSpawing = ActiveCell.none;
 
     private void Update()
     {
-        var cellType = ActiveCell.none;
-        cellType = DetermineCellSpawnType();
-        if (cellType == ActiveCell.none) return;
+        activeCellSpawing = DetermineCellSpawnType();
+        if (activeCellSpawing == ActiveCell.none) return;
 
-        SpawnCell(cellType);
+        SpawnCell();
 
-        PrintCellInfo(cellType);
+        PrintCellInfo();
     }
 
-    private void PrintCellInfo(ActiveCell cellType)
+    private void PrintCellInfo()
     { 
-        info.text = cells[cellType].info;
+        if (info) info.text = cells[activeCellSpawing].info;
     }
 
     private ActiveCell DetermineCellSpawnType()
     {
-        ActiveCell activeCellSpawing = ActiveCell.none;
-
         if (InputManager.instance.SpawnCell1Input)
         {
             if (activeCellSpawing == ActiveCell.basic) activeCellSpawing = ActiveCell.none;
@@ -75,12 +73,12 @@ public class CellSpawner : MonoBehaviour
         return activeCellSpawing;
     }
 
-    private void SpawnCell(ActiveCell cellType)
+    private void SpawnCell()
     {
         if (spawnCooldown) return;
 
         Vector2 spawnPos = GetSpawnPosition();
-        var cellObj = Instantiate(cells[cellType], spawnPos, Quaternion.identity);
+        var cellObj = Instantiate(cells[activeCellSpawing], spawnPos, Quaternion.identity);
         var cell = cellObj.GetComponent<Cell>();
         CellManager.instance.AddCell(cell);
 

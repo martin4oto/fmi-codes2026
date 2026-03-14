@@ -3113,7 +3113,7 @@ MonoBehaviour:
       Value: {fileID: 8994169189388588480, guid: 9e6ce303de83c3e4385cbc7fe5006dda, type: 3}
     - Key: 3
       Value: {fileID: 2109727960122548684, guid: aaabfca850e5235438d3835678410c5b, type: 3}
-  info: {fileID: 0}
+  info: {fileID: 1583944512}
 --- !u!1 &1133935139
 GameObject:
   m_ObjectHideFlags: 0
