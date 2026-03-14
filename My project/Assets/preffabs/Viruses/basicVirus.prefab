@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5925341854248251434}
   - component: {fileID: 7762399635710887053}
   - component: {fileID: 2973878300931970598}
+  - component: {fileID: -1467664923576653789}
   m_Layer: 0
   m_Name: basicVirus
   m_TagString: Virus
@@ -116,3 +117,39 @@ MonoBehaviour:
   TEST: 0
   TEST2: 0
   maxShootingTimer: 5
+--- !u!58 &-1467664923576653789
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7568621363967411955}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: -0.0018865615}
+  m_Radius: 0.4641529

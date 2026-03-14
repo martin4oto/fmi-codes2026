@@ -8,11 +8,13 @@ public class BrainManager : MonoBehaviour
 
     public Event gameOver;
 
-    [SerializeField]
-    private float hp;
+    private Animator animator;
 
     [SerializeField]
+    private float hp;
+    [SerializeField]
     private Slider hpBar;
+
 
     private void Awake()
     {
@@ -20,6 +22,13 @@ public class BrainManager : MonoBehaviour
 
         hpBar.maxValue = hp;
         hpBar.value = hp;
+
+        animator = GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        LookDirection();
     }
 
     public void TakeDamage(float damage)
@@ -33,5 +42,61 @@ public class BrainManager : MonoBehaviour
     private void Die()
     {
         //die
+    }
+
+    private void LookDirection()
+    {
+        Vector2 direction = Vector2.zero;
+        Vector2 mousePos = InputManager.instance.MouseRelativeToBrainPosition;
+
+        direction.x = Mathf.Sign(mousePos.x);
+        direction.y = Mathf.Sign(mousePos.y);
+
+        if (direction.x < 0)
+        {
+            if (direction.y < 0)
+            {
+                TurnOffAnimationBools();
+                animator.SetBool("down", true);
+            }
+            else
+            {
+                TurnOffAnimationBools();
+                animator.SetBool("left", true);
+            }
+        }
+        else
+        {
+            if (direction.y < 0)
+            {
+                TurnOffAnimationBools();
+                animator.SetBool("right", true);
+            }
+            else
+            {
+                TurnOffAnimationBools();
+                animator.SetBool("up", true);
+            }
+        }
+    }
+
+    private void TurnOffAnimationBools()
+    {
+        animator.SetBool("down", false);
+        animator.SetBool("up", false);
+        animator.SetBool("left", false);
+        animator.SetBool("right", false);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        var cell = collision.gameObject.GetComponent<Cell>();
+
+        if (cell.isEnemy)
+        {
+            TakeDamage(cell.DMG);
+
+            CellManager.instance.RemoveCell(cell);
+        }
     }
 }
