@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5925341854248251434}
   - component: {fileID: 7762399635710887053}
   - component: {fileID: 2973878300931970598}
+  - component: {fileID: 996833481805774076}
   m_Layer: 0
   m_Name: basicCell
   m_TagString: Cell
@@ -82,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -4764144828633596833, guid: cf1b2ce4e01cbfb4a823a5f374f3b0b4, type: 3}
+  m_Sprite: {fileID: -4342919006506353340, guid: 32bbebee43d8e7c4480648fe1765639d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -113,6 +114,26 @@ MonoBehaviour:
   spawnCooldown: 0.5
   targettingRange: 0
   info: this is my fav dude
-  TEST: 0
-  TEST2: 0
   maxShootingTimer: 5
+--- !u!95 &996833481805774076
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7568621363967411955}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 38547341cc371e842856cf19c876f001, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

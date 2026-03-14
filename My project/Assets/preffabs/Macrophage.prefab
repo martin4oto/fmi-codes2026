@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 5925341854248251434}
   - component: {fileID: 7762399635710887053}
   - component: {fileID: 2973878300931970598}
+  - component: {fileID: -132740422826413185}
   m_Layer: 0
-  m_Name: rangedCell
+  m_Name: Macrophage
   m_TagString: Cell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -5224213809551210856, guid: a2d02a58852fb0c4bac90f639dfc29c6, type: 3}
+  m_Sprite: {fileID: -4078459539708628222, guid: e46f6db5670be784486c35620dee77f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,14 +106,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasicCell
   isEnemy: 0
-  speed: 1
-  range: 4
+  speed: 0.2
+  range: 3
   shouldStop: 1
-  DMG: 1
-  maxHP: 8
+  DMG: 3
+  maxHP: 10
   spawnCooldown: 1
   targettingRange: 0
-  info: 
-  TEST: 0
-  TEST2: 0
+  info: Macrophages are the immune system's first line of defense. They engulf invaders,
+    boiling them to death in an acid bath.
   maxShootingTimer: 5
+--- !u!95 &-132740422826413185
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7568621363967411955}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ff7dd32da74e680458126ac35fb91231, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

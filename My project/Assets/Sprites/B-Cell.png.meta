@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: e46f6db5670be784486c35620dee77f3
+guid: 1b348bb0a44200c419942e9a961105d3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4078459539708628222
-    second: macrophage_0
+      213: 1884039813875380099
+    second: B-Cell_0
   - first:
-      213: 6585243395080054887
-    second: macrophage_1
+      213: -2456850144043122767
+    second: B-Cell_1
   - first:
-      213: -8647002966012834707
-    second: macrophage_2
+      213: 4100561453767843385
+    second: B-Cell_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -106,45 +106,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: macrophage_0
+      name: B-Cell_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 64
-        height: 64
+        y: 12
+        width: 65
+        height: 44
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2033dd048a66667c0800000000000000
-      internalID: -4078459539708628222
+      spriteID: 38f2cb88a34752a10800000000000000
+      internalID: 1884039813875380099
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: macrophage_1
+      name: B-Cell_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
+        x: 66
+        y: 9
+        width: 59
+        height: 50
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 768eb3b4afb736b50800000000000000
-      internalID: 6585243395080054887
+      spriteID: 1bf31f99fc387edd0800000000000000
+      internalID: -2456850144043122767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B-Cell_2
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 4
+        width: 45
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93edd7f9aee18e830800000000000000
+      internalID: 4100561453767843385
       vertices: []
       indices: 
       edges: []
@@ -153,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 805d6889520504346857edef0af048b7
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -161,12 +183,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      macrophage_0: -4078459539708628222
-      macrophage_1: 6585243395080054887
+      B-Cell_0: 1884039813875380099
+      B-Cell_1: -2456850144043122767
+      B-Cell_2: 4100561453767843385
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
