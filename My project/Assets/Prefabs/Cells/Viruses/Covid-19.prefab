@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: -1467664923576653789}
   - component: {fileID: -6529428089968464563}
   - component: {fileID: 5356743561409692766}
-  - component: {fileID: -688050164977071681}
+  - component: {fileID: 7075498874252331680}
+  - component: {fileID: -7300391275397613602}
   m_Layer: 0
-  m_Name: Bomb
+  m_Name: Covid-19
   m_TagString: Virus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +64,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 2ba24453d0f1f6d45958fef8222673e9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86,7 +87,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 2092455182, guid: 4908f991723b9f840a6f999a7c34357a, type: 3}
+  m_Sprite: {fileID: 1274070710492166193, guid: eb3d35d977b904b44811ed3154a50ab1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -110,10 +111,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BasicCell
   isEnemy: 1
   speed: 1
-  range: 5
+  range: 1
   shouldStop: 1
   DMG: 1
   maxHP: 5
+  dnaDrop: 2
   spawnCooldown: 0
   targettingRange: 0
   info: 
@@ -191,7 +193,7 @@ Animator:
   m_GameObject: {fileID: 7568621363967411955}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 151802dff3505a14ea86163d2b246df1, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6d6b3abf3d155af468c098164774f673, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -203,7 +205,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-688050164977071681
+--- !u!114 &7075498874252331680
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -212,16 +214,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 7568621363967411955}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fad10f39d2bb0524fabd696fa2fefa1c, type: 3}
+  m_Script: {fileID: 11500000, guid: 72c551c07dfbfc549a711d84d72efc7e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Bomb
-  isEnemy: 1
-  speed: 0.3
-  range: 2
-  shouldStop: 0
-  DMG: 50
-  maxHP: 0
-  spawnCooldown: 1
-  targettingRange: 0
-  info: 
-  bombUpdateTimer: 5
+  m_EditorClassIdentifier: Assembly-CSharp::SquashAndStretch
+  animationTime: 0.1
+  timer: 0
+  strenght: 0.1
+  half: 0
+  xScale: 0
+  yScale: 0
+  baseScale: {x: 0, y: 0, z: 0}
+  triggerOnClick: 0
+--- !u!114 &-7300391275397613602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7568621363967411955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 758fe8f72e40c834f9fd137823c5d2d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteBlink
+  blinkDecaySpeed: 6
+  spriteRenderers: []
