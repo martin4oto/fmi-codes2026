@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class WaveManager : MonoBehaviour
@@ -19,6 +20,9 @@ public class WaveManager : MonoBehaviour
     private List<Transform> spawnPointsLeftDown;
     [SerializeField]
     private List<Transform> spawnPointsRightDown;
+    
+    [SerializeField]
+    private List<Transform> spawnPoints;
 
     private void Awake()
     {
@@ -31,36 +35,22 @@ public class WaveManager : MonoBehaviour
     private void StartNextWave()
     {
         StartCoroutine(WaitBetweenWaves());
+        
+        foreach (var (key, value) in waves[waveNumber].waveStats)
+        {
+            VirusType typeToSpawn = key;
+            int numberToSpawn = value;
 
-        int enemiesSpawned = 0;
-        int totalViruses = waves[waveNumber].GetTotalViruses();
-        
-        int directionToFavor = Random.Range(0, 3);
-        
-        int enemiesPerDirectionLeftUp = Random.Range(0, totalViruses / 4);
-        enemiesSpawned += enemiesPerDirectionLeftUp;
-        
-        int enemiesPerDirectionRightUp = Random.Range(0, totalViruses - enemiesSpawned);
-        enemiesSpawned += enemiesPerDirectionRightUp;
-        
-        int enemiesPerDirectionLeftDown = Random.Range(0, totalViruses - enemiesSpawned);
-        enemiesSpawned +=  enemiesPerDirectionLeftDown;
-        
-        int enemiesPerDirectionRightDown = Random.Range(0, totalViruses - enemiesSpawned);
-        enemiesSpawned += enemiesPerDirectionRightDown;
-
-        if (directionToFavor == 0) enemiesPerDirectionLeftUp += totalViruses - enemiesSpawned;
-        if (directionToFavor == 1) enemiesPerDirectionRightUp += totalViruses - enemiesSpawned;
-        if (directionToFavor == 2) enemiesPerDirectionLeftDown += totalViruses - enemiesSpawned;
-        if (directionToFavor == 3) enemiesPerDirectionRightDown += totalViruses - enemiesSpawned;
+            for (int j = 0; j < numberToSpawn; j++)
+            { 
+                int transformChosen = Random.Range(0, spawnPoints.Count);
+                    
+                var virusObj = Instantiate(waves[waveNumber].virusPrefabs[typeToSpawn], spawnPoints[transformChosen]);
+                CellManager.instance.AddVirus(virusObj.GetComponent<Cell>());
+            }
+        }
         
         waveNumber++;
-        
-        Debug.Log(enemiesSpawned);
-        Debug.Log(enemiesPerDirectionLeftUp);
-        Debug.Log(enemiesPerDirectionRightUp);
-        Debug.Log(enemiesPerDirectionLeftDown);
-        Debug.Log(enemiesPerDirectionRightDown);
     }
 
     public void Start()
@@ -72,4 +62,12 @@ public class WaveManager : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(10f);
     }
+}
+
+public enum VirusType
+{
+    basic,
+    bomb,
+    ranged,
+    spawner
 }
