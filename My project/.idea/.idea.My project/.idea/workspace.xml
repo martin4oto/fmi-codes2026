@@ -6,11 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5037161f-2419-4332-9f77-9824df46972a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.My project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.My project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/CrossfadeStart.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/CrossfadeStart.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/LevelLoaderTransition.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/LevelLoaderTransition.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CellTestScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CellTestScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MenuManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MenuManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +27,9 @@
     &quot;accountId&quot;: &quot;b882c013-a64f-497e-805f-af5a619890ca&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Waves/Wave.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -106,6 +104,7 @@
       <workItem from="1773429988961" duration="3491000" />
       <workItem from="1773438463932" duration="960000" />
       <workItem from="1773439877727" duration="585000" />
+      <workItem from="1773474630837" duration="1031000" />
     </task>
     <servers />
   </component>
