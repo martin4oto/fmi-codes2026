@@ -31,6 +31,13 @@ public class BrainManager : MonoBehaviour
     private void Update()
     {
         LookDirection();
+
+        if (InputManager.instance.TestInput)
+        {
+            var blink = GetComponent<SpriteBlink>();
+            if (blink) blink.Blink();
+            InputManager.instance.UseTestInput();
+        }
     }
 
     public void TakeDamage(float damage)
@@ -38,6 +45,10 @@ public class BrainManager : MonoBehaviour
         hp -= damage;
         hpBar.value = hp;
         AudioManager.PlaySFX("burp");
+
+        var blink = GetComponent<SpriteBlink>();
+        if (blink) blink.Blink();
+
         if (hp <= 0) Die();
     }
 
