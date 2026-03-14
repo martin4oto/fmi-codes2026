@@ -40,6 +40,7 @@ public class Cell:MonoBehaviour
     protected SquashAndStretch squashAndStretch;
     public GameObject destroyParticles;
     public bool goForBrain;
+
     void Start()
     {
         squashAndStretch = GetComponent<SquashAndStretch>();
