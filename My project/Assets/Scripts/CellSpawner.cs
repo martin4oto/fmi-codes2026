@@ -1,3 +1,4 @@
+using AYellowpaper.SerializedCollections;
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,8 @@ public class CellSpawner : MonoBehaviour
     private List<Transform> leftSpawnLocations;
     [SerializeField]
     private List<Transform> rightSpawnLocations;
+    [SerializedDictionary("Cell Type", "Prefab")]
+    public SerializedDictionary<string, Cell> cells;
 
     private void Update()
     {
