@@ -28,7 +28,6 @@ public class GameManager : MonoBehaviour
         DNA++;
         yield return new WaitForSeconds(1f / dnaGenerationPerSecond);
 
-        Debug.Log(DNA);
         GenerateDNA();
     }
 

@@ -81,6 +81,7 @@ public class CellSpawner : MonoBehaviour
         var cellObj = Instantiate(cells[activeCellSpawing], spawnPos, Quaternion.identity);
         var cell = cellObj.GetComponent<Cell>();
         CellManager.instance.AddCell(cell);
+        AudioManager.PlaySFX("shsh");
 
         spawnCooldown = true;
 
@@ -102,6 +103,12 @@ public class CellSpawner : MonoBehaviour
             if (direction.y < 0) spawnPos = DetermineSpawnLocation(fourthCornerSpawnLocations);
             else spawnPos = DetermineSpawnLocation(secondCornerSpawnLocations);
         }
+
+        Vector2 offset = Vector2.zero;
+        offset.x = Random.Range(-0.2f, 0.2f);
+        offset.y = Random.Range(-0.2f, 0.2f);
+
+        spawnPos += offset;
 
         return spawnPos;
     }
