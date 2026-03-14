@@ -116,7 +116,7 @@ MonoBehaviour:
   targettingRange: 0
   info: Macrophages are the body's first line of defense, engulfing the invader and
     destroying them.
-  maxShootingTimer: 5
+  maxShootingTimer: 1.5
 --- !u!95 &-132740422826413185
 Animator:
   serializedVersion: 7

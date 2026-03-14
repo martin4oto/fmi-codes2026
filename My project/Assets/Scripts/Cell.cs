@@ -10,7 +10,7 @@ public class Cell:MonoBehaviour
     internal bool isEnemy;
     
     internal bool alreadyTargetted;
-    internal bool isShooting = true;
+    internal bool isShooting;
 
     [Header("Stats")]
     public float speed;
@@ -37,6 +37,7 @@ public class Cell:MonoBehaviour
 
     void Start()
     {
+        HP = maxHP;
         alreadyTargetted = false;
 
         if (isEnemy)
@@ -226,9 +227,9 @@ public class Cell:MonoBehaviour
         for(int i = 0; i<foes.Length; i++)
         {
             Cell current = foes[i].GetComponent<Cell>();
-            float currentdistance = Vector3.Distance(current.transform.position, transform.position);
+            float currentDistance = Vector2.Distance(current.transform.position, transform.position);
 
-            if(currentdistance<_range)
+            if(currentDistance<_range)
             {
                 if(!current.alreadyTargetted)
                 {
@@ -261,7 +262,6 @@ public class Cell:MonoBehaviour
 
     internal void Remove()
     {
-         Debug.Log("remove: " + isEnemy);
         if(!isEnemy)
         {
             CellManager.instance.RemoveCell(this);
@@ -298,10 +298,13 @@ public class Cell:MonoBehaviour
             StopMoving();
             isShooting = true;
         }
-        
-        if(isShooting)
+        else
         {
             isShooting = false;
+        }
+        
+        if(!isShooting)
+        {
             if(isEnemy)
             {
                 EnemyDefault();

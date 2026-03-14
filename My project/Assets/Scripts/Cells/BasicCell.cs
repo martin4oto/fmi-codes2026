@@ -7,22 +7,25 @@ public class BasicCell:Cell
     Cell foe;
 
     float currentShootingTimer = 0;
-    void Update()
+    new void Update()
     {
         base.Update();
-        if(isShooting)
+
+        if (currentShootingTimer < maxShootingTimer)
         {
             currentShootingTimer+=Time.deltaTime;
+        }
+        if(isShooting)
+        {
             if(currentShootingTimer>=maxShootingTimer)
             {
                 GameObject[] foes = FindFoe();
                 TryToShoot(foes);
                 currentShootingTimer = 0;
             }
-        }
-        else
+        }else if (objectToFollow == null)
         {
-            currentShootingTimer = maxShootingTimer + 1;
+            Wander();
         }
     }
     void TryToShoot(GameObject[] foes)

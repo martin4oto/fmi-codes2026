@@ -111,7 +111,7 @@ MonoBehaviour:
   range: 6
   shouldStop: 1
   DMG: 0
-  maxHP: 20
+  maxHP: 3
   spawnCooldown: 2
   targettingRange: 0
   info: They are the body's factory for antibodies.
