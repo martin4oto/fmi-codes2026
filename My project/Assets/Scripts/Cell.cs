@@ -1,9 +1,6 @@
 using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
-using UnityEngine.UIElements;
-using NUnit.Framework;
-using System.Net.Security;
 
 public class Cell:MonoBehaviour
 {
@@ -22,6 +19,7 @@ public class Cell:MonoBehaviour
     public int DMG;
     public int maxHP;
     public float spawnCooldown;
+    public string info;
 
     float timeToArive;
     float currentTime;
