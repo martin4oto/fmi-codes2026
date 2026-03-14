@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7762399635710887053}
   - component: {fileID: 2973878300931970598}
   m_Layer: 0
-  m_Name: basicCell
+  m_Name: basicVirus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,8 +82,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -4764144828633596833, guid: cf1b2ce4e01cbfb4a823a5f374f3b0b4, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Color: {r: 0.85660374, g: 0.21172658, b: 0.21172658, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -104,14 +104,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a34874416543a2449bcd1bd09fe75c69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasicCell
-  isEnemy: 0
-  speed: 1
+  isEnemy: 1
+  speed: 2
   range: 1
   shouldStop: 1
-  DMG: 1
-  maxHP: 10
-  spawnCooldown: 0.5
-  info: this is my fav dude
+  DMG: 3
+  maxHP: 7
   TEST: 0
   TEST2: 0
   maxShootingTimer: 5

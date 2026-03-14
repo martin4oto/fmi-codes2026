@@ -1,14 +1,14 @@
 using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
-using UnityEngine.UIElements;
-using NUnit.Framework;
-using System.Net.Security;
 
 public class Cell:MonoBehaviour
 {
     int HP;
+    
+    [SerializeField]
     internal bool isEnemy;
+    
     internal bool alreadyTargetted;
     internal bool isShooting = true;
 
@@ -18,8 +18,9 @@ public class Cell:MonoBehaviour
     public bool shouldStop;
     public int DMG;
     public int maxHP;
-    public float spawnCooldown;
+    public float spawnCooldown;    
     public float targettingRange;
+    public string info;
 
     float timeToArive;
     float currentTime;

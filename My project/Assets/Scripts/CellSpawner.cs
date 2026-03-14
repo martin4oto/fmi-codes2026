@@ -2,6 +2,7 @@ using AYellowpaper.SerializedCollections;
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -17,14 +18,28 @@ public class CellSpawner : MonoBehaviour
     private List<Transform> fourthCornerSpawnLocations;
     [SerializedDictionary("Cell Type", "Prefab")]
     public AYellowpaper.SerializedCollections.SerializedDictionary<ActiveCell, Cell> cells;
+    [SerializeField]
+    public TMP_Text info;
 
     private ActiveCell activeCellSpawing;
     private bool spawnCooldown = false;
 
     private void Update()
     {
+        DetermineCellSpawnType();
+
         SpawnCell();
 
+        PrintCellInfo(cells[activeCellSpawing]);
+    }
+
+    private void PrintCellInfo(Cell cell)
+    { 
+        info.text = cell.info;
+    }
+
+    private void DetermineCellSpawnType()
+    {
         if (InputManager.instance.SpawnCell1Input)
         {
             if (activeCellSpawing == ActiveCell.basic) activeCellSpawing = ActiveCell.none;
@@ -62,6 +77,7 @@ public class CellSpawner : MonoBehaviour
         Vector2 spawnPos = GetSpawnPosition();
         var cellObj = Instantiate(cells[activeCellSpawing], spawnPos, Quaternion.identity);
         var cell = cellObj.GetComponent<Cell>();
+        CellManager.instance.AddCell(cell);
 
         spawnCooldown = true;
 
