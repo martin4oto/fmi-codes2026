@@ -22,6 +22,7 @@ public class Cell:MonoBehaviour
     public float spawnCooldown;    
     public float targettingRange;
     public string info;
+    public bool unblockRetargeting;
     float wanderDelay;
 
     float timeToArive;
@@ -33,11 +34,10 @@ public class Cell:MonoBehaviour
     int nodeIndex;
     bool pathMovement;
     Vector3 realEndPoint;
-    protected Transform objectToFollow;
+    public Transform objectToFollow;
     float followTolerance = 0.25f;
     protected SquashAndStretch squashAndStretch;
     public GameObject destroyParticles;
-
     void Start()
     {
         squashAndStretch = GetComponent<SquashAndStretch>();
@@ -277,6 +277,14 @@ public class Cell:MonoBehaviour
         if(!isEnemy)
         {
             CellManager.instance.RemoveCell(this);
+            if (transform.childCount != 0)
+            {
+                for (int i = transform.childCount-1; i >= 0; i--)
+                {
+                    Cell childCell = transform.GetChild(i).GetComponent<Cell>();
+                    if (childCell != null) childCell.Remove();
+                }
+            }
         }
         else
         {
@@ -313,7 +321,7 @@ public class Cell:MonoBehaviour
             isShooting = false;
         }
         
-        if(!isShooting && objectToFollow == null)
+        if((!isShooting || unblockRetargeting) && objectToFollow == null)
         {
             Cell target;
             if(isEnemy)

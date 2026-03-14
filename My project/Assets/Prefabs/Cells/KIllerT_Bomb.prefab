@@ -111,7 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Bomb
   isEnemy: 0
   speed: 3
-  range: 3
+  range: 1.5
   shouldStop: 0
   DMG: 10
   maxHP: 5
@@ -120,6 +120,8 @@ MonoBehaviour:
   targettingRange: 0
   info: Killer T cells explode, sometimes so violently that they damage the body's
     cells.
+  unblockRetargeting: 1
+  objectToFollow: {fileID: 0}
   destroyParticles: {fileID: 6511266191057373623, guid: 74835e3ddb04e184885a525feaec0acd, type: 3}
   bombUpdateTimer: 0.1
 --- !u!50 &-7150286184478645347

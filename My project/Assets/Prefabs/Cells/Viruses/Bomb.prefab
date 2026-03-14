@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5925341854248251434}
   - component: {fileID: 7762399635710887053}
-  - component: {fileID: 2973878300931970598}
   - component: {fileID: -1467664923576653789}
   - component: {fileID: -6529428089968464563}
   - component: {fileID: 5356743561409692766}
   - component: {fileID: -688050164977071681}
   - component: {fileID: -31719475597585662}
+  - component: {fileID: 4206558402626490989}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Virus
@@ -88,7 +88,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1507657386085524403, guid: 2a1ad2877be32c04eb4e038bb540e03d, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.504717, b: 0.504717, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -97,30 +97,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &2973878300931970598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7568621363967411955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a34874416543a2449bcd1bd09fe75c69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BasicCell
-  isEnemy: 1
-  speed: 1
-  range: 1
-  shouldStop: 1
-  DMG: 1
-  maxHP: 5
-  dnaDrop: 0
-  spawnCooldown: 0
-  targettingRange: 0
-  info: 
-  destroyParticles: {fileID: 6511266191057373623, guid: 74835e3ddb04e184885a525feaec0acd, type: 3}
-  maxShootingTimer: 5
 --- !u!58 &-1467664923576653789
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -219,17 +195,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bomb
   isEnemy: 1
-  speed: 0.3
-  range: 2
+  speed: 2.5
+  range: 1
   shouldStop: 0
-  DMG: 50
-  maxHP: 0
+  DMG: 5
+  maxHP: 5
   dnaDrop: 0
-  spawnCooldown: 1
-  targettingRange: 0
-  info: 
-  destroyParticles: {fileID: 0}
-  bombUpdateTimer: 5
+  spawnCooldown: 0
+  targettingRange: 4
+  info: Killer T cells explode, sometimes so violently that they damage the body's
+    cells.
+  unblockRetargeting: 1
+  objectToFollow: {fileID: 0}
+  destroyParticles: {fileID: 6511266191057373623, guid: 74835e3ddb04e184885a525feaec0acd, type: 3}
+  bombUpdateTimer: 0.1
 --- !u!114 &-31719475597585662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,3 +223,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpriteBlink
   blinkDecaySpeed: 7
   spriteRenderers: []
+--- !u!114 &4206558402626490989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7568621363967411955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c551c07dfbfc549a711d84d72efc7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SquashAndStretch
+  animationTime: 0.1
+  timer: 0
+  strenght: 0.1
+  half: 0
+  xScale: 0
+  yScale: 0
+  baseScale: {x: 0, y: 0, z: 0}
+  triggerOnClick: 0
