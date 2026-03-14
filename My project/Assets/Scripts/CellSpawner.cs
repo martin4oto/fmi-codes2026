@@ -19,14 +19,15 @@ public class CellSpawner : MonoBehaviour
 
         if (InputManager.instance.TestInput)
         {
-            GetSpawnPosition();
+            Debug.Log(InputManager.instance.MouseRelativeToBrainPosition);
+            Debug.Log(CalculateSpawnDirection());
             InputManager.instance.UseTestInput();
         }
     }
 
     private void SpawnCell()
     {
-
+        
     }
 
     private Vector2 GetSpawnPosition()
