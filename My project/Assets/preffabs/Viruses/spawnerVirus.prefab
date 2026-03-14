@@ -112,6 +112,7 @@ MonoBehaviour:
   shouldStop: 1
   DMG: 0
   maxHP: 20
+  dnaDrop: 4
   spawnCooldown: 2
   targettingRange: 0
   info: 

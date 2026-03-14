@@ -113,10 +113,10 @@ MonoBehaviour:
   shouldStop: 1
   DMG: 50
   maxHP: 50
+  dnaDrop: 2
   spawnCooldown: 0
   targettingRange: 0
   info: 
-  alwaysShoot: 1
   maxShootingTimer: 5
 --- !u!58 &-1467664923576653789
 CircleCollider2D:

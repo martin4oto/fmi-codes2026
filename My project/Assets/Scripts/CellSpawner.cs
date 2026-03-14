@@ -103,6 +103,12 @@ public class CellSpawner : MonoBehaviour
             else spawnPos = DetermineSpawnLocation(secondCornerSpawnLocations);
         }
 
+        Vector2 offset = Vector2.zero;
+        offset.x = Random.Range(-0.2f, 0.2f);
+        offset.y = Random.Range(-0.2f, 0.2f);
+
+        spawnPos += offset;
+
         return spawnPos;
     }
 
