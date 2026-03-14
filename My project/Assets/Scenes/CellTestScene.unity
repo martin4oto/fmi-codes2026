@@ -2254,7 +2254,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5224213809551210856, guid: a2d02a58852fb0c4bac90f639dfc29c6, type: 3}
+  m_Sprite: {fileID: -4078459539708628222, guid: e46f6db5670be784486c35620dee77f3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2329,7 +2329,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -4598777570521938640, guid: c33577d8754340049a4cac35f264a431, type: 3}
+  m_Sprite: {fileID: -1507657386085524403, guid: 2a1ad2877be32c04eb4e038bb540e03d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3920,7 +3920,7 @@ GameObject:
   - component: {fileID: 1322874316}
   - component: {fileID: 1322874317}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5588,7 +5588,7 @@ GameObject:
   - component: {fileID: 1951305975}
   - component: {fileID: 1951305974}
   m_Layer: 5
-  m_Name: ranged
+  m_Name: tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

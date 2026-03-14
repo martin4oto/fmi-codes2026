@@ -1,16 +1,19 @@
 fileFormatVersion: 2
-guid: b57fc0dfb1fe1264495a248bd8ed91cb
+guid: eb3d35d977b904b44811ed3154a50ab1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -91240058822551495
-    second: Rabbies_0
+      213: 1274070710492166193
+    second: Covid-19_0
   - first:
-      213: 4885552414319271284
-    second: Rabbies_1
+      213: -7621504834677439584
+    second: Covid-19_1
   - first:
-      213: 9179531370871491192
-    second: Rabbies_2
+      213: 945368154423632729
+    second: Covid-19_2
+  - first:
+      213: -489667376001776737
+    second: Covid-19_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -106,57 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Rabbies_0
+      name: Covid-19_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 6
-        width: 47
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 938989066a9dbbef0800000000000000
-      internalID: -91240058822551495
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rabbies_1
-      rect:
-        serializedVersion: 2
-        x: 69
-        y: 6
-        width: 47
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 47d5d0b3908fcc340800000000000000
-      internalID: 4885552414319271284
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rabbies_2
-      rect:
-        serializedVersion: 2
-        x: 132
+        x: 3
         y: 5
-        width: 48
-        height: 50
+        width: 57
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,8 +124,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 87a8955852f346f70800000000000000
-      internalID: 9179531370871491192
+      spriteID: 1387d959f886ea110800000000000000
+      internalID: 1274070710492166193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Covid-19_1
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 4
+        width: 59
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a3012bbbb9fa3690800000000000000
+      internalID: -7621504834677439584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Covid-19_2
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 3
+        width: 59
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9532362e35f9e1d00800000000000000
+      internalID: 945368154423632729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Covid-19_3
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 3
+        width: 57
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f93015bad1a5439f0800000000000000
+      internalID: -489667376001776737
       vertices: []
       indices: 
       edges: []
@@ -185,9 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Rabbies_0: -91240058822551495
-      Rabbies_1: 4885552414319271284
-      Rabbies_2: 9179531370871491192
+      Covid-19_0: 1274070710492166193
+      Covid-19_1: -7621504834677439584
+      Covid-19_2: 945368154423632729
+      Covid-19_3: -489667376001776737
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
