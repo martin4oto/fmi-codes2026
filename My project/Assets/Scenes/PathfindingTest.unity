@@ -286,11 +286,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a017c0335a6036847986474bbc4f592d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cell
+  isEnemy: 0
   speed: 0.5
   range: 0
   shouldStop: 0
   DMG: 0
   maxHP: 0
+  spawnCooldown: 0
+  targettingRange: 0
+  info: 
   TEST: 0
   TEST2: 0
 --- !u!212 &727598145
@@ -454,11 +458,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a017c0335a6036847986474bbc4f592d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cell
+  isEnemy: 0
   speed: 3
   range: 0
   shouldStop: 0
   DMG: 0
   maxHP: 0
+  spawnCooldown: 0
+  targettingRange: 0
+  info: 
   TEST: 0
   TEST2: 0
 --- !u!212 &1883358588
