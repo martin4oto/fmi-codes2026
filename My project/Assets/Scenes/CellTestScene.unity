@@ -2975,6 +2975,7 @@ GameObject:
   - component: {fileID: 1117079626}
   - component: {fileID: 1117079624}
   - component: {fileID: 1117079627}
+  - component: {fileID: 1117079628}
   m_Layer: 0
   m_Name: Brain
   m_TagString: Untagged
@@ -3061,7 +3062,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 405712300743803042, guid: 7ea9a4ac4ef3a6c41bb5d001fc94661d, type: 3}
+  m_Sprite: {fileID: 9128384846270689552, guid: 3ce921edc283dbc4b94dd185e56ef6ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3114,6 +3115,28 @@ MonoBehaviour:
     - Key: 3
       Value: {fileID: 2109727960122548684, guid: aaabfca850e5235438d3835678410c5b, type: 3}
   info: {fileID: 1583944512}
+--- !u!95 &1117079628
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117079622}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dffd5265eb79cf84a9fad115475d28d7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1133935139
 GameObject:
   m_ObjectHideFlags: 0
