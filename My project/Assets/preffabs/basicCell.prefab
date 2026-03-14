@@ -104,12 +104,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a34874416543a2449bcd1bd09fe75c69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasicCell
+  isEnemy: 0
   speed: 1
   range: 1
   shouldStop: 1
   DMG: 1
   maxHP: 10
   spawnCooldown: 0.5
+  info: this is my fav dude
   TEST: 0
   TEST2: 0
   maxShootingTimer: 5

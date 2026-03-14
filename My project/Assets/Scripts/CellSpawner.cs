@@ -2,6 +2,7 @@ using AYellowpaper.SerializedCollections;
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -17,13 +18,29 @@ public class CellSpawner : MonoBehaviour
     private List<Transform> fourthCornerSpawnLocations;
     [SerializedDictionary("Cell Type", "Prefab")]
     public AYellowpaper.SerializedCollections.SerializedDictionary<ActiveCell, Cell> cells;
+    [SerializeField]
+    public TMP_Text info;
 
-    private ActiveCell activeCellSpawing;
     private bool spawnCooldown = false;
 
     private void Update()
     {
-        SpawnCell();
+        var cellType = DetermineCellSpawnType();
+        if (cellType == ActiveCell.none) return;
+
+        SpawnCell(cellType);
+
+        PrintCellInfo(cellType);
+    }
+
+    private void PrintCellInfo(ActiveCell cellType)
+    { 
+        info.text = cells[cellType].info;
+    }
+
+    private ActiveCell DetermineCellSpawnType()
+    {
+        ActiveCell activeCellSpawing = ActiveCell.none;
 
         if (InputManager.instance.SpawnCell1Input)
         {
@@ -53,15 +70,18 @@ public class CellSpawner : MonoBehaviour
 
             InputManager.instance.UseSpawnCell4Input();
         }
+
+        return activeCellSpawing;
     }
 
-    private void SpawnCell()
+    private void SpawnCell(ActiveCell cellType)
     {
-        if (spawnCooldown || activeCellSpawing == ActiveCell.none) return;
+        if (spawnCooldown) return;
 
         Vector2 spawnPos = GetSpawnPosition();
-        var cellObj = Instantiate(cells[activeCellSpawing], spawnPos, Quaternion.identity);
+        var cellObj = Instantiate(cells[cellType], spawnPos, Quaternion.identity);
         var cell = cellObj.GetComponent<Cell>();
+        CellManager.instance.AddCell(cell);
 
         spawnCooldown = true;
 
