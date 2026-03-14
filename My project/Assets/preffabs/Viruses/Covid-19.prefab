@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -1467664923576653789}
   - component: {fileID: -6529428089968464563}
   - component: {fileID: 5356743561409692766}
+  - component: {fileID: 7075498874252331680}
   m_Layer: 0
   m_Name: Covid-19
   m_TagString: Virus
@@ -109,7 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BasicCell
   isEnemy: 1
   speed: 1
-  range: 5
+  range: 1
   shouldStop: 1
   DMG: 1
   maxHP: 5
@@ -203,3 +204,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7075498874252331680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7568621363967411955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c551c07dfbfc549a711d84d72efc7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SquashAndStretch
+  animationTime: 0.1
+  timer: 0
+  strenght: 0.1
+  half: 0
+  xScale: 0
+  yScale: 0
+  baseScale: {x: 0, y: 0, z: 0}
+  triggerOnClick: 0

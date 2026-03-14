@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -7150286184478645347}
   - component: {fileID: 3519376733226923413}
   - component: {fileID: 6611089184704881972}
+  - component: {fileID: 2429374863302213454}
   m_Layer: 0
   m_Name: KIllerT_Bomb
   m_TagString: Cell
@@ -204,3 +205,23 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.016456932}
   m_Radius: 0.32202026
+--- !u!114 &2429374863302213454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6787469855367403855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c551c07dfbfc549a711d84d72efc7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SquashAndStretch
+  animationTime: 0.1
+  timer: 0
+  strenght: 0.1
+  half: 0
+  xScale: 0
+  yScale: 0
+  baseScale: {x: 0, y: 0, z: 0}
+  triggerOnClick: 1
