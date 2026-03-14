@@ -6,15 +6,10 @@ public class BasicCell:Cell
     public float maxShootingTimer;
     Cell foe;
 
-    void Start()
-    {
-        foe = FindTargetToFollow();
-        Move(foe.transform.position);
-    }
-
     float currentShootingTimer = 0;
     void Update()
     {
+        base.Update();
         if(isShooting)
         {
             currentShootingTimer+=Time.deltaTime;

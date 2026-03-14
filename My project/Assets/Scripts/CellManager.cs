@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class CellManager : MonoBehaviour
 {
-    List<Cell> cells;
-    List<Cell> viruses;
+    public List<Cell> cells;
+    public List<Cell> viruses;
 
     public static CellManager instance;
     void Awake()
@@ -23,7 +23,7 @@ public class CellManager : MonoBehaviour
     {
         if(currentTimer>=retargetTimer)
         {
-
+            RetargetCells();
             currentTimer = 0;
         }
         currentTimer += Time.deltaTime;
@@ -31,11 +31,27 @@ public class CellManager : MonoBehaviour
 
     public void RemoveVirus(Cell virus)
     {
-        //TODO
+        viruses.Remove(virus);
+
+        GameObject.Destroy(virus.gameObject);
     }
     public void RemoveCell(Cell cell)
     {
-        //TODO
+        cells.Remove(cell);
+
+        GameObject.Destroy(cell.gameObject);
+    }
+
+    public void AddCell(Cell cell)
+    {
+        cell.isEnemy = false;
+        cells.Add(cell);
+    }
+
+    public void AddVirus(Cell cell)
+    {
+        cell.isEnemy = true;
+        cells.Add(cell);
     }
 
     void RetargetCells()

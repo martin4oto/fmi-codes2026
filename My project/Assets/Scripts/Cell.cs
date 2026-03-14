@@ -3,32 +3,34 @@ using System.Linq;
 using System.Collections.Generic;
 using UnityEngine.UIElements;
 using NUnit.Framework;
+using System.Net.Security;
 
 public class Cell:MonoBehaviour
 {
     int HP;
     internal bool isEnemy;
     internal bool alreadyTargetted;
-    internal bool isShooting = false;
+    internal bool isShooting = true;
 
     [Header("Stats")]
     public float speed;
     public float range;
-    public bool canShoot;
+    public bool shouldStop;
     public int DMG;
+    public int maxHP;
 
-    public float timeToArive;
-    public float currentTime;
-    public bool hasMoveCommand;
-    public Vector3 moveStartPoint;
-    public Vector3 moveEndPoint;
+    float timeToArive;
+    float currentTime;
+    bool hasMoveCommand;
+    Vector3 moveStartPoint;
+    Vector3 moveEndPoint;
     List<Node> path;
     int nodeIndex;
     bool pathMovement;
     Vector3 realEndPoint;
     public bool TEST;
     public bool TEST2;
-    public Vector2 coords;
+    Vector2 coords;
     public Transform objectToFollow;
     float followTolerance = 0.25f;
     public GameObject fasdasd;
@@ -37,7 +39,6 @@ public class Cell:MonoBehaviour
     {
         alreadyTargetted = false;
     }
-    float currentShootingTimer = 0;
     protected void Update()
     {
         if (TEST)
@@ -183,12 +184,17 @@ public class Cell:MonoBehaviour
     public void TakeDamage(int DMG)
     {
         HP-=DMG;
-        //TODO
+        
+        if(HP<=0)
+        {
+            Remove();
+        }
     }
 
     internal Cell FindTargetToFollow()
     {
         GameObject[] foes = FindFoe();
+        if(foes.Length == 0)return null;
 
         foes = foes.OrderBy(foe => Vector3.Distance(transform.position, foe.transform.position)).ToArray();
 
@@ -240,17 +246,15 @@ public class Cell:MonoBehaviour
 
     public void TryToStopMoving()
     {
-        if(!canShoot)return;
-
         GameObject[] foes = FindFoe();
         List<Cell> inRange = GetCellsInRange(foes, range);
 
-        if(inRange.Count != 0)
+        if(inRange.Count != 0 && shouldStop)
         {
             StopMoving();
             isShooting = true;
         }
-        else
+        else if(isShooting)
         {
             isShooting = false;
             Cell foe = FindTargetToFollow();

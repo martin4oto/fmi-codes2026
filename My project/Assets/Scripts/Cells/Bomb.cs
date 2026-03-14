@@ -5,24 +5,15 @@ using UnityEngine;
 public class Bomb:Cell
 {
     public float bombUpdateTimer;
-    public float bombRange;
-    public int bombDamage;
     float currentTimer = 0;
-    void Start()
-    {
-        Transform foe = FindTargetToFollow().transform;
-
-        Move(foe.position);
-        
-        Debug.Log("start");
-    }
+    bool readyToExplode = false;
 
     void Update()
     {
         base.Update();
 
 
-        if(currentTimer>=bombUpdateTimer)
+        if(currentTimer>=bombUpdateTimer && readyToExplode)
         {
             GameObject[] foes = FindFoe();
             TryToExplode(foes);
@@ -40,7 +31,7 @@ public class Bomb:Cell
         {
             Vector3 foePosition = foes[i].transform.position;
 
-            if(Vector3.Distance(foePosition, transform.position) < bombRange)
+            if(Vector3.Distance(foePosition, transform.position) < range)
             {
                 FoesInRange.Add(foes[i]);
             }
@@ -54,14 +45,15 @@ public class Bomb:Cell
 
     void Explode(List<GameObject> foesInRange)
     {
-        Debug.Log("boom");
-
         for(int i = 0; i<foesInRange.Count; i++)
         {
             Cell foeCellScript = foesInRange[i].GetComponent<Cell>();
 
-            foeCellScript.TakeDamage(bombDamage); 
+            foeCellScript.TakeDamage(DMG); 
+            readyToExplode = true;
         }
+
+        Remove();
     }
 
     public override void Arrive(Transform foe)
@@ -69,11 +61,7 @@ public class Bomb:Cell
         base.Arrive(foe);
         transform.parent = foe;
         transform.localPosition = Vector3.zero;
-    }
-
-    public override void Arrive()
-    {
-        GameObject[] foes = FindFoe();
-        TryToExplode(foes);
+        currentTimer = 0;
+        readyToExplode = true;
     }
 }
