@@ -118,7 +118,7 @@ MonoBehaviour:
   dnaDrop: 0
   dnaCost: 1
   spawnCooldown: 0.5
-  targettingRange: 0
+  targettingRange: 3
   info: Antibodies are secrated by the body to overwhelm the viruses.
   unblockRetargeting: 0
   objectToFollow: {fileID: 0}
@@ -246,7 +246,7 @@ MonoBehaviour:
   xScale: 0
   yScale: 0
   baseScale: {x: 0, y: 0, z: 0}
-  triggerOnClick: 1
+  triggerOnClick: 0
 --- !u!114 &2980917797941055579
 MonoBehaviour:
   m_ObjectHideFlags: 0

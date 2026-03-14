@@ -201,8 +201,9 @@ MonoBehaviour:
   DMG: 5
   maxHP: 5
   dnaDrop: 0
+  dnaCost: 0
   spawnCooldown: 0
-  targettingRange: 4
+  targettingRange: 5
   info: Killer T cells explode, sometimes so violently that they damage the body's
     cells.
   unblockRetargeting: 1
