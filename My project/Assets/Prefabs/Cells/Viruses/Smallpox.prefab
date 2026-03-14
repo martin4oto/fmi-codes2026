@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -688050164977071681}
   - component: {fileID: -31719475597585662}
   m_Layer: 0
-  m_Name: Bomb
+  m_Name: Smallpox
   m_TagString: Virus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -1507657386085524403, guid: 2a1ad2877be32c04eb4e038bb540e03d, type: 3}
+  m_Sprite: {fileID: 8391465156216733397, guid: 69628d9b1a00ba04f8208557e07ebc55, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -194,7 +194,7 @@ Animator:
   m_GameObject: {fileID: 7568621363967411955}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 17bf8b2751776c445bc850baa48e2cb5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3b9dc88076d11e944b6b3d4f3009e0fd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
