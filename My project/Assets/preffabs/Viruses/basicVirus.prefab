@@ -110,6 +110,9 @@ MonoBehaviour:
   shouldStop: 1
   DMG: 3
   maxHP: 7
+  spawnCooldown: 0
+  targettingRange: 5
+  info: 
   TEST: 0
   TEST2: 0
   maxShootingTimer: 5
