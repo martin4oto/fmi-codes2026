@@ -118,7 +118,7 @@ MonoBehaviour:
   dnaDrop: 0
   dnaCost: 5
   spawnCooldown: 1
-  targettingRange: 0
+  targettingRange: 7
   info: Killer T cells explode, sometimes so violently that they damage the body's
     cells.
   unblockRetargeting: 1
@@ -229,7 +229,7 @@ MonoBehaviour:
   xScale: 0
   yScale: 0
   baseScale: {x: 0, y: 0, z: 0}
-  triggerOnClick: 1
+  triggerOnClick: 0
 --- !u!114 &5534056147352312707
 MonoBehaviour:
   m_ObjectHideFlags: 0

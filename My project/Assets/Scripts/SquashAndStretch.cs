@@ -58,7 +58,7 @@ public class SquashAndStretch : MonoBehaviour
 
     public void OnMouseDown()
     {
-        if (triggerOnClick && !RaycastChecker.Check()) Play();
+        if (triggerOnClick) Play();
     }
 
 }

@@ -118,8 +118,10 @@ MonoBehaviour:
   dnaDrop: 0
   dnaCost: 10
   spawnCooldown: 2
-  targettingRange: 0
+  targettingRange: 5
   info: They are the body's factory for antibodies.
+  unblockRetargeting: 0
+  objectToFollow: {fileID: 0}
   destroyParticles: {fileID: 6511266191057373623, guid: 74835e3ddb04e184885a525feaec0acd, type: 3}
   maxShootingTimer: 5
   basicEnemyPrefab: {fileID: 7568621363967411955, guid: 54dca2736cbe5a245bdc02ae69bbadf0, type: 3}
@@ -246,7 +248,7 @@ MonoBehaviour:
   xScale: 0
   yScale: 0
   baseScale: {x: 0, y: 0, z: 0}
-  triggerOnClick: 1
+  triggerOnClick: 0
 --- !u!114 &-2649094895965315648
 MonoBehaviour:
   m_ObjectHideFlags: 0
