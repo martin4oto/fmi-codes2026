@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -6529428089968464563}
   - component: {fileID: 5356743561409692766}
   m_Layer: 0
-  m_Name: basicVirus
+  m_Name: Rabbies
   m_TagString: Virus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 1274070710492166193, guid: eb3d35d977b904b44811ed3154a50ab1, type: 3}
+  m_Sprite: {fileID: -91240058822551495, guid: b57fc0dfb1fe1264495a248bd8ed91cb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -191,7 +191,7 @@ Animator:
   m_GameObject: {fileID: 7568621363967411955}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6d6b3abf3d155af468c098164774f673, type: 2}
+  m_Controller: {fileID: 9100000, guid: 094f629825bc979419a91a4d3ab4c524, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
