@@ -114,7 +114,7 @@ MonoBehaviour:
   maxHP: 20
   spawnCooldown: 2
   targettingRange: 0
-  info: 
+  info: They are the body's factory for antibodies.
   maxShootingTimer: 5
   basicEnemyPrefab: {fileID: 7568621363967411955, guid: 54dca2736cbe5a245bdc02ae69bbadf0, type: 3}
 --- !u!95 &-8310608954057519762

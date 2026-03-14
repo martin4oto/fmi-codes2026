@@ -114,8 +114,8 @@ MonoBehaviour:
   maxHP: 10
   spawnCooldown: 1
   targettingRange: 0
-  info: Macrophages are the immune system's first line of defense. They engulf invaders,
-    boiling them to death in an acid bath.
+  info: Macrophages are the body's first line of defense, engulfing the invader and
+    destroying them.
   maxShootingTimer: 5
 --- !u!95 &-132740422826413185
 Animator:
