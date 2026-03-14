@@ -16,6 +16,7 @@ public class BrainManager : MonoBehaviour
     private Slider hpBar;
 
     private Vector2 oldMouseDir = Vector2.zero;
+    ParticleSystem bloodSplat;
 
 
     private void Awake()
@@ -26,6 +27,7 @@ public class BrainManager : MonoBehaviour
         hpBar.value = hp;
 
         animator = GetComponent<Animator>();
+        bloodSplat = GetComponent<ParticleSystem>();
     }
 
     private void Update()
@@ -45,6 +47,7 @@ public class BrainManager : MonoBehaviour
         hp -= damage;
         hpBar.value = hp;
         AudioManager.PlaySFX("burp");
+        bloodSplat.Play();
 
         var blink = GetComponent<SpriteBlink>();
         if (blink) blink.Blink();
