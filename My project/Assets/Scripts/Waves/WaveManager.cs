@@ -8,6 +8,7 @@ public class WaveManager : MonoBehaviour
     public static WaveManager instance;
     
     private int waveNumber = 0;
+    private bool isInWave = false;
     
     [SerializeField]
     private List<Wave> waves;
@@ -25,9 +26,11 @@ public class WaveManager : MonoBehaviour
 
     private IEnumerator StartNextWave()
     {
-        Debug.Log("starting wave: "  + waveNumber);
+        isInWave = false;
         
         yield return new WaitForSecondsRealtime(10f);
+        
+        isInWave = true;
         
         foreach (var (key, value) in waves[waveNumber].waveStats)
         {
@@ -52,6 +55,11 @@ public class WaveManager : MonoBehaviour
     public void Start()
     {
         StartCoroutine(StartNextWave());
+    }
+
+    private void Update()
+    {
+        Debug.Log(isInWave);
     }
 }
 
