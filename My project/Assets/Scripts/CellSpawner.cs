@@ -21,25 +21,27 @@ public class CellSpawner : MonoBehaviour
     [SerializeField]
     public TMP_Text info;
 
-    private ActiveCell activeCellSpawing;
     private bool spawnCooldown = false;
 
     private void Update()
     {
-        DetermineCellSpawnType();
+        var cellType = DetermineCellSpawnType();
+        if (cellType == ActiveCell.none) return;
 
-        SpawnCell();
+        SpawnCell(cellType);
 
-        PrintCellInfo(cells[activeCellSpawing]);
+        PrintCellInfo(cellType);
     }
 
-    private void PrintCellInfo(Cell cell)
+    private void PrintCellInfo(ActiveCell cellType)
     { 
-        info.text = cell.info;
+        info.text = cells[cellType].info;
     }
 
-    private void DetermineCellSpawnType()
+    private ActiveCell DetermineCellSpawnType()
     {
+        ActiveCell activeCellSpawing = ActiveCell.none;
+
         if (InputManager.instance.SpawnCell1Input)
         {
             if (activeCellSpawing == ActiveCell.basic) activeCellSpawing = ActiveCell.none;
@@ -68,14 +70,16 @@ public class CellSpawner : MonoBehaviour
 
             InputManager.instance.UseSpawnCell4Input();
         }
+
+        return activeCellSpawing;
     }
 
-    private void SpawnCell()
+    private void SpawnCell(ActiveCell cellType)
     {
-        if (spawnCooldown || activeCellSpawing == ActiveCell.none) return;
+        if (spawnCooldown) return;
 
         Vector2 spawnPos = GetSpawnPosition();
-        var cellObj = Instantiate(cells[activeCellSpawing], spawnPos, Quaternion.identity);
+        var cellObj = Instantiate(cells[cellType], spawnPos, Quaternion.identity);
         var cell = cellObj.GetComponent<Cell>();
         CellManager.instance.AddCell(cell);
 
