@@ -1,30 +1,54 @@
-using Krisnat;
-using System;
 using System.Collections;
-using UnityEditor;
 using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
+    private const float TARGET_SIZE_CLOSED = 0.01f;
+    private const float TARGET_SIZE_OPEN = 1f;
+
     [SerializeField]
-    private GameObject menu;
+    private GameObject options;
+    [SerializeField]
+    private GameObject darkEffect;
+    [SerializeField]
+    private float animationSpeed = 0.5f;
 
-    public void OpenUIAnimation(float targetSize, float duration)
+    private bool isOptionsAnimationActive;
+
+    private void Update()
     {
-        StartCoroutine(OpenUIAnimationCoroutine(menu, targetSize, duration));
+        if (InputManager.instance.OptionsInput && !isOptionsAnimationActive)
+        {
+            if (!options.activeInHierarchy) OpenOptionsAnimation(TARGET_SIZE_OPEN, animationSpeed);
+            else CloseOptionsAnimation(TARGET_SIZE_CLOSED, animationSpeed);
 
-        InputManager.instance.StopAllInputs = true;
+            InputManager.instance.UseOptionsInput();
+        }
     }
 
-    public void CloseUIAnimation(float targetSize, float duration)
-    {
-        StartCoroutine(CloseUIAnimationCoroutine(menu, targetSize, duration));
+    #region Animations
 
-        InputManager.instance.StopAllInputs = false;
+    public void OpenOptionsAnimation(float targetSize, float duration)
+    {
+        StartCoroutine(OpenOptionsAnimationCoroutine(options, targetSize, duration));
+
+        InputManager.instance.StopGameInputs = true;
     }
 
-    private IEnumerator OpenUIAnimationCoroutine(GameObject menu, float targetSize, float duration)
+    public void CloseOptionsAnimation(float targetSize, float duration)
     {
+        StartCoroutine(CloseOptionsAnimationCoroutine(options, targetSize, duration));
+
+        InputManager.instance.StopGameInputs = false;
+    }
+
+    private IEnumerator OpenOptionsAnimationCoroutine(GameObject menu, float targetSize, float duration)
+    {
+        isOptionsAnimationActive = true;
+        darkEffect.SetActive(true);
+
+        menu.SetActive(true);
+
         Vector3 initialScale = menu.transform.localScale;
         Vector3 targetScale = new Vector3(targetSize, targetSize, menu.transform.localScale.z);
 
@@ -38,10 +62,12 @@ public class MenuManager : MonoBehaviour
         }
 
         menu.transform.localScale = targetScale;
+        isOptionsAnimationActive = false;
     }
 
-    private IEnumerator CloseUIAnimationCoroutine(GameObject menu, float targetSize, float duration)
+    private IEnumerator CloseOptionsAnimationCoroutine(GameObject menu, float targetSize, float duration)
     {
+        isOptionsAnimationActive = true;
         Vector3 initialScale = menu.transform.localScale;
         Vector3 targetScale = new Vector3(targetSize, targetSize, menu.transform.localScale.z);
 
@@ -56,9 +82,18 @@ public class MenuManager : MonoBehaviour
 
         menu.transform.localScale = targetScale;
         menu.SetActive(false);
+        isOptionsAnimationActive = false;
+        darkEffect.SetActive(false);
     }
-    
+
+    #endregion
+
     #region ButtonActions
+
+    public void Resume()
+    {
+        CloseOptionsAnimation(TARGET_SIZE_CLOSED, animationSpeed);
+    }
 
     public void QuitGame()
     {

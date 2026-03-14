@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -4598777570521938640, guid: c33577d8754340049a4cac35f264a431, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -108,14 +108,7 @@ MonoBehaviour:
   range: 2
   shouldStop: 0
   DMG: 20
-  timeToArive: 0
-  currentTime: 0
-  hasMoveCommand: 0
-  moveStartPoint: {x: 0, y: 0, z: 0}
-  moveEndPoint: {x: 0, y: 0, z: 0}
+  maxHP: 0
   TEST: 0
   TEST2: 0
-  coords: {x: 0, y: 0}
-  objectToFollow: {fileID: 0}
-  fasdasd: {fileID: 0}
   bombUpdateTimer: 5

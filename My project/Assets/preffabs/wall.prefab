@@ -107,10 +107,8 @@ MonoBehaviour:
   speed: 1
   range: 1
   shouldStop: 1
-  DMG: 0
+  DMG: 1
   maxHP: 50
   TEST: 0
   TEST2: 0
-  objectToFollow: {fileID: 0}
-  fasdasd: {fileID: 0}
   maxShootingTimer: 10
