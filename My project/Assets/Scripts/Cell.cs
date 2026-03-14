@@ -247,7 +247,15 @@ public class Cell:MonoBehaviour
         {
             isShooting = false;
             Cell foe = FindTargetToFollow();
+
+            if(foe == null)return;
+
             Follow(foe.transform);
         }
+    }
+
+    public void TryToTargetCell()
+    {
+        
     }
 }
