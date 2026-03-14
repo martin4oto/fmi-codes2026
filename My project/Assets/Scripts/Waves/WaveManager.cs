@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WaveManager : MonoBehaviour
 {
@@ -23,8 +23,8 @@ public class WaveManager : MonoBehaviour
             instance = this;
         }
     }
-
-    private IEnumerator StartNextWave()
+    
+    public IEnumerator StartNextWave()
     {
         isInWave = false;
         
@@ -49,7 +49,6 @@ public class WaveManager : MonoBehaviour
         }
         
         waveNumber++;
-        StartCoroutine(StartNextWave());
     }
 
     public void Start()
@@ -59,7 +58,7 @@ public class WaveManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(isInWave);
+        if(isInWave) Debug.Log("In wave");
     }
 }
 

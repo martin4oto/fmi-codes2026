@@ -21,7 +21,7 @@ public class CellManager : MonoBehaviour
     public float retargetTimer = 0.2f;
     void Update()
     {
-        if(currentTimer>=retargetTimer)
+        if(currentTimer >= retargetTimer)
         {
             RetargetCells();
             currentTimer = 0;
@@ -33,6 +33,11 @@ public class CellManager : MonoBehaviour
     {
         viruses.Remove(virus);
 
+        if (viruses.Count == 0)
+        {
+            WaveManager.instance.StartCoroutine(WaveManager.instance.StartNextWave());;
+        }
+        
         GameObject.Destroy(virus.gameObject);
     }
     public void RemoveCell(Cell cell)
