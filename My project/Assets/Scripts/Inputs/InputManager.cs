@@ -112,4 +112,8 @@ BrainManager.instance.transform.position;
 
     public void UseOptionsInput() => OptionsInput = false;
     public void UseTestInput() => TestInput = false;
+    public void UseSpawnCell1Input() => SpawnCell1Input = false;
+    public void UseSpawnCell2Input() => SpawnCell2Input = false;
+    public void UseSpawnCell3Input() => SpawnCell3Input = false;
+    public void UseSpawnCell4Input() => SpawnCell4Input = false;
 }

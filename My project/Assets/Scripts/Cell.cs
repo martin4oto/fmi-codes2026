@@ -18,6 +18,7 @@ public class Cell:MonoBehaviour
     public bool shouldStop;
     public int DMG;
     public int maxHP;
+    public float spawnCooldown;
 
     float timeToArive;
     float currentTime;
