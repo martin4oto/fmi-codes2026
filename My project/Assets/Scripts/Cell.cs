@@ -40,6 +40,7 @@ public class Cell:MonoBehaviour
     protected SquashAndStretch squashAndStretch;
     public GameObject destroyParticles;
     public bool goForBrain;
+
     void Start()
     {
         squashAndStretch = GetComponent<SquashAndStretch>();
@@ -264,6 +265,8 @@ public class Cell:MonoBehaviour
 
         foreach (GameObject g in cells)
         {
+            if (g == null) continue;
+            
             float dist = Vector3.Distance(g.transform.position, transform.position);
 
             if (dist < range)

@@ -116,7 +116,7 @@ MonoBehaviour:
   DMG: 10
   maxHP: 5
   dnaDrop: 0
-  dnaCost: 5
+  dnaCost: 10
   spawnCooldown: 1
   targettingRange: 7
   info: Killer T cells explode, sometimes so violently that they damage the body's
@@ -124,6 +124,7 @@ MonoBehaviour:
   unblockRetargeting: 1
   objectToFollow: {fileID: 0}
   destroyParticles: {fileID: 6511266191057373623, guid: 74835e3ddb04e184885a525feaec0acd, type: 3}
+  goForBrain: 0
   bombUpdateTimer: 0.1
 --- !u!50 &-7150286184478645347
 Rigidbody2D:

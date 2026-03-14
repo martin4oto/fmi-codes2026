@@ -23,7 +23,8 @@ public class CellSpawner : MonoBehaviour
 
     public bool automaticSpawning;
     public bool spawnCooldown = false;
-    ActiveCell activeCellSpawing = ActiveCell.none;
+    private ActiveCell activeCellSpawing = ActiveCell.none;
+    private bool isLaunching;
 
     private void Update()
     {
@@ -33,6 +34,8 @@ public class CellSpawner : MonoBehaviour
         if (!automaticSpawning && Input.GetMouseButtonDown(0)) SpawnCell();
 
         PrintCellInfo();
+
+        if (isLaunching) LaunchCell();
     }
 
     private void PrintCellInfo()
@@ -88,7 +91,16 @@ public class CellSpawner : MonoBehaviour
 
         spawnCooldown = true;
 
+        LaunchCell();
+
         StartCoroutine(Cooldown(cell.spawnCooldown));
+    }
+
+    private void LaunchCell()
+    {
+        var quadrant = GameManager.instance.GetScreenQuadrant();
+
+
     }
 
     private Vector2 GetSpawnPosition()
