@@ -11,16 +11,7 @@ public class WaveManager : MonoBehaviour
     
     [SerializeField]
     private List<Wave> waves;
-    
-    [SerializeField]
-    private List<Transform> spawnPointsLeftUp;
-    [SerializeField]
-    private List<Transform> spawnPointsRightUp;
-    [SerializeField]
-    private List<Transform> spawnPointsLeftDown;
-    [SerializeField]
-    private List<Transform> spawnPointsRightDown;
-    
+
     [SerializeField]
     private List<Transform> spawnPoints;
 
@@ -32,9 +23,11 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    private void StartNextWave()
+    private IEnumerator StartNextWave()
     {
-        StartCoroutine(WaitBetweenWaves());
+        Debug.Log("starting wave: "  + waveNumber);
+        
+        yield return new WaitForSecondsRealtime(10f);
         
         foreach (var (key, value) in waves[waveNumber].waveStats)
         {
@@ -44,23 +37,21 @@ public class WaveManager : MonoBehaviour
             for (int j = 0; j < numberToSpawn; j++)
             { 
                 int transformChosen = Random.Range(0, spawnPoints.Count);
-                    
-                var virusObj = Instantiate(waves[waveNumber].virusPrefabs[typeToSpawn], spawnPoints[transformChosen]);
+
+                var virusObj = Instantiate(waves[waveNumber].virusPrefabs[typeToSpawn],
+                    spawnPoints[transformChosen].position, Quaternion.identity);
+                
                 CellManager.instance.AddVirus(virusObj.GetComponent<Cell>());
             }
         }
         
         waveNumber++;
+        StartCoroutine(StartNextWave());
     }
 
     public void Start()
     {
-        StartNextWave();
-    }
-
-    private IEnumerator WaitBetweenWaves()
-    {
-        yield return new WaitForSecondsRealtime(10f);
+        StartCoroutine(StartNextWave());
     }
 }
 
