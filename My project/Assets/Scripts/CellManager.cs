@@ -7,6 +7,7 @@ public class CellManager : MonoBehaviour
     public List<Cell> viruses;
 
     public static CellManager instance;
+
     void Awake()
     {
         if(instance != null)

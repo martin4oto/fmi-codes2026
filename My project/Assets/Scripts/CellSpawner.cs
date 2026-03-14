@@ -21,7 +21,8 @@ public class CellSpawner : MonoBehaviour
     [SerializeField]
     public TMP_Text info;
 
-    private bool spawnCooldown = false;
+    public bool automaticSpawning;
+    public bool spawnCooldown = false;
     ActiveCell activeCellSpawing = ActiveCell.none;
 
     private void Update()
@@ -29,7 +30,7 @@ public class CellSpawner : MonoBehaviour
         activeCellSpawing = DetermineCellSpawnType();
         if (activeCellSpawing == ActiveCell.none) return;
 
-        SpawnCell();
+        if (!automaticSpawning && Input.GetMouseButtonDown(0)) SpawnCell();
 
         PrintCellInfo();
     }
@@ -75,13 +76,15 @@ public class CellSpawner : MonoBehaviour
 
     private void SpawnCell()
     {
-        if (spawnCooldown) return;
+        int dnaCost = cells[activeCellSpawing].dnaCost;
+        if (spawnCooldown || GameManager.instance.DNA < dnaCost) return; //placeholder for dnaCost
 
         Vector2 spawnPos = GetSpawnPosition();
         var cellObj = Instantiate(cells[activeCellSpawing], spawnPos, Quaternion.identity);
         var cell = cellObj.GetComponent<Cell>();
         CellManager.instance.AddCell(cell);
         AudioManager.PlaySFX("shsh");
+        GameManager.instance.DNA -= dnaCost;
 
         spawnCooldown = true;
 

@@ -116,6 +116,7 @@ MonoBehaviour:
   DMG: 3
   maxHP: 25
   dnaDrop: 0
+  dnaCost: 3
   spawnCooldown: 1
   targettingRange: 0
   info: Macrophages are the body's first line of defense, engulfing the invader and
