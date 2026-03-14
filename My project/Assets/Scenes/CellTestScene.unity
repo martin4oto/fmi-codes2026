@@ -2934,7 +2934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d8d8a08387040643a168732627f3475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BrainManager
-  hp: 1
+  hp: 100
   hpBar: {fileID: 1427405663}
   deathParticle: {fileID: 5096148057906189823, guid: b2ae68ff4d82c4b4abe9fcddf93531fa, type: 3}
 --- !u!4 &1117079625
@@ -3055,6 +3055,8 @@ MonoBehaviour:
     - Key: 3
       Value: {fileID: 2109727960122548684, guid: aaabfca850e5235438d3835678410c5b, type: 3}
   info: {fileID: 1583944512}
+  automaticSpawning: 0
+  spawnCooldown: 0
 --- !u!95 &1117079628
 Animator:
   serializedVersion: 7
@@ -10507,7 +10509,3 @@ SceneRoots:
   - {fileID: 49144776}
   - {fileID: 165153257}
   - {fileID: 1846366936}
-  - {fileID: 739460511}
-  - {fileID: 1316297559}
-  - {fileID: 41917524}
-  - {fileID: 433376712}

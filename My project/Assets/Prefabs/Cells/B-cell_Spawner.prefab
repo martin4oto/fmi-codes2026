@@ -116,6 +116,7 @@ MonoBehaviour:
   DMG: 0
   maxHP: 3
   dnaDrop: 0
+  dnaCost: 10
   spawnCooldown: 2
   targettingRange: 0
   info: They are the body's factory for antibodies.
