@@ -4,8 +4,12 @@ using UnityEngine;
 public class Duplicater : Cell
 {
     public float maxShootingTimer;
+    public float duplicateCooldown = 2f;
+    public float displacementForce = 10f;
 
     float currentShootingTimer = 0;
+    bool isDuplicateCooldownOn = false;
+    float cooldownTimer = 2f;
     void Update()
     {
         base.Update();
@@ -23,6 +27,12 @@ public class Duplicater : Cell
         {
             currentShootingTimer = maxShootingTimer + 1;
         }
+
+        if (!isDuplicateCooldownOn || cooldownTimer <= 0)
+        {
+            Duplicate();
+        }
+        else cooldownTimer -= Time.deltaTime;
     }
     void TryToShoot(GameObject[] foes)
     {
@@ -52,5 +62,16 @@ public class Duplicater : Cell
 
             foeCellScript.TakeDamage(DMG);
         }
+    }
+
+    private void Duplicate()
+    {
+        Vector2 force = new Vector2(displacementForce, 0);
+        var copy = Instantiate(this, transform.position, transform.rotation);
+        GetComponent<Rigidbody>().AddForce(force);
+        copy.GetComponent<Rigidbody>().AddForce(-force);
+
+        isDuplicateCooldownOn = true;
+        cooldownTimer = duplicateCooldown;
     }
 }
