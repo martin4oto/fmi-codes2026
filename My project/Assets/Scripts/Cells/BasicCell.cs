@@ -10,7 +10,7 @@ public class BasicCell:Cell
     void Update()
     {
         base.Update();
-        if(isShooting || alwaysShoot)
+        if(isShooting)
         {
             currentShootingTimer+=Time.deltaTime;
             if(currentShootingTimer>=maxShootingTimer)

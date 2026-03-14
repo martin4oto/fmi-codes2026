@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: b86e0473d3d61b94c9108c25fba13dc2
+guid: 4908f991723b9f840a6f999a7c34357a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 566814423777163458
-    second: Ebola_0
+      213: -3836456993369972201
+    second: Sprite-00022_0
   - first:
-      213: -7955456799815398037
-    second: Ebola_1
+      213: 3407682692084508510
+    second: Sprite-00022_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -107,19 +107,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 12
+        y: 0
         width: 64
-        height: 44
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2c83ece17babdd700800000000000000
-      internalID: 566814423777163458
+      spriteID: aedb413883b97e14a95a54d26e0e3bc5
+      internalID: 2092455182
       vertices: []
       indices: 
       edges: []
@@ -128,20 +128,20 @@ TextureImporter:
       name: Ebola_1
       rect:
         serializedVersion: 2
-        x: 127
-        y: 7
-        width: 65
-        height: 43
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b6d890db03a889190800000000000000
-      internalID: -7955456799815398037
+      spriteID: f11284e1621f7284c920861ff79a8334
+      internalID: -2038562506
       vertices: []
       indices: 
       edges: []
@@ -150,20 +150,20 @@ TextureImporter:
       name: Ebola_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 12
-        width: 62
-        height: 44
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 861ff8cf149504c489f5d094dfa391c1
-      internalID: 860835572
+      spriteID: aec6b9e68dea5e447b81ea968f97183e
+      internalID: -971355655
       vertices: []
       indices: 
       edges: []
@@ -172,7 +172,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: dd924ce43cc39264f9153c30e923a459
+    spriteID: 5a1a28644b656aa409f362d52323727e
     internalID: 0
     vertices: []
     indices: 
@@ -180,11 +180,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Ebola_0: 566814423777163458
-      Ebola_1: -7955456799815398037
-      Ebola_2: 860835572
+      Ebola_0: 2092455182
+      Ebola_1: -2038562506
+      Ebola_2: -971355655
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
