@@ -114,7 +114,8 @@ MonoBehaviour:
   maxHP: 0
   spawnCooldown: 1
   targettingRange: 0
-  info: 
+  info: Killer T cell's explode, sometimes so violently that they damage the body's
+    cells.
   bombUpdateTimer: 5
 --- !u!50 &-7150286184478645347
 Rigidbody2D:

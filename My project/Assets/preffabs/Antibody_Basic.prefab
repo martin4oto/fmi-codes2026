@@ -114,7 +114,7 @@ MonoBehaviour:
   maxHP: 10
   spawnCooldown: 0.5
   targettingRange: 0
-  info: this is my fav dude
+  info: Antibodies are secrated by the body to overwhelm the viruses.
   maxShootingTimer: 5
 --- !u!95 &996833481805774076
 Animator:
