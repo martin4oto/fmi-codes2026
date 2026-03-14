@@ -301,9 +301,9 @@ public class Cell:MonoBehaviour
         GameObject[] foes = FindFoe();
         List<Cell> inRange = GetCellsInRange(foes, range);
 
-        if(inRange.Count != 0 && shouldStop)
+        if(inRange.Count != 0)
         {
-            StopMoving();
+            if (shouldStop) StopMoving();
             isShooting = true;
         }
         else

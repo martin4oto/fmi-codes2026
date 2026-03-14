@@ -112,7 +112,7 @@ MonoBehaviour:
   isEnemy: 1
   speed: 1
   range: 1
-  shouldStop: 0
+  shouldStop: 1
   DMG: 1
   maxHP: 5
   dnaDrop: 2
