@@ -291,6 +291,10 @@ public class Cell:MonoBehaviour
         else
         {
             CellManager.instance.RemoveVirus(this);
+
+            GameManager.instance.DNA += dnaDrop;
+            GameManager.instance.UpdateDNAText();
+
             if (transform.childCount != 0)
             {
                 for (int i = transform.childCount-1; i >= 0; i--)
