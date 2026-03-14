@@ -6,11 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="5037161f-2419-4332-9f77-9824df46972a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.My project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.My project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BrainManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BrainManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/preffabs/Antibody_Basic.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/preffabs/Antibody_Basic.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/preffabs/B-cell_Spawner.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/preffabs/B-cell_Spawner.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/preffabs/KIllerT_Bomb.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/preffabs/KIllerT_Bomb.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/preffabs/Macrophage_Tank.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/preffabs/Macrophage_Tank.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/CellTestScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CellTestScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Waves/WaveManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Waves/WaveManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/preffabs/Viruses/Ebola.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/preffabs/Viruses/Ebola.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/preffabs/Viruses/Rabbies.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/preffabs/Viruses/Rabbies.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/preffabs/Viruses/spawnerVirus.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/preffabs/Viruses/spawnerVirus.prefab.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +122,7 @@
       <workItem from="1773439877727" duration="585000" />
       <workItem from="1773474630837" duration="1947000" />
       <workItem from="1773476605748" duration="18310000" />
-      <workItem from="1773505932745" duration="764000" />
+      <workItem from="1773505932745" duration="2164000" />
     </task>
     <servers />
   </component>

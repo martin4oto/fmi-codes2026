@@ -59,8 +59,9 @@ public class WaveManager : MonoBehaviour
 
 public enum VirusType
 {
-    basic,
+    covid,
     bomb,
-    ranged,
-    spawner
+    ebola,
+    rabbies,
+    duplicating
 }
