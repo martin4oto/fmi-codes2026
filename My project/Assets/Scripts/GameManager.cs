@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -10,6 +11,9 @@ public class GameManager : MonoBehaviour
     private float dnaGenerationPerSecond = 1f;
     public Transform worldParticles;
 
+    [SerializeField]
+    private TMP_Text DNAText;
+    
     private void Awake()
     {
         instance = this;
@@ -28,6 +32,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator GenerateDNACoroutine()
     {
         DNA++;
+        UpdateDNAText();
         yield return new WaitForSeconds(1f / dnaGenerationPerSecond);
 
         GenerateDNA();
@@ -42,5 +47,10 @@ public class GameManager : MonoBehaviour
         direction.y = Mathf.Sign(mousePos.y);
 
         return direction;
+    }
+
+    public void UpdateDNAText()
+    {
+        DNAText.text = DNA.ToString();
     }
 }

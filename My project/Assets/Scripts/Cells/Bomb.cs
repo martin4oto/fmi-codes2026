@@ -16,8 +16,6 @@ public class Bomb:Cell
             {
                 GameObject[] foes = FindFoe();
                 TryToExplode(foes);
-
-                currentTimer = 0;
             }
             currentTimer += Time.deltaTime;
         }

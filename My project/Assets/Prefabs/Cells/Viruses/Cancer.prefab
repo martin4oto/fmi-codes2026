@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7075498874252331680}
   - component: {fileID: -7300391275397613602}
   m_Layer: 0
-  m_Name: Covid-19
+  m_Name: Cancer
   m_TagString: Virus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 1274070710492166193, guid: eb3d35d977b904b44811ed3154a50ab1, type: 3}
+  m_Sprite: {fileID: 5510993605833775109, guid: 2c60d96fa208c3c40a380cd133abbd83, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -110,19 +110,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasicCell
   isEnemy: 1
-  speed: 1
+  speed: 0.5
   range: 1
   shouldStop: 1
   DMG: 1
   maxHP: 5
   dnaDrop: 2
   spawnCooldown: 0
-  targettingRange: 2
+  targettingRange: 0
   info: 
-  unblockRetargeting: 0
-  objectToFollow: {fileID: 0}
   destroyParticles: {fileID: 6511266191057373623, guid: 74835e3ddb04e184885a525feaec0acd, type: 3}
-  maxShootingTimer: 3
+  maxShootingTimer: 5
 --- !u!58 &-1467664923576653789
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -196,7 +194,7 @@ Animator:
   m_GameObject: {fileID: 7568621363967411955}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6d6b3abf3d155af468c098164774f673, type: 2}
+  m_Controller: {fileID: 9100000, guid: f340cf0ca80c3ab4797e941245c0d3f8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

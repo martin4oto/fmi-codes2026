@@ -1,34 +1,16 @@
 fileFormatVersion: 2
-guid: f80b4a6d7f992ab4d9e215571ba695a5
+guid: 2c60d96fa208c3c40a380cd133abbd83
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5018893405452227798
-    second: DNACurrency_0
+      213: 5510993605833775109
+    second: Cancer_0
   - first:
-      213: 2821704521626224153
-    second: DNACurrency_1
+      213: -2377440816957373706
+    second: Cancer_1
   - first:
-      213: 65453943293780391
-    second: DNACurrency_2
-  - first:
-      213: 4153866946654456300
-    second: DNACurrency_3
-  - first:
-      213: 2855618290986314501
-    second: DNACurrency_4
-  - first:
-      213: 2653994829981958048
-    second: DNACurrency_5
-  - first:
-      213: 3152811885416131836
-    second: DNACurrency_6
-  - first:
-      213: 2252039891722297082
-    second: DNACurrency_7
-  - first:
-      213: 6683531320708269578
-    second: DNACurrency_8
+      213: 4092053414445925415
+    second: Cancer_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -124,79 +106,79 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DNACurrency_0
+      name: Cancer_0
       rect:
         serializedVersion: 2
-        x: 2
+        x: 0
         y: 0
-        width: 20
-        height: 24
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: bcabeab34f432bd44abb4977c664fa8b
-      internalID: -5018893405452227798
+      spriteID: 508db2b6c7bfa7c40800000000000000
+      internalID: 5510993605833775109
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DNACurrency_1
+      name: Cancer_1
       rect:
         serializedVersion: 2
-        x: 25
+        x: 64
         y: 0
-        width: 22
-        height: 24
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ba86cd721e0203344951399fd1c2e7d5
-      internalID: 2821704521626224153
+      spriteID: 6f2cdb65c22a10fd0800000000000000
+      internalID: -2377440816957373706
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DNACurrency_2
+      name: Cancer_2
       rect:
         serializedVersion: 2
-        x: 49
+        x: 128
         y: 0
-        width: 22
-        height: 24
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: f1a32e3c2b1594b44ad62331b648c93a
-      internalID: 65453943293780391
+      spriteID: 72449f956e4e9c830800000000000000
+      internalID: 4092053414445925415
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DNACurrency_3
+      name: Cancer_3
       rect:
         serializedVersion: 2
-        x: 77
+        x: 192
         y: 0
-        width: 14
-        height: 24
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ffdccfc68a98ac4a8d88b0e64c5d199
-      internalID: 4153866946654456300
+      spriteID: af2313bbfd4d5434484d69d9ae144fef
+      internalID: -656356029
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DNACurrency_4
+      name: Cancer_4
       rect:
         serializedVersion: 2
-        x: 100
+        x: 256
         y: 0
-        width: 16
-        height: 24
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,20 +209,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc34f066b4258044e99facb7d66a4aa2
-      internalID: 2855618290986314501
+      spriteID: 4ad61822d87985143832ae65b9a69192
+      internalID: -1766237483
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DNACurrency_5
+      name: Cancer_5
       rect:
         serializedVersion: 2
-        x: 121
+        x: 320
         y: 0
-        width: 22
-        height: 24
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -249,20 +231,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34cd76f14a671c348aac1797b37b59ee
-      internalID: 2653994829981958048
+      spriteID: 69f04ed62c103e44fb8113d00a4f9ddf
+      internalID: -936619561
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DNACurrency_6
+      name: Cancer_6
       rect:
         serializedVersion: 2
-        x: 145
+        x: 384
         y: 0
-        width: 22
-        height: 24
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -271,52 +253,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5888f738834afc4da0b6bba63a98053
-      internalID: 3152811885416131836
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DNACurrency_7
-      rect:
-        serializedVersion: 2
-        x: 171
-        y: 0
-        width: 18
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8ce91f665bf442943821ed9571de80b1
-      internalID: 2252039891722297082
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DNACurrency_8
-      rect:
-        serializedVersion: 2
-        x: 197
-        y: 0
-        width: 14
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d02da98a766e9454fb41123766a7d263
-      internalID: 6683531320708269578
+      spriteID: c43b0bab74326134491ad5209d6fd442
+      internalID: -1939082730
       vertices: []
       indices: 
       edges: []
@@ -325,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: e247cfdb970c6034588688f3fee90b7c
+    spriteID: 691ecdf187cbc1c4fa540ab5e349e554
     internalID: 0
     vertices: []
     indices: 
@@ -335,17 +273,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      DNACurrency_0: -5018893405452227798
-      DNACurrency_1: 2821704521626224153
-      DNACurrency_2: 65453943293780391
-      DNACurrency_3: 4153866946654456300
-      DNACurrency_4: 2855618290986314501
-      DNACurrency_5: 2653994829981958048
-      DNACurrency_6: 3152811885416131836
-      DNACurrency_7: 2252039891722297082
-      DNACurrency_8: 6683531320708269578
+      Cancer_0: 5510993605833775109
+      Cancer_1: -2377440816957373706
+      Cancer_2: 4092053414445925415
+      Cancer_3: -656356029
+      Cancer_4: -1766237483
+      Cancer_5: -936619561
+      Cancer_6: -1939082730
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

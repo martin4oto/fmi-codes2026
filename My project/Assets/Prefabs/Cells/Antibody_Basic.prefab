@@ -114,12 +114,14 @@ MonoBehaviour:
   range: 1
   shouldStop: 1
   DMG: 1
-  maxHP: 2
+  maxHP: 1
   dnaDrop: 0
   dnaCost: 1
   spawnCooldown: 0.5
   targettingRange: 0
   info: Antibodies are secrated by the body to overwhelm the viruses.
+  unblockRetargeting: 0
+  objectToFollow: {fileID: 0}
   destroyParticles: {fileID: 6511266191057373623, guid: 74835e3ddb04e184885a525feaec0acd, type: 3}
   maxShootingTimer: 1.5
 --- !u!95 &996833481805774076
