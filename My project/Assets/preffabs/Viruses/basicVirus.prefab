@@ -109,13 +109,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BasicCell
   isEnemy: 1
   speed: 2
-  range: 1
+  range: 5
   shouldStop: 1
-  DMG: 3
-  maxHP: 7
+  DMG: 50
+  maxHP: 50
   spawnCooldown: 0
   targettingRange: 0
   info: 
+  alwaysShoot: 1
   maxShootingTimer: 5
 --- !u!58 &-1467664923576653789
 CircleCollider2D:

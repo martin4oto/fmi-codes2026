@@ -21,6 +21,7 @@ public class Cell:MonoBehaviour
     public float spawnCooldown;    
     public float targettingRange;
     public string info;
+    public bool alwaysShoot;
 
     float timeToArive;
     float currentTime;
