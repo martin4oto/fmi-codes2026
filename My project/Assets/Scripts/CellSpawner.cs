@@ -89,7 +89,7 @@ public class CellSpawner : MonoBehaviour
 
     private Vector2 GetSpawnPosition()
     {
-        Vector2 direction = CalculateSpawnDirection();
+        Vector2 direction = GameManager.instance.GetScreenQuadrant();
         Vector2 spawnPos = Vector2.zero;
 
         if (direction.x < 0)
@@ -104,17 +104,6 @@ public class CellSpawner : MonoBehaviour
         }
 
         return spawnPos;
-    }
-
-    private Vector2 CalculateSpawnDirection()
-    {
-        Vector2 direction = Vector2.zero;
-        Vector2 mousePos = InputManager.instance.MouseRelativeToBrainPosition;
-
-        direction.x = Mathf.Sign(mousePos.x);
-        direction.y = Mathf.Sign(mousePos.y);
-
-        return direction;
     }
 
     private Vector2 DetermineSpawnLocation(List<Transform> positions)

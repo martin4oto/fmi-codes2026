@@ -48,11 +48,7 @@ public class BrainManager : MonoBehaviour
 
     private void LookDirection()
     {
-        Vector2 direction = Vector2.zero;
-        Vector2 mousePos = InputManager.instance.MouseRelativeToBrainPosition;
-
-        direction.x = Mathf.Sign(mousePos.x);
-        direction.y = Mathf.Sign(mousePos.y);
+        Vector2 direction = GameManager.instance.GetScreenQuadrant();
 
         if (oldMouseDir == direction) return;
         oldMouseDir = direction;

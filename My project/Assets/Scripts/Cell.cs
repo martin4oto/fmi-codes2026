@@ -42,6 +42,8 @@ public class Cell:MonoBehaviour
         {
             EnemyDefault();
         }
+
+        RotateByQuadrant();
     }
     protected void Update()
     {
@@ -312,5 +314,24 @@ public class Cell:MonoBehaviour
             Follow(target.transform);
             hasATarget = true;
         }
+    }
+
+    private void RotateByQuadrant()
+    {
+        float newRotation = 0f;
+        Vector2 direction = GameManager.instance.GetScreenQuadrant();
+
+        if (direction.x < 0)
+        {
+            if (direction.y < 0) newRotation = 35;
+            else newRotation = -35;
+        }
+        else
+        {
+            if (direction.y < 0) newRotation = 135;
+            else newRotation = -135;
+        }
+
+        transform.rotation = Quaternion.Euler(0, 0, newRotation);
     }
 }
