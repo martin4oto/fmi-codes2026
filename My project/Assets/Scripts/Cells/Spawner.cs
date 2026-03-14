@@ -31,5 +31,6 @@ public class Spawner:Cell
         CellManager.instance.AddCell(newCell);
 
         AudioManager.PlaySFX("shsh");
+        squashAndStretch.Play();
     }
 }

@@ -110,10 +110,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BasicCell
   isEnemy: 1
   speed: 1
-  range: 5
+  range: 1
   shouldStop: 1
   DMG: 1
   maxHP: 5
+  dnaDrop: 0
   spawnCooldown: 0
   targettingRange: 0
   info: 
@@ -221,6 +222,7 @@ MonoBehaviour:
   shouldStop: 0
   DMG: 50
   maxHP: 0
+  dnaDrop: 0
   spawnCooldown: 1
   targettingRange: 0
   info: 

@@ -35,9 +35,11 @@ public class Cell:MonoBehaviour
     Vector3 realEndPoint;
     protected Transform objectToFollow;
     float followTolerance = 0.25f;
+    protected SquashAndStretch squashAndStretch;
 
     void Start()
     {
+        squashAndStretch = GetComponent<SquashAndStretch>();
         HP = maxHP;
         alreadyTargetted = false;
 

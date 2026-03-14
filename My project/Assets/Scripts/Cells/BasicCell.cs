@@ -54,6 +54,7 @@ public class BasicCell:Cell
             Cell foeCellScript = foesInRange[i].GetComponent<Cell>();
             foeCellScript.TakeDamage(DMG); 
             AudioManager.PlaySFX("slap_pitched_down");
+            squashAndStretch.Play();
         }
     }
 }
