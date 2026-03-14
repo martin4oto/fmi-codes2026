@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -6529428089968464563}
   - component: {fileID: 5356743561409692766}
   m_Layer: 0
-  m_Name: basicVirus
+  m_Name: Covid-19
   m_TagString: Virus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

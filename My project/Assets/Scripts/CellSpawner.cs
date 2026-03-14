@@ -81,6 +81,7 @@ public class CellSpawner : MonoBehaviour
         var cellObj = Instantiate(cells[activeCellSpawing], spawnPos, Quaternion.identity);
         var cell = cellObj.GetComponent<Cell>();
         CellManager.instance.AddCell(cell);
+        AudioManager.PlaySFX("shsh");
 
         spawnCooldown = true;
 
