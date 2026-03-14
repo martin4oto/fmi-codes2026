@@ -49,7 +49,7 @@ public class Bomb:Cell
 
     void Explode(List<GameObject> foesInRange)
     {
-        Debug.LogWarning("exasd");
+        AudioManager.PlaySFX("bomb");
         Remove();
         for(int i = 0; i<foesInRange.Count; i++)
         {

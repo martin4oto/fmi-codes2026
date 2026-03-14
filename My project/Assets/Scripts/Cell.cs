@@ -289,8 +289,6 @@ public class Cell:MonoBehaviour
 
     public void TryToStopMoving()
     {
-        if(isEnemy&&!hasATarget)return;
-
         GameObject[] foes = FindFoe();
         List<Cell> inRange = GetCellsInRange(foes, range);
 
@@ -304,18 +302,24 @@ public class Cell:MonoBehaviour
             isShooting = false;
         }
         
-        if(!isShooting)
+        if(!isShooting && objectToFollow == null)
         {
+            Cell target;
             if(isEnemy)
             {
-                EnemyDefault();
+                target = FindTargetToFollow(targettingRange);
             }
             else
             {
-                Cell foe = FindTargetToFollow();
-                if(foe == null)return;
+                target = FindTargetToFollow();
+            }
 
-                Follow(foe.transform);
+            if (target != null)
+            {
+                Follow(target.transform);
+            }else if (isEnemy)
+            {
+                EnemyDefault();
             }
         }
     }
@@ -323,21 +327,8 @@ public class Cell:MonoBehaviour
     void EnemyDefault()
     {
         Move(Vector3.zero);
-        hasATarget = false;
     }
 
-    bool hasATarget = false;
-    public void TryToTargetCell()
-    {
-        if(hasATarget)return;
-
-        Cell target = FindTargetToFollow(targettingRange);
-        if(target != null)
-        {
-            Follow(target.transform);
-            hasATarget = true;
-        }
-    }
 
     private void RotateByQuadrant()
     {
