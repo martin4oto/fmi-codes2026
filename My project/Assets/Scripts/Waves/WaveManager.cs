@@ -8,7 +8,7 @@ public class WaveManager : MonoBehaviour
     public static WaveManager instance;
     
     private int waveNumber = 0;
-    private bool isInWave = false;
+    public bool isInWave = false;
     
     [SerializeField]
     private List<Wave> waves;
