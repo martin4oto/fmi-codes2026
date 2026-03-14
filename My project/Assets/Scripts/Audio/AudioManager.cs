@@ -61,14 +61,4 @@ public class AudioManager : MonoBehaviour
             instance.sfxSource.PlayOneShot(sound.clip);
         }
     }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space)){
-            PlaySFX("blah");
-        }
-        if (Input.GetKeyDown(KeyCode.M)){
-            PlaySFX("click");
-        }
-    }
 }
