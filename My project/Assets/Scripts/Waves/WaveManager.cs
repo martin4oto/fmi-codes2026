@@ -55,17 +55,13 @@ public class WaveManager : MonoBehaviour
     {
         StartCoroutine(StartNextWave());
     }
-
-    private void Update()
-    {
-        if(isInWave) Debug.Log("In wave");
-    }
 }
 
 public enum VirusType
 {
-    basic,
+    covid,
     bomb,
-    ranged,
-    spawner
+    ebola,
+    rabbies,
+    duplicating
 }
