@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -19,7 +20,16 @@ public class GameManager : MonoBehaviour
 
     private void GenerateDNA()
     {
+        StartCoroutine(GenerateDNACoroutine());
+    }
 
+    private IEnumerator GenerateDNACoroutine()
+    {
+        DNA++;
+        yield return new WaitForSeconds(1f / dnaGenerationPerSecond);
+
+        Debug.Log(DNA);
+        GenerateDNA();
     }
 
     public Vector2 GetScreenQuadrant()
