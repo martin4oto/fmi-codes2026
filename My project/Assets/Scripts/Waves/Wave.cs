@@ -3,9 +3,12 @@ using UnityEngine;
 
 public class Wave : MonoBehaviour
 {
-    [SerializedDictionary("Virus Prefab", "Number Spawned")]
-    public SerializedDictionary<GameObject, int> waveStats = new SerializedDictionary<GameObject, int>();
+    [SerializedDictionary("Virus Name", "Number Spawned")]
+    public SerializedDictionary<VirusType, int> waveStats = new();
 
+    [SerializedDictionary("Virus Name", "Virus Prefab")]
+    public SerializedDictionary<VirusType, GameObject> virusPrefabs = new();
+    
     public int GetTotalViruses()
     {
         int count = 0;
