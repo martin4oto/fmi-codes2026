@@ -105,7 +105,7 @@ public class BrainManager : MonoBehaviour
         {
             TakeDamage(cell.DMG);
 
-            CellManager.instance.RemoveCell(cell);
+            cell.Remove();
         }
     }
 }

@@ -21,6 +21,7 @@ public class Cell:MonoBehaviour
     public float spawnCooldown;    
     public float targettingRange;
     public string info;
+    float wanderDelay;
 
     float timeToArive;
     float currentTime;
@@ -31,7 +32,7 @@ public class Cell:MonoBehaviour
     int nodeIndex;
     bool pathMovement;
     Vector3 realEndPoint;
-    Transform objectToFollow;
+    protected Transform objectToFollow;
     float followTolerance = 0.25f;
 
     void Start()
@@ -57,10 +58,17 @@ public class Cell:MonoBehaviour
             if (Vector2.Distance(transform.position, objectToFollow.position) <= followTolerance)
             {
                 Arrive(objectToFollow);
-                objectToFollow = null;          
-            }else if (!hasMoveCommand){
+                objectToFollow = null;
+            }
+            else
+            {
                 Move(objectToFollow.position);
             }
+        }
+
+        if (wanderDelay > 0)
+        {
+            wanderDelay -= Time.deltaTime;
         }
     }
     void MoveStep()
@@ -184,6 +192,7 @@ public class Cell:MonoBehaviour
         if(HP<=0)
         {
             // death anim
+            AudioManager.PlaySFX("pop");
             Remove();
         }
     }
@@ -191,7 +200,7 @@ public class Cell:MonoBehaviour
     internal Cell FindTargetToFollow()
     {
         GameObject[] foes = FindFoe();
-        if(foes.Length == 0)return null;
+        if(foes.Length == 0) return null;
 
         foes = foes.OrderBy(foe => Vector3.Distance(transform.position, foe.transform.position)).ToArray();
 
@@ -210,7 +219,7 @@ public class Cell:MonoBehaviour
     internal Cell FindTargetToFollow(float _range)
     {
         GameObject[] foes = FindFoe();
-        if(foes.Length == 0)return null;
+        if(foes.Length == 0) return null;
 
         Cell almostValidCell = null;
 
@@ -252,13 +261,22 @@ public class Cell:MonoBehaviour
 
     internal void Remove()
     {
-        if(isEnemy)
+         Debug.Log("remove: " + isEnemy);
+        if(!isEnemy)
         {
             CellManager.instance.RemoveCell(this);
         }
         else
         {
             CellManager.instance.RemoveVirus(this);
+            if (transform.childCount != 0)
+            {
+                for (int i = transform.childCount-1; i >= 0; i--)
+                {
+                    Cell childCell = transform.GetChild(i).GetComponent<Cell>();
+                    if (childCell != null) childCell.Remove();
+                }
+            }
         }  
     }
 
@@ -280,7 +298,8 @@ public class Cell:MonoBehaviour
             StopMoving();
             isShooting = true;
         }
-        else if(isShooting)
+        
+        if(isShooting)
         {
             isShooting = false;
             if(isEnemy)
@@ -333,5 +352,14 @@ public class Cell:MonoBehaviour
         }
 
         transform.rotation = Quaternion.Euler(0, 0, newRotation);
+    }
+
+    protected void Wander()
+    {
+        if (wanderDelay > 0) return;
+
+        Vector2 destination = (Vector2)transform.position + new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+        Move(destination);
+        wanderDelay = Random.Range(1f, 6f);
     }
 }

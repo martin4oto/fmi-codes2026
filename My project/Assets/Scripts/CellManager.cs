@@ -38,13 +38,13 @@ public class CellManager : MonoBehaviour
             WaveManager.instance.StartCoroutine(WaveManager.instance.StartNextWave());;
         }
         
-        GameObject.Destroy(virus.gameObject);
+        Destroy(virus.gameObject);
     }
     public void RemoveCell(Cell cell)
     {
         cells.Remove(cell);
 
-        GameObject.Destroy(cell.gameObject);
+        Destroy(cell.gameObject);
     }
 
     public void AddCell(Cell cell)
