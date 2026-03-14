@@ -114,9 +114,9 @@ MonoBehaviour:
   range: 1
   shouldStop: 1
   DMG: 3
-  maxHP: 25
+  maxHP: 20
   dnaDrop: 0
-  dnaCost: 3
+  dnaCost: 5
   spawnCooldown: 1
   targettingRange: 5
   info: Macrophages are the body's first line of defense, engulfing the invader and
@@ -124,6 +124,7 @@ MonoBehaviour:
   unblockRetargeting: 0
   objectToFollow: {fileID: 0}
   destroyParticles: {fileID: 6511266191057373623, guid: 74835e3ddb04e184885a525feaec0acd, type: 3}
+  goForBrain: 0
   maxShootingTimer: 1.5
 --- !u!95 &-132740422826413185
 Animator:

@@ -8449,7 +8449,7 @@ MonoBehaviour:
   DNA: 0
   dnaGenerationPerSecond: 1
   worldParticles: {fileID: 1494014865}
-  DNAText: {fileID: 0}
+  DNAText: {fileID: 743094514}
 --- !u!1 &1309709782
 GameObject:
   m_ObjectHideFlags: 0

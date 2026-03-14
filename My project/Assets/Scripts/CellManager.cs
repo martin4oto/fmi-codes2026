@@ -62,6 +62,21 @@ public class CellManager : MonoBehaviour
 
     void RetargetCells()
     {
+        for (int i = 0; i < cells.Count; i++)
+        {
+            if (cells[i] == null){
+                 cells.RemoveAt(i);
+                 i--;
+            }
+        }
+        for (int i = 0; i < viruses.Count; i++)
+        {
+            if (viruses[i] == null){
+                 viruses.RemoveAt(i);
+                 i--;
+            }
+        }
+
         foreach(Cell cell in cells)
         {
             cell.TryToStopMoving();

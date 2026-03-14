@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5925341854248251434}
   - component: {fileID: 7762399635710887053}
-  - component: {fileID: 2973878300931970598}
   - component: {fileID: -1467664923576653789}
   - component: {fileID: -6529428089968464563}
   - component: {fileID: 5356743561409692766}
@@ -97,30 +96,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &2973878300931970598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7568621363967411955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a34874416543a2449bcd1bd09fe75c69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BasicCell
-  isEnemy: 1
-  speed: 1
-  range: 1
-  shouldStop: 1
-  DMG: 1
-  maxHP: 5
-  dnaDrop: 0
-  spawnCooldown: 0
-  targettingRange: 0
-  info: 
-  destroyParticles: {fileID: 6511266191057373623, guid: 74835e3ddb04e184885a525feaec0acd, type: 3}
-  maxShootingTimer: 5
 --- !u!58 &-1467664923576653789
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -219,11 +194,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bomb
   isEnemy: 1
-  speed: 0.3
-  range: 2
+  speed: 3
+  range: 1.5
   shouldStop: 0
-  DMG: 50
-  maxHP: 0
+  DMG: 75
+  maxHP: 5
   dnaDrop: 0
   dnaCost: 0
   spawnCooldown: 0
@@ -233,6 +208,7 @@ MonoBehaviour:
   unblockRetargeting: 1
   objectToFollow: {fileID: 0}
   destroyParticles: {fileID: 6511266191057373623, guid: 74835e3ddb04e184885a525feaec0acd, type: 3}
+  goForBrain: 0
   bombUpdateTimer: 0.1
 --- !u!114 &-31719475597585662
 MonoBehaviour:
