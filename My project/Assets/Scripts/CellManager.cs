@@ -60,5 +60,11 @@ public class CellManager : MonoBehaviour
         {
             cell.TryToStopMoving();
         }
+
+        foreach(Cell cell in viruses)
+        {
+            cell.TryToTargetCell();
+            cell.TryToStopMoving();
+        }
     }
 }
