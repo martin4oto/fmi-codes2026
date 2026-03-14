@@ -67,8 +67,16 @@ public class BrainManager : MonoBehaviour
         }
         else
         {
-            if (direction.y < 0) animator.SetBool("right", true);
-            else animator.SetBool("up", true);
+            if (direction.y < 0)
+            {
+                TurnOffAnimationBools();
+                animator.SetBool("right", true);
+            }
+            else
+            {
+                TurnOffAnimationBools();
+                animator.SetBool("up", true);
+            }
         }
     }
 
