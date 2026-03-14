@@ -8,11 +8,18 @@ public class BrainManager : MonoBehaviour
 
     public Event gameOver;
 
-    [SerializeField]
-    private float hp;
+    private Animator animator;
 
     [SerializeField]
+    private float hp;
+    [SerializeField]
     private Slider hpBar;
+    [SerializeField]
+    private GameObject deathParticle;
+
+    private Vector2 oldMouseDir = Vector2.zero;
+    ParticleSystem bloodSplat;
+
 
     private void Awake()
     {
@@ -20,6 +27,21 @@ public class BrainManager : MonoBehaviour
 
         hpBar.maxValue = hp;
         hpBar.value = hp;
+
+        animator = GetComponent<Animator>();
+        bloodSplat = GetComponent<ParticleSystem>();
+    }
+
+    private void Update()
+    {
+        LookDirection();
+
+        if (InputManager.instance.TestInput)
+        {
+            var blink = GetComponent<SpriteBlink>();
+            if (blink) blink.Blink();
+            InputManager.instance.UseTestInput();
+        }
     }
 
     public void TakeDamage(float damage)
@@ -27,11 +49,92 @@ public class BrainManager : MonoBehaviour
         hp -= damage;
         hpBar.value = hp;
 
-        if (hp <= 0) Die();
+        var blink = GetComponent<SpriteBlink>();
+        if (blink) blink.Blink();
+
+        if (hp <= 0)
+        {
+            Death();
+            return;
+        }
+
+        animator.SetTrigger("hurt");
+
+        AudioManager.PlaySFX("burp");
+        bloodSplat.Play();
+
+        if (hp <= 0) Death();
     }
 
-    private void Die()
+    private void Death()
     {
-        //die
+        var particle = Instantiate(deathParticle, transform.position, transform.rotation);
+        particle.transform.parent = GameManager.instance.worldParticles;
+        particle.GetComponent<ParticleSystem>().Play();
+
+        gameObject.SetActive(false);
+    }
+
+    private void LookDirection()
+    {
+        Vector2 direction = GameManager.instance.GetScreenQuadrant();
+
+        if (oldMouseDir == direction) return;
+        oldMouseDir = direction;
+
+        if (direction.x < 0)
+        {
+            if (direction.y < 0)
+            {
+                var animTime = animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+                TurnOffAnimationBools();
+                animator.SetBool("down", true);
+                animator.Play("BrainIdleDown", 0, animTime);
+            }
+            else
+            {
+                var animTime = animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+                TurnOffAnimationBools();
+                animator.SetBool("left", true);
+                animator.Play("BrainIdleLeft", 0, animTime);
+            }
+        }
+        else
+        {
+            if (direction.y < 0)
+            {
+                var animTime = animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+                TurnOffAnimationBools();
+                animator.SetBool("right", true);
+                animator.Play("BrainIdleRight", 0, animTime);
+            }
+            else
+            {
+                var animTime = animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+                TurnOffAnimationBools();
+                animator.SetBool("up", true);
+                animator.Play("BrainIdleUp", 0, animTime);
+            }
+        }
+    }
+
+    private void TurnOffAnimationBools()
+    {
+        animator.SetBool("down", false);
+        animator.SetBool("up", false);
+        animator.SetBool("left", false);
+        animator.SetBool("right", false);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        var cell = collision.GetComponent<Cell>();
+
+        if (cell && cell.isEnemy)
+        {
+            TakeDamage(cell.DMG);
+
+            cell.Remove();
+        }
     }
 }

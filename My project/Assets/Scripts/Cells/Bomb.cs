@@ -8,19 +8,21 @@ public class Bomb:Cell
     float currentTimer = 0;
     bool readyToExplode = false;
 
-    void Update()
+    new void Update()
     {
         base.Update();
-
-
-        if(currentTimer>=bombUpdateTimer && readyToExplode)
-        {
-            GameObject[] foes = FindFoe();
-            TryToExplode(foes);
-
-            currentTimer = 0;
+        if (readyToExplode){
+            if(currentTimer>=bombUpdateTimer)
+            {
+                GameObject[] foes = FindFoe();
+                TryToExplode(foes);
+            }
+            currentTimer += Time.deltaTime;
         }
-        currentTimer += Time.deltaTime;
+        else
+        {
+            Wander();
+        }
     }
 
     void TryToExplode(GameObject[] foes)
@@ -45,15 +47,14 @@ public class Bomb:Cell
 
     void Explode(List<GameObject> foesInRange)
     {
+        AudioManager.PlaySFX("bomb");
+        Remove();
         for(int i = 0; i<foesInRange.Count; i++)
         {
             Cell foeCellScript = foesInRange[i].GetComponent<Cell>();
 
             foeCellScript.TakeDamage(DMG); 
-            readyToExplode = true;
         }
-
-        Remove();
     }
 
     public override void Arrive(Transform foe)

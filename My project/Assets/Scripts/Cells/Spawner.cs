@@ -6,7 +6,7 @@ public class Spawner:Cell
     public GameObject basicEnemyPrefab;
 
     float currentShootingTimer = 0;
-    void Update()
+    new void Update()
     {
         base.Update();
         if(isShooting)
@@ -29,5 +29,8 @@ public class Spawner:Cell
         Cell newCell = Instantiate(basicEnemyPrefab, transform.position, Quaternion.identity).GetComponent<Cell>();
 
         CellManager.instance.AddCell(newCell);
+
+        AudioManager.PlaySFX("shsh");
+        squashAndStretch.Play();
     }
 }

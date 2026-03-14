@@ -21,28 +21,30 @@ public class CellSpawner : MonoBehaviour
     [SerializeField]
     public TMP_Text info;
 
-    private bool spawnCooldown = false;
+    public bool automaticSpawning;
+    public bool spawnCooldown = false;
+    private ActiveCell activeCellSpawing = ActiveCell.none;
+    private bool isLaunching;
 
     private void Update()
     {
-        var cellType = ActiveCell.none;
-        cellType = DetermineCellSpawnType();
-        if (cellType == ActiveCell.none) return;
+        activeCellSpawing = DetermineCellSpawnType();
+        if (activeCellSpawing == ActiveCell.none) return;
 
-        SpawnCell(cellType);
+        if (!automaticSpawning && Input.GetMouseButtonDown(0)) SpawnCell();
 
-        PrintCellInfo(cellType);
+        PrintCellInfo();
+
+        if (isLaunching) LaunchCell();
     }
 
-    private void PrintCellInfo(ActiveCell cellType)
+    private void PrintCellInfo()
     { 
-        info.text = cells[cellType].info;
+        if (info) info.text = cells[activeCellSpawing].info;
     }
 
     private ActiveCell DetermineCellSpawnType()
     {
-        ActiveCell activeCellSpawing = ActiveCell.none;
-
         if (InputManager.instance.SpawnCell1Input)
         {
             if (activeCellSpawing == ActiveCell.basic) activeCellSpawing = ActiveCell.none;
@@ -75,23 +77,35 @@ public class CellSpawner : MonoBehaviour
         return activeCellSpawing;
     }
 
-    private void SpawnCell(ActiveCell cellType)
+    private void SpawnCell()
     {
-        if (spawnCooldown) return;
+        int dnaCost = cells[activeCellSpawing].dnaCost;
+        if (spawnCooldown || GameManager.instance.DNA < dnaCost) return; //placeholder for dnaCost
 
         Vector2 spawnPos = GetSpawnPosition();
-        var cellObj = Instantiate(cells[cellType], spawnPos, Quaternion.identity);
+        var cellObj = Instantiate(cells[activeCellSpawing], spawnPos, Quaternion.identity);
         var cell = cellObj.GetComponent<Cell>();
         CellManager.instance.AddCell(cell);
+        AudioManager.PlaySFX("shsh");
+        GameManager.instance.DNA -= dnaCost;
 
         spawnCooldown = true;
+
+        LaunchCell();
 
         StartCoroutine(Cooldown(cell.spawnCooldown));
     }
 
+    private void LaunchCell()
+    {
+        var quadrant = GameManager.instance.GetScreenQuadrant();
+
+
+    }
+
     private Vector2 GetSpawnPosition()
     {
-        Vector2 direction = CalculateSpawnDirection();
+        Vector2 direction = GameManager.instance.GetScreenQuadrant();
         Vector2 spawnPos = Vector2.zero;
 
         if (direction.x < 0)
@@ -105,18 +119,13 @@ public class CellSpawner : MonoBehaviour
             else spawnPos = DetermineSpawnLocation(secondCornerSpawnLocations);
         }
 
+        Vector2 offset = Vector2.zero;
+        offset.x = Random.Range(-0.2f, 0.2f);
+        offset.y = Random.Range(-0.2f, 0.2f);
+
+        spawnPos += offset;
+
         return spawnPos;
-    }
-
-    private Vector2 CalculateSpawnDirection()
-    {
-        Vector2 direction = Vector2.zero;
-        Vector2 mousePos = InputManager.instance.MouseRelativeToBrainPosition;
-
-        direction.x = Mathf.Sign(mousePos.x);
-        direction.y = Mathf.Sign(mousePos.y);
-
-        return direction;
     }
 
     private Vector2 DetermineSpawnLocation(List<Transform> positions)

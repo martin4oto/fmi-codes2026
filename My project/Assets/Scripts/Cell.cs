@@ -10,7 +10,7 @@ public class Cell:MonoBehaviour
     internal bool isEnemy;
     
     internal bool alreadyTargetted;
-    internal bool isShooting = true;
+    internal bool isShooting;
 
     [Header("Stats")]
     public float speed;
@@ -18,9 +18,13 @@ public class Cell:MonoBehaviour
     public bool shouldStop;
     public int DMG;
     public int maxHP;
+    public int dnaDrop;
+    public int dnaCost;
     public float spawnCooldown;    
     public float targettingRange;
     public string info;
+    public bool unblockRetargeting;
+    float wanderDelay;
 
     float timeToArive;
     float currentTime;
@@ -31,20 +35,24 @@ public class Cell:MonoBehaviour
     int nodeIndex;
     bool pathMovement;
     Vector3 realEndPoint;
-    public bool TEST;
-    public bool TEST2;
-    Vector2 coords;
-    Transform objectToFollow;
+    public Transform objectToFollow;
     float followTolerance = 0.25f;
+    protected SquashAndStretch squashAndStretch;
+    public GameObject destroyParticles;
+    public bool goForBrain;
 
     void Start()
     {
+        squashAndStretch = GetComponent<SquashAndStretch>();
+        HP = maxHP;
         alreadyTargetted = false;
 
         if (isEnemy)
         {
             EnemyDefault();
         }
+
+        RotateByQuadrant();
     }
     protected void Update()
     {
@@ -58,10 +66,17 @@ public class Cell:MonoBehaviour
             if (Vector2.Distance(transform.position, objectToFollow.position) <= followTolerance)
             {
                 Arrive(objectToFollow);
-                objectToFollow = null;          
-            }else if (!hasMoveCommand){
+                objectToFollow = null;
+            }
+            else
+            {
                 Move(objectToFollow.position);
             }
+        }
+
+        if (wanderDelay > 0)
+        {
+            wanderDelay -= Time.deltaTime;
         }
     }
     void MoveStep()
@@ -77,7 +92,9 @@ public class Cell:MonoBehaviour
                 if (WallRaycast(realEndPoint)){
                     nodeIndex++;
                     moveStartPoint = transform.position;
-                    moveEndPoint = new Vector2(path[nodeIndex].x * PathManager.instance.gridOffset, path[nodeIndex].y * PathManager.instance.gridOffset);
+                    float x = path[nodeIndex].x*PathManager.instance.gridOffset + PathManager.instance.transform.position.x;
+                    float y = path[nodeIndex].y*PathManager.instance.gridOffset + PathManager.instance.transform.position.y;
+                    moveEndPoint = new Vector2(x, y);
                     float distance = Vector3.Distance(moveStartPoint, moveEndPoint);
                     currentTime = 0;
                     timeToArive = distance / speed;
@@ -125,7 +142,9 @@ public class Cell:MonoBehaviour
                 hasMoveCommand = true;
                 pathMovement = true;
                 moveStartPoint = transform.position;
-                moveEndPoint = new Vector2(path[0].x*PathManager.instance.gridOffset, path[0].y*PathManager.instance.gridOffset);
+                float x = path[0].x*PathManager.instance.gridOffset + PathManager.instance.transform.position.x;
+                float y = path[0].y*PathManager.instance.gridOffset + PathManager.instance.transform.position.y;
+                moveEndPoint = new Vector2(x, y);
                 currentTime = 0;
                 timeToArive = Vector3.Distance(moveStartPoint, moveEndPoint)/speed;
                 nodeIndex = 0;
@@ -181,9 +200,15 @@ public class Cell:MonoBehaviour
     public void TakeDamage(int DMG)
     {
         HP-=DMG;
+
+        var blink = GetComponent<SpriteBlink>();
+        if (blink) blink.Blink();
         
         if(HP<=0)
         {
+            // death anim
+            Instantiate(destroyParticles, transform.position, Quaternion.identity);
+            AudioManager.PlaySFX("pop");
             Remove();
         }
     }
@@ -191,7 +216,7 @@ public class Cell:MonoBehaviour
     internal Cell FindTargetToFollow()
     {
         GameObject[] foes = FindFoe();
-        if(foes.Length == 0)return null;
+        if(foes.Length == 0) return null;
 
         foes = foes.OrderBy(foe => Vector3.Distance(transform.position, foe.transform.position)).ToArray();
 
@@ -210,16 +235,16 @@ public class Cell:MonoBehaviour
     internal Cell FindTargetToFollow(float _range)
     {
         GameObject[] foes = FindFoe();
-        if(foes.Length == 0)return null;
+        if(foes.Length == 0) return null;
 
         Cell almostValidCell = null;
 
         for(int i = 0; i<foes.Length; i++)
         {
             Cell current = foes[i].GetComponent<Cell>();
-            float currentdistance = Vector3.Distance(current.transform.position, transform.position);
+            float currentDistance = Vector2.Distance(current.transform.position, transform.position);
 
-            if(currentdistance<_range)
+            if(currentDistance<_range)
             {
                 if(!current.alreadyTargetted)
                 {
@@ -240,6 +265,8 @@ public class Cell:MonoBehaviour
 
         foreach (GameObject g in cells)
         {
+            if (g == null) continue;
+            
             float dist = Vector3.Distance(g.transform.position, transform.position);
 
             if (dist < range)
@@ -252,13 +279,33 @@ public class Cell:MonoBehaviour
 
     internal void Remove()
     {
-        if(isEnemy)
+        if(!isEnemy)
         {
             CellManager.instance.RemoveCell(this);
+            if (transform.childCount != 0)
+            {
+                for (int i = transform.childCount-1; i >= 0; i--)
+                {
+                    Cell childCell = transform.GetChild(i).GetComponent<Cell>();
+                    if (childCell != null) childCell.Remove();
+                }
+            }
         }
         else
         {
             CellManager.instance.RemoveVirus(this);
+
+            GameManager.instance.DNA += dnaDrop;
+            GameManager.instance.UpdateDNAText();
+
+            if (transform.childCount != 0)
+            {
+                for (int i = transform.childCount-1; i >= 0; i--)
+                {
+                    Cell childCell = transform.GetChild(i).GetComponent<Cell>();
+                    if (childCell != null) childCell.Remove();
+                }
+            }
         }  
     }
 
@@ -270,29 +317,40 @@ public class Cell:MonoBehaviour
 
     public void TryToStopMoving()
     {
-        if(isEnemy&&!hasATarget)return;
-
         GameObject[] foes = FindFoe();
         List<Cell> inRange = GetCellsInRange(foes, range);
 
-        if(inRange.Count != 0 && shouldStop)
+        if(inRange.Count != 0)
         {
-            StopMoving();
+            if (shouldStop) StopMoving();
             isShooting = true;
         }
-        else if(isShooting)
+        else
         {
             isShooting = false;
-            if(isEnemy)
+        }
+        
+        if((!isShooting || unblockRetargeting) && objectToFollow == null)
+        {
+            Cell target = null;
+            if (!goForBrain){
+                if(isEnemy)
+                {
+                    target = FindTargetToFollow(targettingRange);
+                }
+                else
+                {
+                    target = FindTargetToFollow(targettingRange);
+                }
+            }
+
+            if (target != null)
+            {
+                Follow(target.transform);
+            }
+            else if (isEnemy)
             {
                 EnemyDefault();
-            }
-            else
-            {
-                Cell foe = FindTargetToFollow();
-                if(foe == null)return;
-
-                Follow(foe.transform);
             }
         }
     }
@@ -300,19 +358,34 @@ public class Cell:MonoBehaviour
     void EnemyDefault()
     {
         Move(Vector3.zero);
-        hasATarget = false;
     }
 
-    bool hasATarget = false;
-    public void TryToTargetCell()
-    {
-        if(hasATarget)return;
 
-        Cell target = FindTargetToFollow(targettingRange);
-        if(target != null)
+    private void RotateByQuadrant()
+    {
+        float newRotation = 0f;
+        Vector2 direction = GameManager.instance.GetScreenQuadrant();
+
+        if (direction.x < 0)
         {
-            Follow(target.transform);
-            hasATarget = true;
+            if (direction.y < 0) newRotation = 35;
+            else newRotation = -35;
         }
+        else
+        {
+            if (direction.y < 0) newRotation = 135;
+            else newRotation = -135;
+        }
+
+        transform.rotation = Quaternion.Euler(0, 0, newRotation);
+    }
+
+    protected void Wander()
+    {
+        if (wanderDelay > 0) return;
+
+        Vector2 destination = (Vector2)transform.position + new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+        Move(destination);
+        wanderDelay = Random.Range(1f, 6f);
     }
 }

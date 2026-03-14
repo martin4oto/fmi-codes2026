@@ -1,11 +1,16 @@
+using NUnit.Framework;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
     private const float TARGET_SIZE_CLOSED = 0.01f;
     private const float TARGET_SIZE_OPEN = 1f;
 
+    [SerializeField]
+    private GameObject cellButtons;
     [SerializeField]
     private GameObject options;
     [SerializeField]
@@ -33,6 +38,8 @@ public class MenuManager : MonoBehaviour
         StartCoroutine(OpenOptionsAnimationCoroutine(options, targetSize, duration));
 
         InputManager.instance.StopGameInputs = true;
+
+        cellButtons.SetActive(false);
     }
 
     public void CloseOptionsAnimation(float targetSize, float duration)
@@ -40,6 +47,8 @@ public class MenuManager : MonoBehaviour
         StartCoroutine(CloseOptionsAnimationCoroutine(options, targetSize, duration));
 
         InputManager.instance.StopGameInputs = false;
+
+        cellButtons.SetActive(true);
     }
 
     private IEnumerator OpenOptionsAnimationCoroutine(GameObject menu, float targetSize, float duration)

@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WaveManager : MonoBehaviour
 {
     public static WaveManager instance;
     
     private int waveNumber = 0;
+    public bool isInWave = false;
+    private bool lastWaveReached = false;
+    int lastSpawnedNumber = 0;
     
     [SerializeField]
     private List<Wave> waves;
@@ -22,18 +25,26 @@ public class WaveManager : MonoBehaviour
             instance = this;
         }
     }
-
-    private IEnumerator StartNextWave()
+    
+    public IEnumerator StartNextWave()
     {
-        Debug.Log("starting wave: "  + waveNumber);
+        isInWave = false;
         
         yield return new WaitForSecondsRealtime(10f);
+        
+        isInWave = true;
         
         foreach (var (key, value) in waves[waveNumber].waveStats)
         {
             VirusType typeToSpawn = key;
             int numberToSpawn = value;
 
+            if (lastWaveReached)
+            {
+                numberToSpawn += Random.Range(lastSpawnedNumber / 4, lastSpawnedNumber / 2);
+                lastSpawnedNumber = numberToSpawn;
+            }
+            
             for (int j = 0; j < numberToSpawn; j++)
             { 
                 int transformChosen = Random.Range(0, spawnPoints.Count);
@@ -44,9 +55,9 @@ public class WaveManager : MonoBehaviour
                 CellManager.instance.AddVirus(virusObj.GetComponent<Cell>());
             }
         }
-        
-        waveNumber++;
-        StartCoroutine(StartNextWave());
+
+        if (waveNumber < waves.Count - 1) waveNumber++;
+        else lastWaveReached = true;
     }
 
     public void Start()
@@ -57,8 +68,9 @@ public class WaveManager : MonoBehaviour
 
 public enum VirusType
 {
-    basic,
-    bomb,
-    ranged,
-    spawner
+    covid,
+    smallpox,
+    ebola,
+    rabbies,
+    cancer
 }

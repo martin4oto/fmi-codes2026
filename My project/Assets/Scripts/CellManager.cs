@@ -7,6 +7,7 @@ public class CellManager : MonoBehaviour
     public List<Cell> viruses;
 
     public static CellManager instance;
+
     void Awake()
     {
         if(instance != null)
@@ -21,7 +22,7 @@ public class CellManager : MonoBehaviour
     public float retargetTimer = 0.2f;
     void Update()
     {
-        if(currentTimer>=retargetTimer)
+        if(currentTimer >= retargetTimer)
         {
             RetargetCells();
             currentTimer = 0;
@@ -33,13 +34,18 @@ public class CellManager : MonoBehaviour
     {
         viruses.Remove(virus);
 
-        GameObject.Destroy(virus.gameObject);
+        if (viruses.Count == 0)
+        {
+            WaveManager.instance.StartCoroutine(WaveManager.instance.StartNextWave());;
+        }
+        
+        Destroy(virus.gameObject);
     }
     public void RemoveCell(Cell cell)
     {
         cells.Remove(cell);
 
-        GameObject.Destroy(cell.gameObject);
+        Destroy(cell.gameObject);
     }
 
     public void AddCell(Cell cell)
@@ -51,11 +57,26 @@ public class CellManager : MonoBehaviour
     public void AddVirus(Cell cell)
     {
         cell.isEnemy = true;
-        cells.Add(cell);
+        viruses.Add(cell);
     }
 
     void RetargetCells()
     {
+        for (int i = 0; i < cells.Count; i++)
+        {
+            if (cells[i] == null){
+                 cells.RemoveAt(i);
+                 i--;
+            }
+        }
+        for (int i = 0; i < viruses.Count; i++)
+        {
+            if (viruses[i] == null){
+                 viruses.RemoveAt(i);
+                 i--;
+            }
+        }
+
         foreach(Cell cell in cells)
         {
             cell.TryToStopMoving();
@@ -63,7 +84,6 @@ public class CellManager : MonoBehaviour
 
         foreach(Cell cell in viruses)
         {
-            cell.TryToTargetCell();
             cell.TryToStopMoving();
         }
     }
