@@ -48,7 +48,8 @@ public class WaveManager : MonoBehaviour
             }
         }
         
-        waveNumber++;
+        if(waveNumber < waves.Count - 1) waveNumber++;
+        
     }
 
     public void Start()

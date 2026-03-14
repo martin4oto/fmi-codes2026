@@ -196,6 +196,9 @@ public class Cell:MonoBehaviour
     public void TakeDamage(int DMG)
     {
         HP-=DMG;
+
+        var blink = GetComponent<SpriteBlink>();
+        if (blink) blink.Blink();
         
         if(HP<=0)
         {
