@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5037161f-2419-4332-9f77-9824df46972a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.My project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.My project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Cells/Viruses/boss.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Cells/Viruses/boss.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cells/bosses/spiderBoss.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Cells/bosses/spiderBoss.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Bacteriophage.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Bacteriophage.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Cells/Viruses/bossProjectile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Cells/Viruses/bossProjectile.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cells/BossProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Cells/BossProjectile.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +121,7 @@
       <workItem from="1773476605748" duration="18310000" />
       <workItem from="1773505932745" duration="3272000" />
       <workItem from="1773531424943" duration="4713000" />
-      <workItem from="1773563599189" duration="7501000" />
+      <workItem from="1773563599189" duration="8666000" />
     </task>
     <servers />
   </component>

@@ -29,4 +29,8 @@ public class BossProjectile:Cell
 
         foeCellScript.TakeDamage(DMG); 
     }
+    void FixedUpdate()
+    {
+        transform.Rotate(0f, 0f, 4f, Space.Self);   
+    }
 }
