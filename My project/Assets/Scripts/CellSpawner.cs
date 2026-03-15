@@ -23,6 +23,7 @@ public class CellSpawner : MonoBehaviour
     public bool automaticSpawning;
     public bool spawnCooldown = false;
     private ActiveCell activeCellSpawing = ActiveCell.none;
+    private const float ANIMATION_SUMMON_LENGTH = 0.5f;
 
     private void Update()
     {
@@ -31,8 +32,9 @@ public class CellSpawner : MonoBehaviour
 
         if (!automaticSpawning && Input.GetMouseButtonDown(0))
         {
-            SpawnCell();
-            Invoke("SpawnCellObj", 0.5f);
+            var spawnPos = GetSpawnPosition();
+            SpawnCell(spawnPos);
+            StartCoroutine(SpawnCellCoroutine(ANIMATION_SUMMON_LENGTH, spawnPos));
         }
     }
 
@@ -71,30 +73,30 @@ public class CellSpawner : MonoBehaviour
         return activeCellSpawing;
     }
 
-    private void SpawnCellObj()
+    private void SpawnCellObj(Vector2 spawnPos)
     {
         int dnaCost = cells[activeCellSpawing].dnaCost;
         if (spawnCooldown || GameManager.instance.DNA < dnaCost) return; //placeholder for dnaCost
 
-        Vector2 spawnPos = GetSpawnPosition();
         Cell cell = Instantiate(cells[activeCellSpawing], spawnPos, Quaternion.identity);
         CellManager.instance.AddCell(cell);
     }
 
-    private void SpawnCell()
+    private void SpawnCell(Vector2 spawnPos)
     {
         int dnaCost = cells[activeCellSpawing].dnaCost;
         if (spawnCooldown || GameManager.instance.DNA < dnaCost) return; //placeholder for dnaCost
 
-        Vector2 spawnPos = GetSpawnPosition();
         Cell cell = Instantiate(cells[activeCellSpawing], Vector2.zero, Quaternion.identity);
         AudioManager.PlaySFX("shsh");
         GameManager.instance.DNA -= dnaCost;
         GameManager.instance.UpdateDNAText();
+        cell.GetComponent<DestroyTimer>().enabled = true;
 
         spawnCooldown = true;
 
         var spawnAnim = cell.transform.GetComponent<CellSpawnAnimations>();
+        spawnAnim.enabled = true;
         if (spawnAnim) spawnAnim.SetFinalPosition(spawnPos);
 
         cell.enabled = false;
@@ -138,6 +140,12 @@ public class CellSpawner : MonoBehaviour
         yield return new WaitForSecondsRealtime(cooldown);
 
         spawnCooldown = false;
+    }
+    private IEnumerator SpawnCellCoroutine(float cooldown, Vector2 spawnPos)
+    {
+        yield return new WaitForSecondsRealtime(cooldown);
+
+        SpawnCellObj(spawnPos);
     }
 
     void ResetActiveCellButton()

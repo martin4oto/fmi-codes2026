@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -454500661152884754}
   - component: {fileID: -2475204944011692637}
   - component: {fileID: 623962774131684856}
+  - component: {fileID: 5658100122126697702}
   m_Layer: 0
   m_Name: Macrophage_Tank
   m_TagString: Cell
@@ -253,10 +254,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7568621363967411955}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34a3a0de697af204c8d3247715e30a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellSpawnAnimations
-  deploySpeed: 50
+  deploySpeed: 10
   deployLength: 1
+--- !u!114 &5658100122126697702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7568621363967411955}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cbd7259a3c6c8d4b81e688f7a277cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DestroyTimer
+  timer: 0.5
+  particle: {fileID: 0}
+  playOnDestroy: 0
