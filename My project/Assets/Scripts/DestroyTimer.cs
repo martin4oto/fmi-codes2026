@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using static UnityEngine.ParticleSystem;
 
@@ -18,4 +19,6 @@ public class DestroyTimer : MonoBehaviour
         if (playOnDestroy) particle?.Play();
         Destroy(gameObject);
     }
+
+    public void GameOverMenu() => LevelLoader.instance.LoadLevel(false);
 }

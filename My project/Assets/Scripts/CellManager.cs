@@ -35,13 +35,13 @@ public class CellManager : MonoBehaviour
 
     public void RemoveAll()
     {
-        foreach (Cell cell in cells)
+        for (int i = 0; i < cells.Count; i++) 
         {
-            cell.Remove();
+            cells[i].Remove();
         }
-        foreach (Cell cell in viruses)
+        for (int i = 0; i < viruses.Count; i++) 
         {
-            cell.Remove();
+            viruses[i].Remove();
         }
     }
 
