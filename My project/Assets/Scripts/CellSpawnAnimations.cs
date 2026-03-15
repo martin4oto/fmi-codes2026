@@ -13,12 +13,15 @@ public class CellSpawnAnimations : MonoBehaviour
     {
         while (isSpawning)
         {
-            transform.position = Vector3.Lerp(transform.position, finalPosition, deploySpeed * Time.deltaTime);
+            transform.position += Vector3.Lerp(transform.position, finalPosition, deploySpeed * Time.deltaTime);
         }
     }
 
     public void PlaySpawnAnimationTo(Vector2 position)
     {
+        Debug.Log(transform.position);
+        Debug.Log(position);
+
         isSpawning = true;
         finalPosition = position;
 
