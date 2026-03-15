@@ -8,6 +8,7 @@ public class CellManager : MonoBehaviour
 
     public List<Cell> cells;
     public List<Cell> viruses;
+    public Transform bossSpawn;
 
     public static CellManager instance;
 
@@ -77,9 +78,13 @@ public class CellManager : MonoBehaviour
 
     public GameObject SpawnBoss(Vector2 position)
     {
+        Vector3 bossPosition = position;
+        bossPosition.x = Mathf.Sign(position.x)*bossSpawn.position.x;
+        bossPosition.x = Mathf.Sign(position.y)*bossSpawn.position.y;
+
         if(boss == null)
         {
-            GameObject bossObject = Instantiate(bossPrefab, position, Quaternion.identity);
+            GameObject bossObject = Instantiate(bossPrefab, bossPosition, Quaternion.identity);
 
             boss = bossObject.GetComponent<Cell>();
             viruses.Add(boss);
@@ -88,7 +93,7 @@ public class CellManager : MonoBehaviour
         else
         {
             boss.gameObject.SetActive(true);
-            boss.transform.position = position;
+            boss.transform.position = bossPosition;
             viruses.Add(boss);
 
             return boss.gameObject;
