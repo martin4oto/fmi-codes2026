@@ -260,7 +260,7 @@ public class Cell:MonoBehaviour
         return almostValidCell;
     }
 
-    List<Cell> GetCellsInRange(GameObject[] cells, float range)
+    internal List<Cell> GetCellsInRange(GameObject[] cells, float range)
     {
         List<Cell> current = new List<Cell>();
 

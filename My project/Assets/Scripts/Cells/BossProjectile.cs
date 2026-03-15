@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BossProjectile:Cell
@@ -6,5 +7,26 @@ public class BossProjectile:Cell
     {
         base.Start();
         Move(Vector3.zero);
+    }
+
+    void Update()
+    {
+        base.Update();
+
+        GameObject[] foes = FindFoe();
+        List<Cell> inRange = GetCellsInRange(foes, range);
+
+        if(inRange.Count != 0)
+        {
+            Explode(inRange);
+        }
+    }  
+
+    void Explode(List<Cell> foesInRange)
+    {
+        Remove();
+        Cell foeCellScript = foesInRange[0];
+
+        foeCellScript.TakeDamage(DMG); 
     }
 }

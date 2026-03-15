@@ -109,7 +109,7 @@ MonoBehaviour:
   HP: 0
   isEnemy: 1
   speed: 8
-  range: 0
+  range: 0.5
   shouldStop: 0
   DMG: 10
   maxHP: 10000
@@ -117,7 +117,6 @@ MonoBehaviour:
   dnaCost: 0
   spawnCooldown: 0
   targettingRange: 0
-  info: 
   unblockRetargeting: 0
   isBoss: 1
   objectToFollow: {fileID: 0}
