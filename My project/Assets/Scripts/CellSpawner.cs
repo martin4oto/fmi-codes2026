@@ -23,7 +23,6 @@ public class CellSpawner : MonoBehaviour
     public bool automaticSpawning;
     public bool spawnCooldown = false;
     private ActiveCell activeCellSpawing = ActiveCell.none;
-    private bool isLaunching;
 
     private void Update()
     {
@@ -74,8 +73,7 @@ public class CellSpawner : MonoBehaviour
         if (spawnCooldown || GameManager.instance.DNA < dnaCost) return; //placeholder for dnaCost
 
         Vector2 spawnPos = GetSpawnPosition();
-        var cellObj = Instantiate(cells[activeCellSpawing], Vector2.zero, Quaternion.identity);
-        var cell = cellObj.GetComponent<Cell>();
+        Cell cell = Instantiate(cells[activeCellSpawing], Vector2.zero, Quaternion.identity);
         CellManager.instance.AddCell(cell);
         AudioManager.PlaySFX("shsh");
         GameManager.instance.DNA -= dnaCost;
@@ -83,7 +81,8 @@ public class CellSpawner : MonoBehaviour
 
         spawnCooldown = true;
 
-        GetComponent<CellSpawnAnimations>()?.PlaySpawnAnimationTo(spawnPos);
+        var spawnAnim = cell.transform.GetComponent<CellSpawnAnimations>();
+        if (spawnAnim) spawnAnim.SetFinalPosition(spawnPos);
 
         StartCoroutine(Cooldown(cell.spawnCooldown));
     }

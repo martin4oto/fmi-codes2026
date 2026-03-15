@@ -276,5 +276,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34a3a0de697af204c8d3247715e30a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellSpawnAnimations
-  deploySpeed: 101
+  deploySpeed: 10
   deployLength: 1
