@@ -19,6 +19,13 @@ public class WaveManager : MonoBehaviour
     [SerializeField]
     private List<Transform> spawnPoints;
 
+    [SerializeField]
+    private TMP_Text countdown;
+    private int countdownInt = 10;
+
+    [SerializeField]
+    private TMP_Text currWave;
+    
     private void Awake()
     {
         if (instance == null)
@@ -30,8 +37,18 @@ public class WaveManager : MonoBehaviour
     public IEnumerator StartNextWave()
     {
         isInWave = false;
+
+        countdown.gameObject.SetActive(true);
         
-        yield return new WaitForSecondsRealtime(10f);
+        while (countdownInt > 0)
+        {
+            countdown.text = countdownInt.ToString();
+            yield return new WaitForSecondsRealtime(1.0f);
+            countdownInt--;
+        }
+
+        countdownInt = 10;
+        countdown.gameObject.SetActive(false);
         
         isInWave = true;
         
@@ -63,8 +80,16 @@ public class WaveManager : MonoBehaviour
             }
         }
 
-        if (waveNumber < waves.Count - 1) waveNumber++;
-        else lastWaveReached = true;
+        if (waveNumber < waves.Count - 1)
+        {
+            waveNumber++;
+            currWave.text = "Wave: " + waveNumber.ToString();
+        }
+        else
+        {
+            currWave.text = "Wave: " + "Endless!";
+            lastWaveReached = true;
+        }
     }
 
     public void Start()
