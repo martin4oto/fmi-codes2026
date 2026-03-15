@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 39214c0fb2673dc4098a628a99b301eb
+guid: fd8f3cdab6932b14ea48014238067184
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8805081494478335897
-    second: MusicButton_0
-  - first:
-      213: 8227035768401443423
-    second: MusicButton_1
+      213: -761132615156883598
+    second: NoteButton_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MusicButton_0
+      name: NoteButton_0
       rect:
         serializedVersion: 2
         x: 7
@@ -118,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 760d04738011ec580800000000000000
-      internalID: -8805081494478335897
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MusicButton_1
-      rect:
-        serializedVersion: 2
-        x: 83
-        y: 13
-        width: 27
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f5a3002517d4c2270800000000000000
-      internalID: 8227035768401443423
+      spriteID: 27f1c9e4be9ef65f0800000000000000
+      internalID: -761132615156883598
       vertices: []
       indices: 
       edges: []
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      MusicButton_0: -8805081494478335897
-      MusicButton_1: 8227035768401443423
+      NoteButton_0: -761132615156883598
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

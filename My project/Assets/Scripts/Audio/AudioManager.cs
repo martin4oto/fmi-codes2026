@@ -11,6 +11,12 @@ public class AudioManager : MonoBehaviour
     public Sound[] sfx, music;
     public AudioSource musicSource;
     public AudioSource sfxSource;
+    
+    [SerializeField] 
+    private GameObject XIconMusic;
+    [SerializeField] 
+    private GameObject XIconSFX;
+    
     void Awake()
     {
         if (instance != null) Destroy(gameObject);
@@ -26,12 +32,17 @@ public class AudioManager : MonoBehaviour
     public void ToggleMusic()
     {
         musicSource.mute = !musicSource.mute;
+        
+        XIconMusic.SetActive(!XIconMusic.activeSelf);
+        
         if (musicSource.mute) musicSource.Pause();
         else musicSource.UnPause();
     }
     public void ToggleSFX()
     {
         sfxSource.mute = !sfxSource.mute;
+        
+        XIconSFX.SetActive(!XIconSFX.activeSelf);
     }
     public void MusicVolume(float volume)
     {
