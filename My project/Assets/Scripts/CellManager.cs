@@ -80,7 +80,7 @@ public class CellManager : MonoBehaviour
     {
         Vector3 bossPosition = position;
         bossPosition.x = Mathf.Sign(position.x)*bossSpawn.position.x;
-        bossPosition.x = Mathf.Sign(position.y)*bossSpawn.position.y;
+        bossPosition.y = Mathf.Sign(position.y)*bossSpawn.position.y;
 
         if(boss == null)
         {
