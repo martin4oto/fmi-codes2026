@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class spiderBoss:Cell
 {
@@ -11,12 +12,19 @@ public class spiderBoss:Cell
 
     [SerializeField]
     private Animator animator;
+    public Slider hpBar;
     
     int waitTimer;
     int behaviourStage;
 
     int BossStage;
     bool bossMoving = false;
+
+    protected new void Start()
+    {
+        hpBar.maxValue = maxHP;
+        hpBar.value = HP;
+    }
 
     public override void BossLogic()
     {
@@ -136,5 +144,12 @@ public class spiderBoss:Cell
         Cell projectileCell = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Cell>();
 
         CellManager.instance.AddVirus(projectileCell);
+    }
+
+    public override void TakeDamage(int DMG)
+    {
+        base.TakeDamage(DMG);
+
+        hpBar.value = HP;
     }
 }
