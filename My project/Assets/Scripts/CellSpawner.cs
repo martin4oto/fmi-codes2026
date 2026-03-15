@@ -30,13 +30,15 @@ public class CellSpawner : MonoBehaviour
         activeCellSpawing = DetermineCellSpawnType();
         if (activeCellSpawing == ActiveCell.none) return;
 
-        if (!automaticSpawning && Input.GetMouseButtonDown(0) && cells[activeCellSpawing].dnaCost <= GameManager.instance.DNA)
+        if (CanSpawnCell())
         {
             var spawnPos = GetSpawnPosition();
             SpawnCell(spawnPos);
             StartCoroutine(SpawnCellCoroutine(ANIMATION_SUMMON_LENGTH, spawnPos));
         }
     }
+
+    private bool CanSpawnCell() => activeCellSpawing != ActiveCell.none && !automaticSpawning && Input.GetMouseButtonDown(0) && cells[activeCellSpawing].dnaCost <= GameManager.instance.DNA && !spawnCooldown;
 
     private ActiveCell DetermineCellSpawnType()
     {
