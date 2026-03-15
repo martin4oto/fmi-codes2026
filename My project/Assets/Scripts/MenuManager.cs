@@ -22,11 +22,20 @@ public class MenuManager : MonoBehaviour
 
     private void Update()
     {
-        if (InputManager.instance.OptionsInput && !isOptionsAnimationActive && !encyclopedia.activeInHierarchy)
+        if (InputManager.instance.OptionsInput)
         {
-            if (!options.activeInHierarchy) OpenOptionsAnimation(TARGET_SIZE_OPEN, animationSpeed);
-            else CloseOptionsAnimation(TARGET_SIZE_CLOSED, animationSpeed);
+            if (!isOptionsAnimationActive && !encyclopedia.activeInHierarchy)
+            {
+                if (!options.activeInHierarchy) OpenOptionsAnimation(TARGET_SIZE_OPEN, animationSpeed);
+                else CloseOptionsAnimation(TARGET_SIZE_CLOSED, animationSpeed);
+            }
 
+            if (encyclopedia.activeInHierarchy)
+            {
+                encyclopedia.SetActive(false);
+                OpenOptionsAnimation(TARGET_SIZE_OPEN, animationSpeed);
+            }
+            
             InputManager.instance.UseOptionsInput();
         }
     }
