@@ -119,12 +119,12 @@ MonoBehaviour:
   unblockRetargeting: 0
   isBoss: 1
   objectToFollow: {fileID: 0}
-  destroyParticles: {fileID: 0}
+  destroyParticles: {fileID: 6511266191057373623, guid: 74835e3ddb04e184885a525feaec0acd, type: 3}
   goForBrain: 0
   projectile: {fileID: 8467924091469252724, guid: d5ac5f42398dcad45a6e36a90b6c5fe1, type: 3}
   deathPercentages:
   - 0.5
-  - 0
+  - -30
   waitBetweeenMovingTime: 20
   shootSpeed: 10
   animator: {fileID: 502504691437336959}

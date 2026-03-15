@@ -8716,9 +8716,9 @@ MonoBehaviour:
   - {fileID: 65832067}
   - {fileID: 1079659031}
   - {fileID: 719852559}
-  - {fileID: 47312994}
   - {fileID: 1665964913}
   - {fileID: 729463561}
+  - {fileID: 1665964913}
   spawnPoints:
   - {fileID: 2131591727}
   - {fileID: 659174343}
