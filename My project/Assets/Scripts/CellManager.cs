@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class CellManager : MonoBehaviour
 {
+    public GameObject bossPrefab;
+    Cell boss;
+
     public List<Cell> cells;
     public List<Cell> viruses;
 
@@ -60,6 +63,38 @@ public class CellManager : MonoBehaviour
         viruses.Add(cell);
     }
 
+    public GameObject SpawnBoss(Vector2 position)
+    {
+        if(boss == null)
+        {
+            GameObject bossObject = Instantiate(bossPrefab, position, Quaternion.identity);
+
+            boss = bossObject.GetComponent<Cell>();
+            viruses.Add(boss);
+            return bossObject;
+        }
+        else
+        {
+            boss.gameObject.SetActive(true);
+            boss.transform.position = position;
+            viruses.Add(boss);
+
+            return boss.gameObject;
+        }
+    }
+
+    public void HideBoss()
+    {
+        viruses.Remove(boss);
+
+        if (viruses.Count == 0)
+        {
+            WaveManager.instance.StartCoroutine(WaveManager.instance.StartNextWave());;
+        }
+
+        boss.gameObject.SetActive(false);
+    }
+
     void RetargetCells()
     {
         for (int i = 0; i < cells.Count; i++)
@@ -82,9 +117,14 @@ public class CellManager : MonoBehaviour
             cell.TryToStopMoving();
         }
 
-        foreach(Cell cell in viruses)
+        for(int i = 0; i<viruses.Count; i++)
         {
-            cell.TryToStopMoving();
+            viruses[i].TryToStopMoving();
+
+            if(viruses[i].isBoss)
+            {
+                viruses[i].BossLogic();
+            }
         }
     }
 }

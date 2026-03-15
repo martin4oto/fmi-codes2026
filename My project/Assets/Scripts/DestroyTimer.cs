@@ -5,6 +5,7 @@ public class DestroyTimer : MonoBehaviour
 {
     public float timer;
     public ParticleSystem particle;
+    public bool playOnDestroy;
 
     void Update()
     {
@@ -14,7 +15,7 @@ public class DestroyTimer : MonoBehaviour
 
     private void DestroyThis()
     {
-        particle?.Play();
+        if (playOnDestroy) particle?.Play();
         Destroy(gameObject);
     }
 }

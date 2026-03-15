@@ -18,10 +18,12 @@ public class CellSpawner : MonoBehaviour
     private List<Transform> fourthCornerSpawnLocations;
     [SerializedDictionary("Cell Type", "Prefab")]
     public AYellowpaper.SerializedCollections.SerializedDictionary<ActiveCell, Cell> cells;
-
+    public List<CellButton> cellButtons = new(); 
+    [SerializeField]
     public bool automaticSpawning;
     public bool spawnCooldown = false;
     private ActiveCell activeCellSpawing = ActiveCell.none;
+    private bool isLaunching;
 
     private void Update()
     {
@@ -29,10 +31,13 @@ public class CellSpawner : MonoBehaviour
         if (activeCellSpawing == ActiveCell.none) return;
 
         if (!automaticSpawning && Input.GetMouseButtonDown(0)) SpawnCell();
+
+        if (isLaunching) LaunchCell();
     }
 
     private ActiveCell DetermineCellSpawnType()
     {
+        ResetActiveCellButton();
         if (InputManager.instance.SpawnCell1Input)
         {
             if (activeCellSpawing == ActiveCell.basic) activeCellSpawing = ActiveCell.none;
@@ -61,14 +66,14 @@ public class CellSpawner : MonoBehaviour
 
             InputManager.instance.UseSpawnCell4Input();
         }
-
+        ActivateCellButton();
         return activeCellSpawing;
     }
 
     private void SpawnCell()
     {
         int dnaCost = cells[activeCellSpawing].dnaCost;
-        if (spawnCooldown || GameManager.instance.DNA < dnaCost) return;
+        if (spawnCooldown || GameManager.instance.DNA < dnaCost) return; //placeholder for dnaCost
 
         Vector2 spawnPos = GetSpawnPosition();
         var cellObj = Instantiate(cells[activeCellSpawing], spawnPos, Quaternion.identity);
@@ -76,10 +81,20 @@ public class CellSpawner : MonoBehaviour
         CellManager.instance.AddCell(cell);
         AudioManager.PlaySFX("shsh");
         GameManager.instance.DNA -= dnaCost;
+        GameManager.instance.UpdateDNAText();
 
         spawnCooldown = true;
 
+        LaunchCell();
+
         StartCoroutine(Cooldown(cell.spawnCooldown));
+    }
+
+    private void LaunchCell()
+    {
+        var quadrant = GameManager.instance.GetScreenQuadrant();
+
+
     }
 
     private Vector2 GetSpawnPosition()
@@ -119,6 +134,22 @@ public class CellSpawner : MonoBehaviour
         yield return new WaitForSecondsRealtime(cooldown);
 
         spawnCooldown = false;
+    }
+
+    void ResetActiveCellButton()
+    {
+        if (activeCellSpawing != ActiveCell.none)
+        {
+            cellButtons[(int)activeCellSpawing].Reset();
+        }
+    }
+
+    void ActivateCellButton()
+    {
+        if (activeCellSpawing != ActiveCell.none)
+        {
+            cellButtons[(int)activeCellSpawing].Activate();
+        }
     }
 }
 

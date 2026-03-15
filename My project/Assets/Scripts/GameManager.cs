@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -13,6 +15,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private TMP_Text DNAText;
+    public List<TextMeshProUGUI> costLabels = new();
+    public Color tooExpensiveColor;
     
     private void Awake()
     {
@@ -52,5 +56,17 @@ public class GameManager : MonoBehaviour
     public void UpdateDNAText()
     {
         DNAText.text = DNA.ToString();
+        foreach (TextMeshProUGUI label in costLabels)
+        {
+            int cost = int.Parse(label.text);
+            if (DNA >= cost)
+            {
+                label.color = Color.white;
+            }
+            else
+            {
+                label.color = tooExpensiveColor;
+            }
+        }
     }
 }
