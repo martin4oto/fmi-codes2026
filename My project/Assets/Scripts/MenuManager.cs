@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,10 +20,13 @@ public class MenuManager : MonoBehaviour
     private float animationSpeed = 0.5f;
 
     private bool isOptionsAnimationActive;
+    
+    [SerializeField]
+    private GameObject encyclopedia;
 
     private void Update()
     {
-        if (InputManager.instance.OptionsInput && !isOptionsAnimationActive)
+        if (InputManager.instance.OptionsInput && !isOptionsAnimationActive && !encyclopedia.activeInHierarchy)
         {
             if (!options.activeInHierarchy) OpenOptionsAnimation(TARGET_SIZE_OPEN, animationSpeed);
             else CloseOptionsAnimation(TARGET_SIZE_CLOSED, animationSpeed);
