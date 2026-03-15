@@ -84,7 +84,7 @@ public class CellManager : MonoBehaviour
 
         if(boss == null)
         {
-            GameObject bossObject = Instantiate(bossPrefab, position, Quaternion.identity);
+            GameObject bossObject = Instantiate(bossPrefab, bossPosition, Quaternion.identity);
 
             boss = bossObject.GetComponent<Cell>();
             viruses.Add(boss);
@@ -93,7 +93,7 @@ public class CellManager : MonoBehaviour
         else
         {
             boss.gameObject.SetActive(true);
-            boss.transform.position = position;
+            boss.transform.position = bossPosition;
             viruses.Add(boss);
 
             return boss.gameObject;
