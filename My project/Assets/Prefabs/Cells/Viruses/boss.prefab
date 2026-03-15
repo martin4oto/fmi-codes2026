@@ -101,7 +101,7 @@ RectTransform:
   m_GameObject: {fileID: 1321365230140506726}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.008, y: 0.008, z: 0.00004938667}
+  m_LocalScale: {x: 0.007, y: 0.007, z: 0.000043213335}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5581056222586898995}
@@ -111,7 +111,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.17, y: -6.47}
+  m_AnchoredPosition: {x: 0.13, y: -6.29}
   m_SizeDelta: {x: 476.213, y: 43.647583}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1791858285973476369
@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7064ba6a2c442204492e3f777de264ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::spiderBoss
-  HP: 0
+  HP: 100
   isEnemy: 1
   speed: 5
   range: 3
@@ -452,7 +452,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 16
   m_TargetDisplay: 0
 --- !u!114 &295978546064915421
 MonoBehaviour:
