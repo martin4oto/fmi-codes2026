@@ -30,7 +30,7 @@ public class CellSpawner : MonoBehaviour
         activeCellSpawing = DetermineCellSpawnType();
         if (activeCellSpawing == ActiveCell.none) return;
 
-        if (!automaticSpawning && Input.GetMouseButtonDown(0))
+        if (!automaticSpawning && Input.GetMouseButtonDown(0) && cells[activeCellSpawing].dnaCost <= GameManager.instance.DNA)
         {
             var spawnPos = GetSpawnPosition();
             SpawnCell(spawnPos);
@@ -75,21 +75,15 @@ public class CellSpawner : MonoBehaviour
 
     private void SpawnCellObj(Vector2 spawnPos)
     {
-        int dnaCost = cells[activeCellSpawing].dnaCost;
-        if (spawnCooldown || GameManager.instance.DNA < dnaCost) return; //placeholder for dnaCost
-
         Cell cell = Instantiate(cells[activeCellSpawing], spawnPos, Quaternion.identity);
         CellManager.instance.AddCell(cell);
     }
 
     private void SpawnCell(Vector2 spawnPos)
     {
-        int dnaCost = cells[activeCellSpawing].dnaCost;
-        if (spawnCooldown || GameManager.instance.DNA < dnaCost) return; //placeholder for dnaCost
-
         Cell cell = Instantiate(cells[activeCellSpawing], Vector2.zero, Quaternion.identity);
         AudioManager.PlaySFX("shsh");
-        GameManager.instance.DNA -= dnaCost;
+        GameManager.instance.DNA -= cells[activeCellSpawing].dnaCost;
         GameManager.instance.UpdateDNAText();
         cell.GetComponent<DestroyTimer>().enabled = true;
 
@@ -144,7 +138,6 @@ public class CellSpawner : MonoBehaviour
     private IEnumerator SpawnCellCoroutine(float cooldown, Vector2 spawnPos)
     {
         yield return new WaitForSecondsRealtime(cooldown);
-
         SpawnCellObj(spawnPos);
     }
 
