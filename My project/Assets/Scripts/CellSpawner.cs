@@ -85,16 +85,9 @@ public class CellSpawner : MonoBehaviour
 
         spawnCooldown = true;
 
-        LaunchCell();
+        GetComponent<CellSpawnAnimations>()?.PlaySpawnAnimation();
 
         StartCoroutine(Cooldown(cell.spawnCooldown));
-    }
-
-    private void LaunchCell()
-    {
-        var quadrant = GameManager.instance.GetScreenQuadrant();
-
-
     }
 
     private Vector2 GetSpawnPosition()
