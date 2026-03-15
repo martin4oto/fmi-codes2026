@@ -9,6 +9,9 @@ public class spiderBoss:Cell
     public int waitBetweeenMovingTime;
     public int shootSpeed;
 
+    [SerializeField]
+    private Animator animator;
+    
     int waitTimer;
     int behaviourStage;
 
@@ -39,6 +42,7 @@ public class spiderBoss:Cell
 
             Move(position);
             bossMoving = true;
+            animator.SetTrigger("hasJumped");
         }
         else
         {
@@ -47,6 +51,7 @@ public class spiderBoss:Cell
 
             Move(position);
             bossMoving = true;
+            animator.SetTrigger("hasJumped");
         }
     }
 
