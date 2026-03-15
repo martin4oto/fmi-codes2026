@@ -31,8 +31,6 @@ public class CellSpawner : MonoBehaviour
         if (activeCellSpawing == ActiveCell.none) return;
 
         if (!automaticSpawning && Input.GetMouseButtonDown(0)) SpawnCell();
-
-        if (isLaunching) LaunchCell();
     }
 
     private ActiveCell DetermineCellSpawnType()
