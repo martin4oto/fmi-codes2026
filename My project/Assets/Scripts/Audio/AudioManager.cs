@@ -50,6 +50,7 @@ public class AudioManager : MonoBehaviour
     }
     public void SFXVolume(float volume)
     {
+        Debug.Log(volume);
         sfxSource.volume = volume;
     }
 

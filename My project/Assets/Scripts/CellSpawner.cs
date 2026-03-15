@@ -76,6 +76,43 @@ public class CellSpawner : MonoBehaviour
         return activeCellSpawing;
     }
 
+    public void SummonBn1()
+    {
+        ResetActiveCellButton();
+
+        if (activeCellSpawing == ActiveCell.basic) activeCellSpawing = ActiveCell.none;
+        else activeCellSpawing = ActiveCell.basic;
+
+        InputManager.instance.UseSpawnCell1Input();
+    }
+    public void SummonBn2()
+    {
+        ResetActiveCellButton();
+
+        if (activeCellSpawing == ActiveCell.ranged) activeCellSpawing = ActiveCell.none;
+        else activeCellSpawing = ActiveCell.ranged;
+
+        InputManager.instance.UseSpawnCell2Input();
+    }
+    public void SummonBn3()
+    {
+        ResetActiveCellButton();
+
+        if (activeCellSpawing == ActiveCell.spawner) activeCellSpawing = ActiveCell.none;
+        else activeCellSpawing = ActiveCell.spawner;
+
+        InputManager.instance.UseSpawnCell4Input();
+    }
+    public void SummonBn4()
+    {
+        ResetActiveCellButton();
+
+        if (activeCellSpawing == ActiveCell.bomb) activeCellSpawing = ActiveCell.none;
+        else activeCellSpawing = ActiveCell.bomb;
+
+        InputManager.instance.UseSpawnCell3Input();
+    }
+
     private void SpawnCellObj(Vector2 spawnPos, ActiveCell activeCell)
     {
         Cell cell = Instantiate(cells[activeCell], spawnPos, Quaternion.identity);

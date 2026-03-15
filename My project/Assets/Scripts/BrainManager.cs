@@ -17,6 +17,8 @@ public class BrainManager : MonoBehaviour
     private Slider hpBar;
     [SerializeField]
     private GameObject deathEffect;
+    [SerializeField]
+    private GameObject summonBtns;
 
     private Vector2 oldMouseDir = Vector2.zero;
     ParticleSystem bloodSplat;
@@ -72,6 +74,7 @@ public class BrainManager : MonoBehaviour
         deathEffect.SetActive(true);
         deathEffect.transform.parent = null;
 
+        summonBtns.SetActive(false);
         gameObject.SetActive(false);
 
         CellManager.instance.RemoveAll();
