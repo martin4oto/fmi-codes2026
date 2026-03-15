@@ -107,15 +107,14 @@ MonoBehaviour:
   HP: 0
   isEnemy: 1
   speed: 5
-  range: 0
+  range: 3
   shouldStop: 0
-  DMG: 0
+  DMG: 1
   maxHP: 100
   dnaDrop: 0
   dnaCost: 0
   spawnCooldown: 0
   targettingRange: 0
-  info: 
   unblockRetargeting: 0
   isBoss: 1
   objectToFollow: {fileID: 0}
