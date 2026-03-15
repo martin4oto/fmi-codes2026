@@ -32,7 +32,6 @@ public class CellSpawner : MonoBehaviour
 
         if (!automaticSpawning && Input.GetMouseButtonDown(0)) SpawnCell();
 
-
         if (isLaunching) LaunchCell();
     }
 

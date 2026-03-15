@@ -22,7 +22,6 @@ public class Cell:MonoBehaviour
     public int dnaCost;
     public float spawnCooldown;    
     public float targettingRange;
-    public string info;
     public bool unblockRetargeting;
     float wanderDelay;
 
