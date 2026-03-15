@@ -4,73 +4,63 @@ using UnityEngine;
 public class Duplicater : Cell
 {
     public float maxShootingTimer;
-    public float duplicateCooldown = 2f;
-    public float displacementForce = 10f;
+    Cell foe;
 
     float currentShootingTimer = 0;
-    bool isDuplicateCooldownOn = false;
-    float cooldownTimer = 2f;
-    void Update()
+    new void Update()
     {
         base.Update();
-        if (isShooting)
+
+        if (currentShootingTimer < maxShootingTimer)
         {
-            currentShootingTimer += Time.deltaTime;
-            if (currentShootingTimer >= maxShootingTimer)
+            currentShootingTimer+=Time.deltaTime;
+        }
+        if(isShooting)
+        {
+            if(currentShootingTimer>=maxShootingTimer)
             {
                 GameObject[] foes = FindFoe();
                 TryToShoot(foes);
                 currentShootingTimer = 0;
             }
-        }
-        else
+        }else if (objectToFollow == null)
         {
-            currentShootingTimer = maxShootingTimer + 1;
+            Wander();
         }
-
-        if (!isDuplicateCooldownOn || cooldownTimer <= 0)
-        {
-            Duplicate();
-        }
-        else cooldownTimer -= Time.deltaTime;
     }
     void TryToShoot(GameObject[] foes)
     {
         List<GameObject> FoesInRange = new List<GameObject>();
 
-        for (int i = 0; i < foes.Length; i++)
+        for(int i = 0; i<foes.Length; i++)
         {
             Vector3 foePosition = foes[i].transform.position;
 
-            if (Vector3.Distance(foePosition, transform.position) < range)
+            if(Vector3.Distance(foePosition, transform.position) < range)
             {
                 FoesInRange.Add(foes[i]);
             }
         }
 
-        if (FoesInRange.Count > 0)
+        if(FoesInRange.Count > 0)
         {
             Shoot(FoesInRange);
         }
     }
     void Shoot(List<GameObject> foesInRange)
     {
-        for (int i = 0; i < foesInRange.Count; i++)
+        for(int i = 0; i<foesInRange.Count; i++)
         {
             Cell foeCellScript = foesInRange[i].GetComponent<Cell>();
-
-            foeCellScript.TakeDamage(DMG);
+            foeCellScript.TakeDamage(DMG); 
+            AudioManager.PlaySFX("slap_pitched_down");
+            squashAndStretch.Play();
         }
     }
 
-    private void Duplicate()
+    public void PowerUp()
     {
-        Vector2 force = new Vector2(displacementForce, 0);
-        var copy = Instantiate(this, transform.position, transform.rotation);
-        GetComponent<Rigidbody>().AddForce(force);
-        copy.GetComponent<Rigidbody>().AddForce(-force);
-
-        isDuplicateCooldownOn = true;
-        cooldownTimer = duplicateCooldown;
+        base.maxHP = Mathf.CeilToInt(base.maxHP * 1.25f);
+        base.HP = Mathf.CeilToInt(base.HP * 1.25f);
     }
 }
