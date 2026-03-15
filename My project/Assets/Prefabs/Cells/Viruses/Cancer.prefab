@@ -114,7 +114,7 @@ MonoBehaviour:
   speed: 0.5
   range: 1
   shouldStop: 1
-  DMG: 1
+  DMG: 2
   maxHP: 5
   dnaDrop: 2
   dnaCost: 0

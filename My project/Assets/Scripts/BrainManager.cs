@@ -16,6 +16,8 @@ public class BrainManager : MonoBehaviour
     private Slider hpBar;
     [SerializeField]
     private GameObject deathEffect;
+    [SerializeField]
+    private GameObject deathScreen;
 
     private Vector2 oldMouseDir = Vector2.zero;
     ParticleSystem bloodSplat;
@@ -72,6 +74,9 @@ public class BrainManager : MonoBehaviour
         deathEffect.transform.parent = null;
 
         gameObject.SetActive(false);
+
+        CellManager.instance.RemoveAll();
+        deathScreen.SetActive(true);
     }
 
     private void LookDirection()

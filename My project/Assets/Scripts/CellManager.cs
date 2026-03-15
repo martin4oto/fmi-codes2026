@@ -33,6 +33,18 @@ public class CellManager : MonoBehaviour
         currentTimer += Time.deltaTime;
     }
 
+    public void RemoveAll()
+    {
+        foreach (Cell cell in cells)
+        {
+            cell.Remove();
+        }
+        foreach (Cell cell in viruses)
+        {
+            cell.Remove();
+        }
+    }
+
     public void RemoveVirus(Cell virus)
     {
         viruses.Remove(virus);
