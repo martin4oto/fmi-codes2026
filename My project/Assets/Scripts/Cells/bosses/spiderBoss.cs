@@ -42,7 +42,7 @@ public class spiderBoss:Cell
 
             Move(position);
             bossMoving = true;
-            animator.SetTrigger("hasJumped");
+            animator.SetTrigger("hasJumpedWide");
         }
         else
         {
