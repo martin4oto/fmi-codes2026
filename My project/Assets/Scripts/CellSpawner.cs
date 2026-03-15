@@ -33,14 +33,7 @@ public class CellSpawner : MonoBehaviour
 
         if (!automaticSpawning && Input.GetMouseButtonDown(0)) SpawnCell();
 
-        PrintCellInfo();
-
         if (isLaunching) LaunchCell();
-    }
-
-    private void PrintCellInfo()
-    { 
-        if (info) info.text = cells[activeCellSpawing].info;
     }
 
     private ActiveCell DetermineCellSpawnType()
