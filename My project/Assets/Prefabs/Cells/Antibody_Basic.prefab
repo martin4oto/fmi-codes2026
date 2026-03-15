@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6857972506919704569}
   - component: {fileID: 2980917797941055579}
   - component: {fileID: -4654112535936663045}
+  - component: {fileID: -5229855235493359465}
   m_Layer: 0
   m_Name: Antibody_Basic
   m_TagString: Cell
@@ -271,10 +272,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7568621363967411955}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34a3a0de697af204c8d3247715e30a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellSpawnAnimations
   deploySpeed: 10
   deployLength: 1
+--- !u!114 &-5229855235493359465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7568621363967411955}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cbd7259a3c6c8d4b81e688f7a277cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DestroyTimer
+  timer: 0.5
+  particle: {fileID: 0}
+  playOnDestroy: 0

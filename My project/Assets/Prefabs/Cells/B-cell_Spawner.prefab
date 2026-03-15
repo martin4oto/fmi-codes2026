@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -2872484716994161845}
   - component: {fileID: -2649094895965315648}
   - component: {fileID: 794380294166830730}
+  - component: {fileID: -2391234104461533182}
   m_Layer: 0
   m_Name: B-cell_Spawner
   m_TagString: Cell
@@ -273,10 +274,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9042437290503787896}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34a3a0de697af204c8d3247715e30a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellSpawnAnimations
-  deploySpeed: 50
+  deploySpeed: 10
   deployLength: 1
+--- !u!114 &-2391234104461533182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9042437290503787896}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cbd7259a3c6c8d4b81e688f7a277cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DestroyTimer
+  timer: 0.5
+  particle: {fileID: 0}
+  playOnDestroy: 0
