@@ -25,8 +25,8 @@ public class Cell:MonoBehaviour
     public float targettingRange;
     public bool unblockRetargeting;
     public bool isBoss;
-    float wanderDelay;
 
+    float wanderDelay;
     float timeToArive;
     float currentTime;
     bool hasMoveCommand;
@@ -53,7 +53,7 @@ public class Cell:MonoBehaviour
             EnemyDefault();
         }
 
-        RotateByQuadrant();
+        if (!isEnemy) RotateByQuadrant();
     }
     protected void Update()
     {
@@ -122,7 +122,7 @@ public class Cell:MonoBehaviour
            PathMove(_position);
         }   
     }
-    void StraightMove(Vector2 _position)
+    public void StraightMove(Vector2 _position)
     {
         hasMoveCommand = true;
         moveStartPoint = transform.position;
