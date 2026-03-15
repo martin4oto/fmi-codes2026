@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d948c27589b45864e970ea1fffd49a9a
+guid: 5d450d0c851e48644abf6797bd15dab6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5626827723597756301
-    second: PH_tileset_16x16_0
+      213: -2528419839248415137
+    second: TheAntivusTitleScreen_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,43 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 1
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 1
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PH_tileset_16x16_0
+      name: TheAntivusTitleScreen_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 48
+        width: 480
+        height: 270
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 378c2a26ffd79e1b0800000000000000
-      internalID: -5626827723597756301
+      spriteID: f564c866d8f39ecd0800000000000000
+      internalID: -2528419839248415137
       vertices: []
       indices: 
       edges: []
@@ -161,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PH_tileset_16x16_0: -5626827723597756301
+      TheAntivusTitleScreen_0: -2528419839248415137
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

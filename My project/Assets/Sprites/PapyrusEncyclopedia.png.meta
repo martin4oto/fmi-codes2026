@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a2d02a58852fb0c4bac90f639dfc29c6
+guid: 81a55afd990c1c346b1401f6340867c4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5224213809551210856
-    second: PH_projectile_3_0
+      213: 1302101200416704870
+    second: PapyrusEncyclopedia_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,43 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 1
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 1
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PH_projectile_3_0
+      name: PapyrusEncyclopedia_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 62
+        x: 1
+        y: 22
+        width: 124
+        height: 75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8968203283ddf77b0800000000000000
-      internalID: -5224213809551210856
+      spriteID: 6698278942ef11210800000000000000
+      internalID: 1302101200416704870
       vertices: []
       indices: 
       edges: []
@@ -161,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PH_projectile_3_0: -5224213809551210856
+      PapyrusEncyclopedia_0: 1302101200416704870
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -599,8 +599,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 50, y: 46}
-  m_SizeDelta: {x: 400, y: 75}
+  m_AnchoredPosition: {x: 30, y: 46}
+  m_SizeDelta: {x: 350, y: 70}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &725744330
 MonoBehaviour:
@@ -671,7 +671,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.96981126, g: 0.8285057, b: 0.4592879, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -807,8 +807,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 50, y: 128}
-  m_SizeDelta: {x: 400, y: 75}
+  m_AnchoredPosition: {x: 30, y: 128}
+  m_SizeDelta: {x: 350, y: 70}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &845714557
 MonoBehaviour:
@@ -879,7 +879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.96981126, g: 0.8285057, b: 0.4592879, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1392,8 +1392,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 50, y: 210}
-  m_SizeDelta: {x: 400, y: 75}
+  m_AnchoredPosition: {x: 30, y: 210}
+  m_SizeDelta: {x: 350, y: 70}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1424357628
 MonoBehaviour:
@@ -1464,7 +1464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.96981126, g: 0.8285057, b: 0.4592879, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1886,7 +1886,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6590356642946437791, guid: 3d97563a0d93459419b191ce63fc231f, type: 3}
+  m_Sprite: {fileID: -2528419839248415137, guid: 5d450d0c851e48644abf6797bd15dab6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
