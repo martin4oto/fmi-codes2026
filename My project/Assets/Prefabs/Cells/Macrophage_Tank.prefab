@@ -119,7 +119,7 @@ MonoBehaviour:
   DMG: 3
   maxHP: 20
   dnaDrop: 0
-  dnaCost: 5
+  dnaCost: 4
   spawnCooldown: 1
   targettingRange: 5
   unblockRetargeting: 0
