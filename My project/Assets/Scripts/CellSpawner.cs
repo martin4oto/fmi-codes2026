@@ -79,12 +79,14 @@ public class CellSpawner : MonoBehaviour
     private void SpawnCellObj(Vector2 spawnPos, ActiveCell activeCell)
     {
         Cell cell = Instantiate(cells[activeCell], spawnPos, Quaternion.identity);
-        CellManager.instance.AddCell(cell);
+        if (cell) CellManager.instance.AddCell(cell);
     }
 
     private void SpawnCell(Vector2 spawnPos, ActiveCell activeCell)
     {
         Cell cell = Instantiate(cells[activeCell], Vector2.zero, Quaternion.identity);
+        if (!cell) return;
+
         AudioManager.PlaySFX("shsh");
         GameManager.instance.DNA -= cells[activeCell].dnaCost;
         GameManager.instance.UpdateDNAText();
