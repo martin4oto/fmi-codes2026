@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6611089184704881972}
   - component: {fileID: 2429374863302213454}
   - component: {fileID: 5534056147352312707}
+  - component: {fileID: 3129586012944885486}
   m_Layer: 0
   m_Name: KIllerT_Bomb
   m_TagString: Cell
@@ -109,6 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad10f39d2bb0524fabd696fa2fefa1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bomb
+  HP: 0
   isEnemy: 0
   speed: 3
   range: 1.5
@@ -119,9 +121,8 @@ MonoBehaviour:
   dnaCost: 10
   spawnCooldown: 1
   targettingRange: 7
-  info: Killer T cells explode, sometimes so violently that they damage the body's
-    cells.
   unblockRetargeting: 1
+  isBoss: 0
   objectToFollow: {fileID: 0}
   destroyParticles: {fileID: 6511266191057373623, guid: 74835e3ddb04e184885a525feaec0acd, type: 3}
   goForBrain: 0
@@ -245,3 +246,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpriteBlink
   blinkDecaySpeed: 6
   spriteRenderers: []
+--- !u!114 &3129586012944885486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6787469855367403855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34a3a0de697af204c8d3247715e30a82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CellSpawnAnimations
+  deploySpeed: 101
+  deployLength: 1

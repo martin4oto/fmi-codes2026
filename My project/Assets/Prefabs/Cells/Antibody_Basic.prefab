@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6251078366555784439}
   - component: {fileID: 6857972506919704569}
   - component: {fileID: 2980917797941055579}
+  - component: {fileID: -4654112535936663045}
   m_Layer: 0
   m_Name: Antibody_Basic
   m_TagString: Cell
@@ -109,6 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a34874416543a2449bcd1bd09fe75c69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasicCell
+  HP: 0
   isEnemy: 0
   speed: 1
   range: 1
@@ -119,10 +121,11 @@ MonoBehaviour:
   dnaCost: 1
   spawnCooldown: 0.5
   targettingRange: 3
-  info: Antibodies are secrated by the body to overwhelm the viruses.
   unblockRetargeting: 0
+  isBoss: 0
   objectToFollow: {fileID: 0}
   destroyParticles: {fileID: 6511266191057373623, guid: 74835e3ddb04e184885a525feaec0acd, type: 3}
+  goForBrain: 0
   maxShootingTimer: 1.5
 --- !u!95 &996833481805774076
 Animator:
@@ -261,3 +264,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpriteBlink
   blinkDecaySpeed: 6
   spriteRenderers: []
+--- !u!114 &-4654112535936663045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7568621363967411955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34a3a0de697af204c8d3247715e30a82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CellSpawnAnimations
+  deploySpeed: 101
+  deployLength: 1

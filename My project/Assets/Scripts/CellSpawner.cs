@@ -74,7 +74,7 @@ public class CellSpawner : MonoBehaviour
         if (spawnCooldown || GameManager.instance.DNA < dnaCost) return; //placeholder for dnaCost
 
         Vector2 spawnPos = GetSpawnPosition();
-        var cellObj = Instantiate(cells[activeCellSpawing], spawnPos, Quaternion.identity);
+        var cellObj = Instantiate(cells[activeCellSpawing], Vector2.zero, Quaternion.identity);
         var cell = cellObj.GetComponent<Cell>();
         CellManager.instance.AddCell(cell);
         AudioManager.PlaySFX("shsh");
@@ -83,7 +83,7 @@ public class CellSpawner : MonoBehaviour
 
         spawnCooldown = true;
 
-        GetComponent<CellSpawnAnimations>()?.PlaySpawnAnimation();
+        GetComponent<CellSpawnAnimations>()?.PlaySpawnAnimationTo(spawnPos);
 
         StartCoroutine(Cooldown(cell.spawnCooldown));
     }

@@ -1,9 +1,5 @@
-using NUnit.Framework;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Tilemaps;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
