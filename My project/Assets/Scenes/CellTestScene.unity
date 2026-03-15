@@ -3255,7 +3255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BrainManager
   hp: 100
   hpBar: {fileID: 1427405663}
-  deathParticle: {fileID: 5096148057906189823, guid: b2ae68ff4d82c4b4abe9fcddf93531fa, type: 3}
+  deathEffect: {fileID: 0}
 --- !u!4 &1117079625
 Transform:
   m_ObjectHideFlags: 0
@@ -8470,6 +8470,7 @@ MonoBehaviour:
   options: {fileID: 1813302413}
   darkEffect: {fileID: 1610289816}
   animationSpeed: 0.2
+  encyclopedia: {fileID: 0}
 --- !u!114 &1302511142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8482,6 +8483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c72d5729662cb345851a34e396fdf3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellManager
+  bossPrefab: {fileID: 4798196134598215305, guid: 422b6a52396a88b47bd9cdc0f898c9cd, type: 3}
   cells: []
   viruses: []
   retargetTimer: 0.2
