@@ -1597,6 +1597,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 71575203}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &647369032
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 647369034}
+  - component: {fileID: 647369033}
+  m_Layer: 0
+  m_Name: BrainDeathEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &647369033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647369032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cbd7259a3c6c8d4b81e688f7a277cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DestroyTimer
+  timer: 1.5
+  particle: {fileID: 1846366937}
+  playOnDestroy: 1
+--- !u!4 &647369034
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647369032}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1117079625}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &647483343
 GameObject:
   m_ObjectHideFlags: 0
@@ -3255,7 +3302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BrainManager
   hp: 100
   hpBar: {fileID: 1427405663}
-  deathEffect: {fileID: 0}
+  deathEffect: {fileID: 647369032}
 --- !u!4 &1117079625
 Transform:
   m_ObjectHideFlags: 0
@@ -3270,6 +3317,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1657861316}
+  - {fileID: 647369034}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1117079626
@@ -10536,6 +10584,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8590a26e33ebe842a9812ecb221e4f3, type: 3}
+--- !u!198 &1846366937 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 319023630744655086, guid: c8590a26e33ebe842a9812ecb221e4f3, type: 3}
+  m_PrefabInstance: {fileID: 1846366936}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1851629052
 GameObject:
   m_ObjectHideFlags: 0
