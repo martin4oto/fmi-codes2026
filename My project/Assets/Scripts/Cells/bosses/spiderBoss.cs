@@ -146,11 +146,4 @@ public class spiderBoss:Cell
         CellManager.instance.AddVirus(projectileCell);
     }
 
-    public override void TakeDamage(int DMG)
-    {
-        base.TakeDamage(DMG);
-
-        hpBar.value = HP;
-    }
-
 }
