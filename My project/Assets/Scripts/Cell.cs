@@ -198,7 +198,7 @@ public class Cell:MonoBehaviour
         return GameObject.FindGameObjectsWithTag("Virus");
     }
 
-    public void TakeDamage(int DMG)
+    public virtual void TakeDamage(int DMG)
     {
         HP-=DMG;
 
