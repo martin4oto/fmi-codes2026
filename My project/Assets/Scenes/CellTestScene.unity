@@ -119,6 +119,74 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &47312992
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 47312993}
+  - component: {fileID: 47312994}
+  m_Layer: 0
+  m_Name: Wave5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &47312993
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47312992}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 706525762}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &47312994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47312992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c74fda4bbcc49d4d9bcc2ed5b49cbe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Wave
+  waveStats:
+    _serializedList:
+    - Key: 0
+      Value: 7
+    - Key: 1
+      Value: 2
+    - Key: 2
+      Value: 4
+    - Key: 3
+      Value: 2
+    - Key: 4
+      Value: 2
+  virusPrefabs:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 7568621363967411955, guid: 5a99f28db60d3bf429df69b97235024a, type: 3}
+    - Key: 1
+      Value: {fileID: 7568621363967411955, guid: fb1c939563ff5af41bb76c9ddc31e9e0, type: 3}
+    - Key: 2
+      Value: {fileID: 7568621363967411955, guid: 8414c0dc830088c45a3ff922dc6c1c20, type: 3}
+    - Key: 3
+      Value: {fileID: 7568621363967411955, guid: e5246d0fc1815584581580c406aa8095, type: 3}
+    - Key: 4
+      Value: {fileID: 7568621363967411955, guid: 99dc26b6fa69fe34f9eaad2b336c82af, type: 3}
 --- !u!1 &49144773
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,11 +373,15 @@ MonoBehaviour:
   waveStats:
     _serializedList:
     - Key: 0
-      Value: 12
+      Value: 6
+    - Key: 1
+      Value: 3
   virusPrefabs:
     _serializedList:
     - Key: 0
       Value: {fileID: 7568621363967411955, guid: 5a99f28db60d3bf429df69b97235024a, type: 3}
+    - Key: 1
+      Value: {fileID: 7568621363967411955, guid: fb1c939563ff5af41bb76c9ddc31e9e0, type: 3}
 --- !u!4 &65832068
 Transform:
   m_ObjectHideFlags: 0
@@ -2526,17 +2598,79 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1938349802}
   - {fileID: 1555981844}
   - {fileID: 65832068}
   - {fileID: 1079659030}
-  - {fileID: 2123000631}
-  - {fileID: 1526449901}
-  - {fileID: 1417779406}
-  - {fileID: 844868617}
-  - {fileID: 990764612}
+  - {fileID: 719852558}
+  - {fileID: 47312993}
+  - {fileID: 1665964912}
+  - {fileID: 729463560}
   m_Father: {fileID: 2069198205}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &719852557
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 719852558}
+  - component: {fileID: 719852559}
+  m_Layer: 0
+  m_Name: Wave4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &719852558
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719852557}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 706525762}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &719852559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719852557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c74fda4bbcc49d4d9bcc2ed5b49cbe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Wave
+  waveStats:
+    _serializedList:
+    - Key: 0
+      Value: 9
+    - Key: 1
+      Value: 3
+    - Key: 2
+      Value: 5
+    - Key: 3
+      Value: 2
+  virusPrefabs:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 7568621363967411955, guid: 5a99f28db60d3bf429df69b97235024a, type: 3}
+    - Key: 1
+      Value: {fileID: 7568621363967411955, guid: fb1c939563ff5af41bb76c9ddc31e9e0, type: 3}
+    - Key: 2
+      Value: {fileID: 7568621363967411955, guid: 8414c0dc830088c45a3ff922dc6c1c20, type: 3}
+    - Key: 3
+      Value: {fileID: 7568621363967411955, guid: e5246d0fc1815584581580c406aa8095, type: 3}
 --- !u!1 &722367019
 GameObject:
   m_ObjectHideFlags: 0
@@ -2568,6 +2702,74 @@ Transform:
   m_Children: []
   m_Father: {fileID: 71575203}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &729463559
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 729463560}
+  - component: {fileID: 729463561}
+  m_Layer: 0
+  m_Name: Wave7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &729463560
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729463559}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 706525762}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &729463561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729463559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c74fda4bbcc49d4d9bcc2ed5b49cbe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Wave
+  waveStats:
+    _serializedList:
+    - Key: 0
+      Value: 5
+    - Key: 1
+      Value: 5
+    - Key: 2
+      Value: 5
+    - Key: 3
+      Value: 3
+    - Key: 4
+      Value: 2
+  virusPrefabs:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 7568621363967411955, guid: 5a99f28db60d3bf429df69b97235024a, type: 3}
+    - Key: 1
+      Value: {fileID: 7568621363967411955, guid: fb1c939563ff5af41bb76c9ddc31e9e0, type: 3}
+    - Key: 2
+      Value: {fileID: 7568621363967411955, guid: 8414c0dc830088c45a3ff922dc6c1c20, type: 3}
+    - Key: 3
+      Value: {fileID: 7568621363967411955, guid: e5246d0fc1815584581580c406aa8095, type: 3}
+    - Key: 4
+      Value: {fileID: 7568621363967411955, guid: 99dc26b6fa69fe34f9eaad2b336c82af, type: 3}
 --- !u!1 &743094512
 GameObject:
   m_ObjectHideFlags: 0
@@ -3258,70 +3460,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 834604995}
   m_CullTransparentMesh: 1
---- !u!1 &844868616
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 844868617}
-  - component: {fileID: 844868618}
-  m_Layer: 0
-  m_Name: Wave7
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &844868617
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 844868616}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 706525762}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &844868618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 844868616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c74fda4bbcc49d4d9bcc2ed5b49cbe9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Wave
-  waveStats:
-    _serializedList:
-    - Key: 0
-      Value: 5
-    - Key: 1
-      Value: 6
-    - Key: 2
-      Value: 4
-    - Key: 3
-      Value: 4
-  virusPrefabs:
-    _serializedList:
-    - Key: 0
-      Value: {fileID: 7568621363967411955, guid: 5a99f28db60d3bf429df69b97235024a, type: 3}
-    - Key: 1
-      Value: {fileID: 7568621363967411955, guid: fb1c939563ff5af41bb76c9ddc31e9e0, type: 3}
-    - Key: 2
-      Value: {fileID: 7568621363967411955, guid: 8414c0dc830088c45a3ff922dc6c1c20, type: 3}
-    - Key: 3
-      Value: {fileID: 7568621363967411955, guid: e5246d0fc1815584581580c406aa8095, type: 3}
 --- !u!1 &895182207
 GameObject:
   m_ObjectHideFlags: 0
@@ -3853,58 +3991,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 983983937}
   m_CullTransparentMesh: 1
---- !u!1 &990764611
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 990764612}
-  - component: {fileID: 990764613}
-  m_Layer: 0
-  m_Name: Wave10
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &990764612
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 990764611}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 706525762}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &990764613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 990764611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c74fda4bbcc49d4d9bcc2ed5b49cbe9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Wave
-  waveStats:
-    _serializedList:
-    - Key: 5
-      Value: 1
-  virusPrefabs:
-    _serializedList:
-    - Key: 5
-      Value: {fileID: 4798196134598215305, guid: 422b6a52396a88b47bd9cdc0f898c9cd, type: 3}
 --- !u!1 &1006303156
 GameObject:
   m_ObjectHideFlags: 0
@@ -4230,15 +4316,19 @@ MonoBehaviour:
   waveStats:
     _serializedList:
     - Key: 0
-      Value: 10
+      Value: 8
     - Key: 1
-      Value: 3
+      Value: 2
+    - Key: 2
+      Value: 4
   virusPrefabs:
     _serializedList:
     - Key: 0
       Value: {fileID: 7568621363967411955, guid: 5a99f28db60d3bf429df69b97235024a, type: 3}
     - Key: 1
       Value: {fileID: 7568621363967411955, guid: fb1c939563ff5af41bb76c9ddc31e9e0, type: 3}
+    - Key: 2
+      Value: {fileID: 7568621363967411955, guid: 8414c0dc830088c45a3ff922dc6c1c20, type: 3}
 --- !u!1 &1101635785
 GameObject:
   m_ObjectHideFlags: 0
@@ -5349,66 +5439,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1411864604}
   m_CullTransparentMesh: 1
---- !u!1 &1417779405
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1417779406}
-  - component: {fileID: 1417779407}
-  m_Layer: 0
-  m_Name: Wave6
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1417779406
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1417779405}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 706525762}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1417779407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1417779405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c74fda4bbcc49d4d9bcc2ed5b49cbe9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Wave
-  waveStats:
-    _serializedList:
-    - Key: 0
-      Value: 5
-    - Key: 1
-      Value: 4
-    - Key: 2
-      Value: 6
-  virusPrefabs:
-    _serializedList:
-    - Key: 0
-      Value: {fileID: 7568621363967411955, guid: 5a99f28db60d3bf429df69b97235024a, type: 3}
-    - Key: 1
-      Value: {fileID: 7568621363967411955, guid: fb1c939563ff5af41bb76c9ddc31e9e0, type: 3}
-    - Key: 2
-      Value: {fileID: 7568621363967411955, guid: 8414c0dc830088c45a3ff922dc6c1c20, type: 3}
 --- !u!1 &1427405661
 GameObject:
   m_ObjectHideFlags: 0
@@ -5893,66 +5923,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &1526449900
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1526449901}
-  - component: {fileID: 1526449902}
-  m_Layer: 0
-  m_Name: Wave5
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1526449901
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1526449900}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 706525762}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1526449902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1526449900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c74fda4bbcc49d4d9bcc2ed5b49cbe9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Wave
-  waveStats:
-    _serializedList:
-    - Key: 0
-      Value: 8
-    - Key: 1
-      Value: 2
-    - Key: 2
-      Value: 3
-  virusPrefabs:
-    _serializedList:
-    - Key: 0
-      Value: {fileID: 7568621363967411955, guid: 5a99f28db60d3bf429df69b97235024a, type: 3}
-    - Key: 1
-      Value: {fileID: 7568621363967411955, guid: fb1c939563ff5af41bb76c9ddc31e9e0, type: 3}
-    - Key: 2
-      Value: {fileID: 7568621363967411955, guid: 8414c0dc830088c45a3ff922dc6c1c20, type: 3}
 --- !u!1 &1543399341
 GameObject:
   m_ObjectHideFlags: 0
@@ -6132,12 +6102,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Wave
   waveStats:
     _serializedList:
-    - Key: 3
-      Value: 7
+    - Key: 0
+      Value: 4
   virusPrefabs:
     _serializedList:
-    - Key: 3
-      Value: {fileID: 7568621363967411955, guid: e5246d0fc1815584581580c406aa8095, type: 3}
+    - Key: 0
+      Value: {fileID: 7568621363967411955, guid: 5a99f28db60d3bf429df69b97235024a, type: 3}
 --- !u!1 &1571909654
 GameObject:
   m_ObjectHideFlags: 0
@@ -6633,6 +6603,58 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1665964911
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1665964912}
+  - component: {fileID: 1665964913}
+  m_Layer: 0
+  m_Name: Wave6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1665964912
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665964911}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 706525762}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1665964913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665964911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c74fda4bbcc49d4d9bcc2ed5b49cbe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Wave
+  waveStats:
+    _serializedList:
+    - Key: 5
+      Value: 1
+  virusPrefabs:
+    _serializedList:
+    - Key: 5
+      Value: {fileID: 4798196134598215305, guid: 422b6a52396a88b47bd9cdc0f898c9cd, type: 3}
 --- !u!1 &1673142234
 GameObject:
   m_ObjectHideFlags: 0
@@ -7826,58 +7848,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1938056520}
   m_CullTransparentMesh: 1
---- !u!1 &1938349801
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1938349802}
-  - component: {fileID: 1938349803}
-  m_Layer: 0
-  m_Name: Wave0Test
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1938349802
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1938349801}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 706525762}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1938349803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1938349801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c74fda4bbcc49d4d9bcc2ed5b49cbe9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Wave
-  waveStats:
-    _serializedList:
-    - Key: 5
-      Value: 1
-  virusPrefabs:
-    _serializedList:
-    - Key: 5
-      Value: {fileID: 4798196134598215305, guid: 422b6a52396a88b47bd9cdc0f898c9cd, type: 3}
 --- !u!1 &1941365190
 GameObject:
   m_ObjectHideFlags: 0
@@ -8742,14 +8712,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WaveManager
   isInWave: 0
   waves:
-  - {fileID: 1938349803}
   - {fileID: 1555981845}
   - {fileID: 65832067}
   - {fileID: 1079659031}
-  - {fileID: 2123000632}
-  - {fileID: 1526449902}
-  - {fileID: 1417779407}
-  - {fileID: 844868618}
+  - {fileID: 719852559}
+  - {fileID: 47312994}
+  - {fileID: 1665964913}
+  - {fileID: 729463561}
   spawnPoints:
   - {fileID: 2131591727}
   - {fileID: 659174343}
@@ -8859,62 +8828,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2072577256}
   m_CullTransparentMesh: 1
---- !u!1 &2123000630
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2123000631}
-  - component: {fileID: 2123000632}
-  m_Layer: 0
-  m_Name: Wave4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2123000631
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2123000630}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 706525762}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2123000632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2123000630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c74fda4bbcc49d4d9bcc2ed5b49cbe9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Wave
-  waveStats:
-    _serializedList:
-    - Key: 0
-      Value: 12
-    - Key: 1
-      Value: 5
-  virusPrefabs:
-    _serializedList:
-    - Key: 0
-      Value: {fileID: 7568621363967411955, guid: 5a99f28db60d3bf429df69b97235024a, type: 3}
-    - Key: 1
-      Value: {fileID: 7568621363967411955, guid: fb1c939563ff5af41bb76c9ddc31e9e0, type: 3}
 --- !u!1 &2131591726
 GameObject:
   m_ObjectHideFlags: 0
