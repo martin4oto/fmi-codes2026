@@ -291,7 +291,7 @@ MonoBehaviour:
   deathPercentages:
   - 0.5
   - -30
-  waitBetweeenMovingTime: 20
+  waitBetweeenMovingTime: 32
   shootSpeed: 10
   animator: {fileID: 502504691437336959}
   hpBar: {fileID: 1791858285973476369}

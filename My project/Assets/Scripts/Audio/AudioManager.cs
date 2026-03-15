@@ -27,6 +27,8 @@ public class AudioManager : MonoBehaviour
     }
     void Start()
     {
+        MusicVolume(0.5f);
+        SFXVolume(0.5f);
         PlayMusic("Music1");
     }
     public void ToggleMusic()
