@@ -18,6 +18,6 @@ public class CellSpawnAnimations : MonoBehaviour
     void Update()
     {
         deployLength -= Time.deltaTime;
-        //transform.position = Vector3.MoveTowards(transform.position, finalPosition, deploySpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, finalPosition, deploySpeed * Time.deltaTime);
     }
 }
