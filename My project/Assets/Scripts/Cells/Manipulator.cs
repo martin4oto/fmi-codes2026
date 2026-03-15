@@ -1,0 +1,91 @@
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Manipulator : Cell
+{
+    public float takeOverCooldown;
+    public float takeOverRange = 5f;
+    public float maxShootingTimer;
+    Cell foe;
+
+    float currentShootingTimer = 0;
+    float takeOverCooldownTimer = 0;
+
+    new void Update()
+    {
+        base.Update();
+
+        if (currentShootingTimer < maxShootingTimer)
+        {
+            currentShootingTimer += Time.deltaTime;
+        }
+        if (isShooting)
+        {
+            if (currentShootingTimer >= maxShootingTimer)
+            {
+                GameObject[] foes = FindFoe();
+                TryToShoot(foes);
+                currentShootingTimer = 0;
+            }
+        }
+        else if (objectToFollow == null)
+        {
+            Wander();
+        }
+
+        if (takeOverCooldownTimer <= 0)
+        {
+            TakeOver();
+        }
+
+        takeOverCooldownTimer -= Time.deltaTime;
+    }
+
+    void TryToShoot(GameObject[] foes)
+    {
+        List<GameObject> FoesInRange = new List<GameObject>();
+
+        for (int i = 0; i < foes.Length; i++)
+        {
+            Vector3 foePosition = foes[i].transform.position;
+
+            if (Vector3.Distance(foePosition, transform.position) < range)
+            {
+                FoesInRange.Add(foes[i]);
+            }
+        }
+
+        if (FoesInRange.Count > 0)
+        {
+            Shoot(FoesInRange);
+        }
+    }
+
+    void Shoot(List<GameObject> foesInRange)
+    {
+        for (int i = 0; i < foesInRange.Count; i++)
+        {
+            Cell foeCellScript = foesInRange[i].GetComponent<Cell>();
+            foeCellScript.TakeDamage(DMG);
+            AudioManager.PlaySFX("slap_pitched_down");
+            squashAndStretch.Play();
+        }
+    }
+
+    void TakeOver()
+    {
+        if (!objectToFollow) return;
+
+        float distanceToTarget = Vector2.Distance(transform.position, objectToFollow.position);
+        Cell targetCell = objectToFollow.transform.GetComponent<Cell>();
+
+        if (targetCell && distanceToTarget <= takeOverRange)
+        {
+            takeOverCooldownTimer = takeOverCooldown;
+            targetCell.isEnemy = true;
+            targetCell.GetComponent<SpriteRenderer>().color = Color.green;
+
+            TryToStopMoving();
+        }
+    }
+}
