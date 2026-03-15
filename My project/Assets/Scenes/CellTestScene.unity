@@ -8034,6 +8034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c72d5729662cb345851a34e396fdf3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellManager
+  bossPrefab: {fileID: 4798196134598215305, guid: 422b6a52396a88b47bd9cdc0f898c9cd, type: 3}
   cells: []
   viruses: []
   retargetTimer: 0.2
@@ -8664,16 +8665,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Wave
   waveStats:
     _serializedList:
-    - Key: 0
-      Value: 7
-    - Key: 4
+    - Key: 5
       Value: 1
   virusPrefabs:
     _serializedList:
-    - Key: 0
-      Value: {fileID: 7568621363967411955, guid: 5a99f28db60d3bf429df69b97235024a, type: 3}
-    - Key: 4
-      Value: {fileID: 7568621363967411955, guid: 99dc26b6fa69fe34f9eaad2b336c82af, type: 3}
+    - Key: 5
+      Value: {fileID: 4798196134598215305, guid: 422b6a52396a88b47bd9cdc0f898c9cd, type: 3}
 --- !u!1 &1583944510
 GameObject:
   m_ObjectHideFlags: 0

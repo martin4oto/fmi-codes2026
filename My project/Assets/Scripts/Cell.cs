@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 public class Cell:MonoBehaviour
 {
-    int HP;
+    [SerializeField]
+    protected int HP;
     
     [SerializeField]
     internal bool isEnemy;
@@ -24,6 +25,7 @@ public class Cell:MonoBehaviour
     public float targettingRange;
     public string info;
     public bool unblockRetargeting;
+    public bool isBoss;
     float wanderDelay;
 
     float timeToArive;
@@ -41,13 +43,13 @@ public class Cell:MonoBehaviour
     public GameObject destroyParticles;
     public bool goForBrain;
 
-    void Start()
+    protected void Start()
     {
         squashAndStretch = GetComponent<SquashAndStretch>();
         HP = maxHP;
         alreadyTargetted = false;
 
-        if (isEnemy)
+        if (isEnemy && !isBoss)
         {
             EnemyDefault();
         }
@@ -317,6 +319,8 @@ public class Cell:MonoBehaviour
 
     public void TryToStopMoving()
     {
+        if(isBoss)return;
+
         GameObject[] foes = FindFoe();
         List<Cell> inRange = GetCellsInRange(foes, range);
 
@@ -387,5 +391,10 @@ public class Cell:MonoBehaviour
         Vector2 destination = (Vector2)transform.position + new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
         Move(destination);
         wanderDelay = Random.Range(1f, 6f);
+    }
+
+    public virtual void BossLogic()
+    {
+        
     }
 }

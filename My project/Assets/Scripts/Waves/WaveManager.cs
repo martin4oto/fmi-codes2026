@@ -49,6 +49,12 @@ public class WaveManager : MonoBehaviour
             { 
                 int transformChosen = Random.Range(0, spawnPoints.Count);
 
+                if(typeToSpawn == VirusType.boss)
+                {
+                    CellManager.instance.SpawnBoss(spawnPoints[transformChosen].position);
+                    break;
+                }
+
                 var virusObj = Instantiate(waves[waveNumber].virusPrefabs[typeToSpawn],
                     spawnPoints[transformChosen].position, Quaternion.identity);
                 
@@ -72,5 +78,6 @@ public enum VirusType
     smallpox,
     ebola,
     rabbies,
-    cancer
+    cancer,
+    boss
 }
