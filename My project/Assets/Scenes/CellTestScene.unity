@@ -6045,16 +6045,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Wave
   waveStats:
     _serializedList:
-    - Key: 0
+    - Key: 3
       Value: 7
-    - Key: 4
-      Value: 1
   virusPrefabs:
     _serializedList:
-    - Key: 0
-      Value: {fileID: 7568621363967411955, guid: 5a99f28db60d3bf429df69b97235024a, type: 3}
-    - Key: 4
-      Value: {fileID: 7568621363967411955, guid: 99dc26b6fa69fe34f9eaad2b336c82af, type: 3}
+    - Key: 3
+      Value: {fileID: 7568621363967411955, guid: e5246d0fc1815584581580c406aa8095, type: 3}
 --- !u!1 &1571909654
 GameObject:
   m_ObjectHideFlags: 0
@@ -8820,7 +8816,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2304477886079791252, guid: f76ed582de8e45c45a4bb5bc4d210954, type: 3}
       propertyPath: hp
-      value: 1
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2304477886079791252, guid: f76ed582de8e45c45a4bb5bc4d210954, type: 3}
       propertyPath: hpBar
