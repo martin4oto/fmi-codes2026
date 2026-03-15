@@ -18,9 +18,8 @@ public class CellSpawner : MonoBehaviour
     private List<Transform> fourthCornerSpawnLocations;
     [SerializedDictionary("Cell Type", "Prefab")]
     public AYellowpaper.SerializedCollections.SerializedDictionary<ActiveCell, Cell> cells;
+    public List<CellButton> cellButtons = new(); 
     [SerializeField]
-    public TMP_Text info;
-
     public bool automaticSpawning;
     public bool spawnCooldown = false;
     private ActiveCell activeCellSpawing = ActiveCell.none;
@@ -33,18 +32,12 @@ public class CellSpawner : MonoBehaviour
 
         if (!automaticSpawning && Input.GetMouseButtonDown(0)) SpawnCell();
 
-        PrintCellInfo();
-
         if (isLaunching) LaunchCell();
-    }
-
-    private void PrintCellInfo()
-    { 
-        if (info) info.text = cells[activeCellSpawing].info;
     }
 
     private ActiveCell DetermineCellSpawnType()
     {
+        ResetActiveCellButton();
         if (InputManager.instance.SpawnCell1Input)
         {
             if (activeCellSpawing == ActiveCell.basic) activeCellSpawing = ActiveCell.none;
@@ -73,7 +66,7 @@ public class CellSpawner : MonoBehaviour
 
             InputManager.instance.UseSpawnCell4Input();
         }
-
+        ActivateCellButton();
         return activeCellSpawing;
     }
 
@@ -88,6 +81,7 @@ public class CellSpawner : MonoBehaviour
         CellManager.instance.AddCell(cell);
         AudioManager.PlaySFX("shsh");
         GameManager.instance.DNA -= dnaCost;
+        GameManager.instance.UpdateDNAText();
 
         spawnCooldown = true;
 
@@ -140,6 +134,22 @@ public class CellSpawner : MonoBehaviour
         yield return new WaitForSecondsRealtime(cooldown);
 
         spawnCooldown = false;
+    }
+
+    void ResetActiveCellButton()
+    {
+        if (activeCellSpawing != ActiveCell.none)
+        {
+            cellButtons[(int)activeCellSpawing].Reset();
+        }
+    }
+
+    void ActivateCellButton()
+    {
+        if (activeCellSpawing != ActiveCell.none)
+        {
+            cellButtons[(int)activeCellSpawing].Activate();
+        }
     }
 }
 
